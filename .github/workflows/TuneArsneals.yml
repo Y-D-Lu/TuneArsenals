@@ -1,10 +1,10 @@
-name: Android CI(TuneArsenals5)
+name: Android CI(TuneArsenals)
 
 on:
   push:
-    branches: [ tunearsenals5 ]
+    branches: [ tunearsenals ]
   pull_request:
-    branches: [ tunearsenals5 ]
+    branches: [ tunearsenals ]
 
 jobs:
   build:
@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: tunearsenals5
+        ref: tunearsenals
 
     - uses: nttld/setup-ndk@v1
       id: setup-ndk

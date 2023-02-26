@@ -120,7 +120,7 @@ class FragmentHome : androidx.fragment.app.Fragment() {
 
         home_help.setOnClickListener {
             try {
-                val uri = Uri.parse("http://tunearsenals.omarea.com/")
+                val uri = Uri.parse("http://tunearsenals.arsenals.cn/")
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 startActivity(intent)
             } catch (ex: Exception) {

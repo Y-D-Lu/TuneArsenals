@@ -10696,13 +10696,13 @@ var _default = {
       window.TuneArsenalsUI.setNavigationBarColor('#ff00b9c2');
     }
 
-    _axios.default.get(window.location.protocol + '//tunearsenals.oss-cn-beijing.aliyuncs.com/vi/TuneArsenals5.json?dt=' + new Date().getTime()).then(function (r) {
+    _axios.default.get(window.location.protocol + '//tunearsenals.arsenals.cn/vi/TuneArsenals.json?dt=' + new Date().getTime()).then(function (r) {
       _this.proVersionInfo = r.data;
     }).catch(function (e) {
       _this.proVersionInfo.versionName = 'coming soon'; // alert('获取版本信息失败~')
     });
 
-    _axios.default.get(window.location.protocol + '//tunearsenals.oss-cn-beijing.aliyuncs.com/vi/TuneArsenals4.json?dt=' + new Date().getTime()).then(function (r) {
+    _axios.default.get(window.location.protocol + '//tunearsenals.arsenals.cn/vi/TuneArsenals.json?dt=' + new Date().getTime()).then(function (r) {
       _this.versionInfo = r.data;
     }).catch(function (e) {
       alert('获取版本信息失败~');
@@ -10711,18 +10711,6 @@ var _default = {
   methods: {
     downloadApp: function downloadApp(app) {
       window.open(app.downloadUrl);
-    },
-    openAlipay: function openAlipay() {
-      var ua = navigator.userAgent.toLowerCase();
-
-      if (ua.indexOf('micromessenger') !== -1 || ua.indexOf('qq') !== -1) {
-        alert('在QQ/微信/TIM里，无法启动支付宝，请在浏览器里打开本页面！');
-      }
-
-      window.location.href = "alipayqr://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=".concat(encodeURIComponent('HTTPS://QR.ALIPAY.COM/FKX05665KXCDCLC2YAEL0E'), "%3F_s%3Dweb-other&_t=").concat(new Date().getTime());
-    },
-    getHisotry: function getHisotry() {
-      window.location.href = 'https://github.com/helloklf/tunearsenals/releases';
     },
     download5: function download5() {
       this.s4Minimize = true;
@@ -10738,9 +10726,9 @@ var _default = {
       if (this.versionInfo.downloadUrl) {
         window.location.href = this.versionInfo.downloadUrl;
       } else if (this.versionInfo.versionCode) {
-        window.location.href = 'http://tunearsenals.oss-cn-beijing.aliyuncs.com/app-release' + this.versionInfo.versionCode + '.apk';
+        window.location.href = 'http://tunearsenals.arsenals.cn/app-release' + this.versionInfo.versionCode + '.apk';
       } else {
-        window.location.href = 'http://tunearsenals.oss-cn-beijing.aliyuncs.com/app-release.apk';
+        window.location.href = 'http://tunearsenals.arsenals.cn/app-release.apk';
       }
     },
     deviceOrientation: function deviceOrientation(e) {
@@ -10801,7 +10789,7 @@ exports.default = _default;
         _c(
           "div",
           {
-            staticClass: "tunearsenals4",
+            staticClass: "tunearsenals",
             class: { minimize: _vm.s4Minimize },
             on: {
               click: function($event) {
@@ -10817,7 +10805,7 @@ exports.default = _default;
             _c("div", { staticClass: "content" }, [
               _c("div", { staticClass: "version" }, [
                 _vm._v(
-                  "TuneArsenals4 is a free and open source project, You must use ROOT permission"
+                  "TuneArsenals is a free and open source project, You must use ROOT permission"
                 )
               ]),
               _vm._v(" "),
@@ -10831,18 +10819,12 @@ exports.default = _default;
               { staticClass: "download", on: { click: _vm.download } },
               [_vm._v(_vm._s(_vm.s4Minimize ? "GET" : "Download Now"))]
             ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "get-history", on: { click: _vm.getHisotry } },
-              [_vm._v("⏱ Github - Releases")]
-            )
           ]
         ),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "tunearsenals5", class: { maximize: _vm.s4Minimize } },
+          { staticClass: "tunearsenals", class: { maximize: _vm.s4Minimize } },
           [
             _c("div", { staticClass: "name" }, [_vm._v("SCENE5")]),
             _vm._v(" "),
@@ -10909,7 +10891,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "version" }, [
-      _vm._v("TuneArsenals5 is coming."),
+      _vm._v("TuneArsenals is coming."),
       _c("br"),
       _vm._v("There will be three modes: Basic, ADB, Root"),
       _c("br"),

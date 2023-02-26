@@ -176,7 +176,7 @@ class ActivityAddinOnline : ActivityBase() {
 
         val url = tunearsenals_online.url
         if (url != null) {
-            if (url.startsWith("https://tunearsenals.oss-cn-beijing.aliyuncs.com/") || url.startsWith("https://tunearsenals.omarea.com/")) {
+            if (url.startsWith("https://tunearsenals.arsenals.cn/")) {
                 // 添加kr-script for web
                 WebViewInjector(tunearsenals_online,
                         object : ParamsFileChooserRender.FileChooserInterface {

@@ -29,7 +29,6 @@ import cn.arsenals.utils.Update
 import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.dialogs.DialogMonitor
 import cn.arsenals.tunearsenals.dialogs.DialogPower
-import cn.arsenals.tunearsenals.fragments.FragmentDonate
 import cn.arsenals.tunearsenals.fragments.FragmentHome
 import cn.arsenals.tunearsenals.fragments.FragmentNav
 import cn.arsenals.tunearsenals.fragments.FragmentNotRoot
@@ -144,7 +143,6 @@ class ActivityMain : ActivityBase() {
         } else {
             FragmentNotRoot()
         }))
-        tabIconHelper2.newTabSpec(getString(R.string.app_donate), getDrawable(R.drawable.app_donate)!!, FragmentDonate())
         tab_content.adapter = tabIconHelper2.adapter
         tab_list.getTabAt(1)?.select() // 默认选中第二页
 

@@ -56,41 +56,41 @@ pre {
     min-height: 100vh;
     display: flex;
     flex-direction: column; }
-  .home-page .tunearsenals4, .home-page .tunearsenals5 {
+  .home-page .tunearsenals, .home-page .tunearsenals {
     min-height: 70vw;
     position: relative;
     padding: 15px 30px;
     display: flex;
     flex-direction: column;
     flex: 1; }
-    .home-page .tunearsenals4 > .content, .home-page .tunearsenals5 > .content {
+    .home-page .tunearsenals > .content, .home-page .tunearsenals > .content {
       flex: 1; }
-    .home-page .tunearsenals4 > .name, .home-page .tunearsenals5 > .name {
+    .home-page .tunearsenals > .name, .home-page .tunearsenals > .name {
       font-size: 18vw;
       font-weight: 100; }
-  .home-page .tunearsenals4 {
+  .home-page .tunearsenals {
     flex: 1;
     background-color: #BC8DE4;
     color: #fff;
     font-weight: 100; }
-    .home-page .tunearsenals4.minimize {
+    .home-page .tunearsenals.minimize {
       flex: unset;
       min-height: 0; }
-      .home-page .tunearsenals4.minimize .get-history,
-      .home-page .tunearsenals4.minimize .author,
-      .home-page .tunearsenals4.minimize .version {
+      .home-page .tunearsenals.minimize .get-history,
+      .home-page .tunearsenals.minimize .author,
+      .home-page .tunearsenals.minimize .version {
         overflow: hidden;
         height: 0;
         margin: 0; }
-      .home-page .tunearsenals4.minimize .content {
+      .home-page .tunearsenals.minimize .content {
         flex: unset; }
-      .home-page .tunearsenals4.minimize .last-version {
+      .home-page .tunearsenals.minimize .last-version {
         font-size: 11px;
         opacity: 0.6;
         line-height: 1;
         margin-bottom: 0;
         margin-top: 5px; }
-      .home-page .tunearsenals4.minimize .download {
+      .home-page .tunearsenals.minimize .download {
         font-size: 11px;
         letter-spacing: 0;
         position: absolute;
@@ -104,25 +104,25 @@ pre {
         white-space: nowrap;
         height: 40px;
         line-height: 40px; }
-      .home-page .tunearsenals4.minimize > .name {
+      .home-page .tunearsenals.minimize > .name {
         font-size: 12px;
         font-weight: 100; }
-  .home-page .tunearsenals5 {
+  .home-page .tunearsenals {
     min-height: 50%;
     background-color: #138ed6;
     color: #fff;
     font-weight: 100; }
-    .home-page .tunearsenals5.maximize .content {
+    .home-page .tunearsenals.maximize .content {
       flex: unset; }
-    .home-page .tunearsenals5.maximize .images {
+    .home-page .tunearsenals.maximize .images {
       height: auto;
       flex: 1; }
-    .home-page .tunearsenals5 .images {
+    .home-page .tunearsenals .images {
       padding-top: 20px;
       padding-bottom: 20px;
       overflow: hidden;
       height: 0px; }
-      .home-page .tunearsenals5 .images .img {
+      .home-page .tunearsenals .images .img {
         display: inline-block;
         width: 80px;
         height: 160px;
@@ -132,17 +132,17 @@ pre {
         background-size: cover;
         background-position: top;
         background-repeat: no-repeat; }
-        .home-page .tunearsenals5 .images .img:nth-child(1) {
+        .home-page .tunearsenals .images .img:nth-child(1) {
           background-image: url(/1.ab44913e.png); }
-        .home-page .tunearsenals5 .images .img:nth-child(2) {
+        .home-page .tunearsenals .images .img:nth-child(2) {
           background-image: url(/2.8a1be7e5.png); }
-        .home-page .tunearsenals5 .images .img:nth-child(3) {
+        .home-page .tunearsenals .images .img:nth-child(3) {
           background-image: url(/3.6be082f3.png); }
-        .home-page .tunearsenals5 .images .img:nth-child(4) {
+        .home-page .tunearsenals .images .img:nth-child(4) {
           background-image: url(/4.db6b6180.png); }
-        .home-page .tunearsenals5 .images .img:nth-child(5) {
+        .home-page .tunearsenals .images .img:nth-child(5) {
           background-image: url(/5.0b4868ab.png); }
-        .home-page .tunearsenals5 .images .img:nth-child(6) {
+        .home-page .tunearsenals .images .img:nth-child(6) {
           background-image: url(/6.581a6414.png); }
   .home-page .author {
     margin-bottom: 10px;

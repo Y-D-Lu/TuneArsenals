@@ -51,7 +51,7 @@ class ActivityFpsChart : ActivityBase() {
         }
 
         tunearsenals_online.loadUrl("file:///android_asset/fps-chart/index.html")
-        // tunearsenals_online.loadUrl("https://tunearsenals.oss-cn-beijing.aliyuncs.com/TuneArsenals-Online/fps-chart/index.html")
+        // tunearsenals_online.loadUrl("https://tunearsenals.arsenals.cn/TuneArsenals-Online/fps-chart/index.html")
         val context = this@ActivityFpsChart
         val progressBarDialog = ProgressBarDialog(context)
 
