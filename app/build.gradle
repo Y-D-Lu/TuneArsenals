@@ -2,16 +2,26 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+// Create a variable called keystorePropertiesFile, and initialize it to your
+// keystore.properties file, in the rootProject folder.
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+
+// Initialize a new Properties() object called keystoreProperties.
+def keystoreProperties = new Properties()
+
+// Load your keystore.properties file into the keystoreProperties object.
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
     dataBinding {
         enabled =true
     }
     signingConfigs {
-        omarea_Signing {
-            keyAlias 'omarea.com'
-            keyPassword 'asdf1234'
-            storeFile file('./omoarea-test.jks')
-            storePassword 'asdf1234'
+        config {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
         }
     }
     compileSdkVersion 30
@@ -21,8 +31,8 @@ android {
         applicationId "cn.arsenals.tunearsenals"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 202111131
-        versionName "4.7.3"
+        versionCode 1
+        versionName "1.0"
         externalNativeBuild {
             cmake {
                 cppFlags ""
@@ -39,7 +49,7 @@ android {
             zipAlignEnabled true
             debuggable false
             jniDebuggable = false
-            signingConfig signingConfigs.omarea_Signing
+            signingConfig signingConfigs.config
         }
         release_mini {
             shrinkResources true
@@ -48,12 +58,13 @@ android {
             minifyEnabled true
             debuggable false
             jniDebuggable = false
+            signingConfig signingConfigs.config
         }
         debug {
-            signingConfig signingConfigs.omarea_Signing
             minifyEnabled false
             debuggable true
-            jniDebuggable = false
+            jniDebuggable = true
+            signingConfig signingConfigs.config
         }
     }
     productFlavors {
