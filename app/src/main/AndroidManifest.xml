@@ -326,8 +326,8 @@
         </receiver>
 
         <service
-            android:name=".AccessibilityScenceMode"
-            android:label="Scene - 场景模式"
+            android:name=".AccessibilityTuneArsenals"
+            android:label="TuneArsenals - 场景模式"
             android:configChanges="orientation|screenLayout|fontScale|smallestScreenSize|density|screenSize"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>

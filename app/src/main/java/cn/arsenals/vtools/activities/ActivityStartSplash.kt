@@ -55,7 +55,7 @@ class ActivityStartSplash : Activity() {
         val btnConfirm = view.findViewById<Button>(R.id.btn_confirm)
         val agreement = view.findViewById<CompoundButton>(R.id.agreement)
         val timer = Timer()
-        var timeout = 30
+        var timeout = 5
         var clickItems = 0
         timer.schedule(object : TimerTask() {
             override fun run() {

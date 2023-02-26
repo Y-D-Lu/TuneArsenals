@@ -12,7 +12,7 @@ class AccessibilityServiceUtils {
 
     settings put secure accessibility_enabled 0
     services=`settings get secure enabled_accessibility_services`
-    service='cn.arsenals.tunearsenals/cn.arsenals.tunearsenals.AccessibilityScenceMode'
+    service='cn.arsenals.tunearsenals/cn.arsenals.tunearsenals.AccessibilityTuneArsenals'
     include=`echo "$services" | grep "$service"`
     if [ ! -n "$services" ]; then
       settings put secure enabled_accessibility_services "$service"

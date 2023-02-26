@@ -18,7 +18,7 @@ import cn.arsenals.library.basic.ScreenState
 import cn.arsenals.store.SceneConfigStore
 import cn.arsenals.store.SpfConfig
 import cn.arsenals.utils.CommonCmds
-import cn.arsenals.tunearsenals.AccessibilityScenceMode
+import cn.arsenals.tunearsenals.AccessibilityTuneArsenals
 import cn.arsenals.tunearsenals.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -30,7 +30,7 @@ import kotlin.collections.ArrayList
  *
  * Created by helloklf on 2016/10/1.
  */
-class AppSwitchHandler(private var context: AccessibilityScenceMode, override val isAsync: Boolean = false) : ModeSwitcher(), IEventReceiver {
+class AppSwitchHandler(private var context: AccessibilityTuneArsenals, override val isAsync: Boolean = false) : ModeSwitcher(), IEventReceiver {
     private var lastPackage: String? = null
     private var lastModePackage: String? = "com.system.ui"
     private var lastMode = ""

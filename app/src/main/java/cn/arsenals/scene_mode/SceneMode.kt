@@ -13,14 +13,14 @@ import cn.arsenals.library.shell.*
 import cn.arsenals.model.SceneConfigInfo
 import cn.arsenals.store.SceneConfigStore
 import cn.arsenals.store.SpfConfig
-import cn.arsenals.tunearsenals.AccessibilityScenceMode
+import cn.arsenals.tunearsenals.AccessibilityTuneArsenals
 import cn.arsenals.tunearsenals.popup.FloatMonitorMini
 import cn.arsenals.tunearsenals.popup.FloatScreenRotation
 import java.nio.charset.Charset
 import java.util.*
 import kotlin.collections.ArrayList
 
-class SceneMode private constructor(private val context: AccessibilityScenceMode, private var store: SceneConfigStore) {
+class SceneMode private constructor(private val context: AccessibilityTuneArsenals, private var store: SceneConfigStore) {
     private var lastAppPackageName = "com.android.systemui"
     private var contentResolver: ContentResolver = context.contentResolver
     private var freezList = ArrayList<FreezeAppHistory>()
@@ -99,7 +99,7 @@ class SceneMode private constructor(private val context: AccessibilityScenceMode
         }
 
         // 创建一个新实例
-        fun getNewInstance(context: AccessibilityScenceMode, store: SceneConfigStore): SceneMode? {
+        fun getNewInstance(context: AccessibilityTuneArsenals, store: SceneConfigStore): SceneMode? {
             if (instance != null) {
                 instance?.clearState()
             }

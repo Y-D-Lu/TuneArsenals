@@ -35,7 +35,7 @@ import kotlin.collections.ArrayList
 /**
  * Created by helloklf on 2016/8/27.
  */
-public class AccessibilityScenceMode : AccessibilityService(), IEventReceiver {
+public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver {
     override val isAsync: Boolean
         get() = false
 

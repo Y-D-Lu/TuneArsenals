@@ -92,7 +92,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
             }
         }).start()
         */
-        Scene.toast("请在系统设置里激活[Scene - 场景模式]选项", Toast.LENGTH_SHORT)
+        Scene.toast("请在系统设置里激活[TuneArsenals - 场景模式]选项", Toast.LENGTH_SHORT)
         try {
             val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -310,7 +310,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
                         val intent = Intent(context, ActivityFpsChart::class.java)
                         startActivity(intent)
                     } else {
-                        Scene.toast("请在系统设置里激活[Scene - 场景模式]辅助服务", Toast.LENGTH_SHORT)
+                        Scene.toast("请在系统设置里激活[TuneArsenals - 场景模式]辅助服务", Toast.LENGTH_SHORT)
                     }
                     return
                 }
