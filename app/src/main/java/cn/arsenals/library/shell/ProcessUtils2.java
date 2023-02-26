@@ -2,15 +2,15 @@ package cn.arsenals.library.shell;
 
 import android.content.Context;
 
-import cn.arsenals.common.shell.KeepShellPublic;
-import cn.arsenals.model.ProcessInfo;
-import cn.arsenals.model.ThreadInfo;
-import cn.arsenals.shell_utils.ToyboxIntaller;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import cn.arsenals.common.shell.KeepShellPublic;
+import cn.arsenals.model.ProcessInfo;
+import cn.arsenals.model.ThreadInfo;
+import cn.arsenals.shell_utils.ToyboxIntaller;
 
 /*
  * 进程管理相关

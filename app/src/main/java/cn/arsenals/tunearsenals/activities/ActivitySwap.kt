@@ -29,11 +29,10 @@ import cn.arsenals.library.shell.PropsUtils
 import cn.arsenals.library.shell.SwapModuleUtils
 import cn.arsenals.library.shell.SwapUtils
 import cn.arsenals.store.SpfConfig
-import cn.arsenals.ui.AdapterSwaplist
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.ui.AdapterSwaplist
 import kotlinx.android.synthetic.main.activity_swap.*
 import java.util.*
-import kotlin.collections.LinkedHashMap
 
 
 class ActivitySwap : ActivityBase() {
@@ -199,7 +198,7 @@ class ActivitySwap : ActivityBase() {
 
             try {
                 val intent = Intent()
-                intent.setAction(Intent.ACTION_VIEW)
+                intent.action = Intent.ACTION_VIEW
                 intent.data = Uri.parse(getString(R.string.swap_module_download_url))
                 context.startActivity(intent)
             } catch (ex: java.lang.Exception) {
@@ -749,8 +748,8 @@ class ActivitySwap : ActivityBase() {
             vmstat.run {
                 val text = StringBuilder()
                 try {
-                    var prop = "";
-                    var value = "";
+                    var prop = ""
+                    var value = ""
                     for (row in split("\n")) {
                         if (row.startsWith("pswpin")) {
                             prop = "从SWAP读出："

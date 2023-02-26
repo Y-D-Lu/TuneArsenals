@@ -16,13 +16,12 @@ import android.widget.TextView
 import cn.arsenals.common.ui.OverScrollListView
 import cn.arsenals.library.basic.AppInfoLoader
 import cn.arsenals.model.AppInfo
-import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
-import kotlin.collections.HashMap
 
 /**
  * Created by Hello on 2018/01/26.

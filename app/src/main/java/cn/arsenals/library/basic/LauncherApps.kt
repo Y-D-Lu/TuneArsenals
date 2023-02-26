@@ -3,7 +3,6 @@ package cn.arsenals.library.basic
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ResolveInfo
-import java.util.*
 
 class LauncherApps(private val context: Context) {
     // MIUI的设置也算个桌面，什么鬼

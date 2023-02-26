@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.*
 import cn.arsenals.common.R
 import kotlinx.coroutines.*
-import java.util.*
 
 class AdapterAppChooser(
         private val context: Context,

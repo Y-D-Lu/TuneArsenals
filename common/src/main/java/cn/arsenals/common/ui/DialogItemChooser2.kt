@@ -1,6 +1,5 @@
 package cn.arsenals.common.ui
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -52,7 +51,7 @@ class DialogItemChooser2(
                     }
 
                     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                        (absListView.adapter as Filterable).getFilter().filter(if (s == null) "" else s.toString())
+                        (absListView.adapter as Filterable).filter.filter(if (s == null) "" else s.toString())
                     }
                 })
             }
@@ -95,14 +94,14 @@ class DialogItemChooser2(
         }
     }
 
-    public fun setTitle(title: String): DialogItemChooser2 {
+    fun setTitle(title: String): DialogItemChooser2 {
         this.title = title
         updateTitle()
 
         return this
     }
 
-    public fun setMessage(message: String): DialogItemChooser2 {
+    fun setMessage(message: String): DialogItemChooser2 {
         this.message = message
         updateMessage()
 
@@ -127,11 +126,4 @@ class DialogItemChooser2(
         this.dismiss()
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
-    override fun onDismiss(dialog: DialogInterface) {
-        super.onDismiss(dialog)
-    }
 }

@@ -2,14 +2,14 @@ package cn.arsenals.shell_utils;
 
 import android.util.Log;
 
-import cn.arsenals.common.shell.ShellExecutor;
-
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+
+import cn.arsenals.common.shell.ShellExecutor;
 
 public class SysUtils {
     public static String executeCommandWithOutput(boolean root, String command) {

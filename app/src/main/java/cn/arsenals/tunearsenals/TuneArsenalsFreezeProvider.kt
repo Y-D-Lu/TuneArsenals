@@ -7,8 +7,8 @@ import android.content.SharedPreferences
 import android.database.Cursor
 import android.net.Uri
 import cn.arsenals.TuneArsenals
-import cn.arsenals.tunearsenals_mode.TuneArsenalsMode
 import cn.arsenals.store.SpfConfig
+import cn.arsenals.tunearsenals_mode.TuneArsenalsMode
 
 class TuneArsenalsFreezeProvider : ContentProvider() {
     override fun delete(uri: Uri, selection: String?, selectionArgs: Array<String>?): Int {
@@ -60,13 +60,13 @@ class TuneArsenalsFreezeProvider : ContentProvider() {
             if (whiteList.contains(source) || allowXposedOpen()) {
                 TuneArsenalsMode.unfreezeApp(packageName)
             }
-            return uri;
+            return uri
         }
         return null
     }
 
     override fun onCreate(): Boolean {
-        return true;
+        return true
     }
 
     override fun query(uri: Uri, projection: Array<String>?, selection: String?,

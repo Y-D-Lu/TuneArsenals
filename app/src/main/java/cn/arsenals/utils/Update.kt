@@ -35,7 +35,7 @@ class Update {
     }
 
     fun checkUpdate(context: Context) {
-        val handler = Handler(Looper.getMainLooper());
+        val handler = Handler(Looper.getMainLooper())
         Thread(Runnable {
             //http://47.106.224.127/
             try {
@@ -93,7 +93,7 @@ class Update {
                     }
                     try {
                         val intent = Intent()
-                        intent.setAction(Intent.ACTION_VIEW)
+                        intent.action = Intent.ACTION_VIEW
                         intent.data = Uri.parse(downloadUrl)
                         context.startActivity(intent)
                     } catch (ex: java.lang.Exception) {

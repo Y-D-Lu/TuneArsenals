@@ -8,8 +8,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import cn.arsenals.store.BatteryHistoryStore
-import cn.arsenals.ui.AdapterBatteryStats
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.ui.AdapterBatteryStats
 import kotlinx.android.synthetic.main.activity_battery_stats.*
 import java.util.*
 import kotlin.math.abs
@@ -71,7 +71,7 @@ class ActivityBatteryStats : ActivityBase() {
         // 峰值设置
         val maxInput = abs(storage.getMaxIO(BatteryManager.BATTERY_STATUS_CHARGING))
         val maxOutput = abs(storage.getMinIO(BatteryManager.BATTERY_STATUS_DISCHARGING))
-        val maxTemperature = abs(storage.getMaxTemperature())
+        val maxTemperature = abs(storage.maxTemperature)
         var batteryInputMax = 10000
         var batteryOutputMax = 3000
         var batteryTemperatureMax = 60

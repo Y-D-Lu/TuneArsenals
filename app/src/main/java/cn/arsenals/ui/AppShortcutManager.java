@@ -8,9 +8,9 @@ import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
 
-import cn.arsenals.tunearsenals.R;
-
 import java.util.ArrayList;
+
+import cn.arsenals.tunearsenals.R;
 
 /**
  * 管理应用的Shortcut
@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 
 public class AppShortcutManager {
-    private Context context;
+    private final Context context;
 
     public AppShortcutManager(Context context) {
         this.context = context;

@@ -9,7 +9,6 @@ import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
-import android.util.Log
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.TextView
@@ -17,58 +16,57 @@ import androidx.appcompat.app.AppCompatDelegate
 import cn.arsenals.common.R
 
 class DialogHelper {
-    class DialogButton(public val text: String, public val onClick: Runnable? = null, public val dismiss: Boolean = true) {
-    }
+    class DialogButton(val text: String, val onClick: Runnable? = null, val dismiss: Boolean = true)
 
     class DialogWrap(private val d: AlertDialog) {
-        public val context = dialog.context
+        val context = dialog.context
         private var mCancelable = true
-        public val isCancelable: Boolean
+        val isCancelable: Boolean
             get () {
                 return mCancelable
             }
 
-        public fun setCancelable(cancelable: Boolean): DialogWrap {
+        fun setCancelable(cancelable: Boolean): DialogWrap {
             mCancelable = cancelable
             d.setCancelable(cancelable)
 
             return this
         }
 
-        public fun setOnDismissListener(onDismissListener: DialogInterface.OnDismissListener): DialogWrap {
+        fun setOnDismissListener(onDismissListener: DialogInterface.OnDismissListener): DialogWrap {
             d.setOnDismissListener(onDismissListener)
 
             return this
         }
 
-        public val dialog: AlertDialog
+        val dialog: AlertDialog
             get() {
                 return d
             }
 
-        public fun dismiss() {
+        fun dismiss() {
             try {
                 d.dismiss()
             } catch (ex: Exception) {
             }
         }
 
-        public fun hide() {
+        fun hide() {
             try {
                 d.hide()
             } catch (ex: Exception) {
             }
         }
 
-        public val isShowing: Boolean
+        val isShowing: Boolean
             get() {
-                return d.isShowing()
+                return d.isShowing
             }
     }
 
     companion object {
         // 是否禁用模糊背景
-        public var disableBlurBg = false
+        var disableBlurBg = false
 
         fun animDialog(dialog: AlertDialog?): DialogWrap? {
             if (dialog != null && !dialog.isShowing) {
@@ -153,7 +151,7 @@ class DialogHelper {
                 if (title.isEmpty()) {
                     visibility = View.GONE
                 } else {
-                    setText(title)
+                    text = title
                 }
             }
 
@@ -161,7 +159,7 @@ class DialogHelper {
                 if (message.isEmpty()) {
                     visibility = View.GONE
                 } else {
-                    setText(message)
+                    text = message
                 }
             }
 

@@ -1,7 +1,6 @@
 package cn.arsenals.data
 
 import android.util.Log
-import java.util.*
 
 object EventBus {
     private val eventReceivers = ArrayList<IEventReceiver>()

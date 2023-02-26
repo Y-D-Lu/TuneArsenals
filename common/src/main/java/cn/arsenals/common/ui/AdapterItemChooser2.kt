@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.*
 import cn.arsenals.common.R
 import cn.arsenals.common.model.SelectItem
-import java.util.*
 
 class AdapterItemChooser2(
         private val context: Context,

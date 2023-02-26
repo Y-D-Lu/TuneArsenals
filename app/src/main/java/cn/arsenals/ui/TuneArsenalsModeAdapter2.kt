@@ -15,11 +15,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cn.arsenals.model.AppInfo
-import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import java.io.File
 import java.util.*
-import kotlin.collections.HashMap
 
 /* 测试 */
 class TuneArsenalsModeAdapter2(private val context: Context, apps: ArrayList<AppInfo>, private val firstMode: String) : RecyclerView.Adapter<TuneArsenalsModeAdapter2.ViewHolder>() {

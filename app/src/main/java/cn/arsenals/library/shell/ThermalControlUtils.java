@@ -1,11 +1,11 @@
 package cn.arsenals.library.shell;
 
+import java.util.ArrayList;
+
 import cn.arsenals.common.shell.KeepShellPublic;
 import cn.arsenals.common.shell.KernelProrp;
 import cn.arsenals.common.shell.RootFile;
 import cn.arsenals.model.CpuStatus;
-
-import java.util.ArrayList;
 
 public class ThermalControlUtils {
     //Thermal

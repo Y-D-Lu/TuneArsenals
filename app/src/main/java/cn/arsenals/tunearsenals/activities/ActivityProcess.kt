@@ -13,8 +13,8 @@ import android.widget.*
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.library.shell.ProcessUtils
 import cn.arsenals.model.ProcessInfo
-import cn.arsenals.ui.AdapterProcess
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.ui.AdapterProcess
 import kotlinx.android.synthetic.main.activty_process.*
 import java.util.*
 

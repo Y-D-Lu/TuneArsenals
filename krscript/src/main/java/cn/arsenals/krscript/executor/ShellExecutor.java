@@ -5,19 +5,19 @@ import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
-import cn.arsenals.krscript.model.RunnableNode;
-import cn.arsenals.krscript.model.ShellHandlerBase;
-
 import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
+
+import cn.arsenals.krscript.model.RunnableNode;
+import cn.arsenals.krscript.model.ShellHandlerBase;
 
 /**
  * Created by Hello on 2018/04/01.
  */
 public class ShellExecutor {
     private boolean started = false;
-    private String sessionTag = "pio_" + System.currentTimeMillis();
+    private final String sessionTag = "pio_" + System.currentTimeMillis();
     private void killProcess(Context context) {
         ScriptEnvironmen.executeResultRoot(
                 context,

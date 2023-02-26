@@ -5,10 +5,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 import cn.arsenals.model.BatteryAvgStatus;
 import cn.arsenals.model.BatteryStatus;
-
-import java.util.ArrayList;
 
 public class BatteryHistoryStore extends SQLiteOpenHelper {
     public BatteryHistoryStore(Context context) {

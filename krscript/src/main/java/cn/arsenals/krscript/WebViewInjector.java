@@ -15,6 +15,20 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
 
+import org.jetbrains.annotations.Nullable;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.UUID;
+
 import cn.arsenals.common.shell.KeepShellPublic;
 import cn.arsenals.common.shell.ShellExecutor;
 import cn.arsenals.common.ui.DialogHelper;
@@ -25,23 +39,10 @@ import cn.arsenals.krscript.model.NodeInfoBase;
 import cn.arsenals.krscript.model.ShellHandlerBase;
 import cn.arsenals.krscript.ui.ParamsFileChooserRender;
 
-import org.jetbrains.annotations.Nullable;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.UUID;
-
 public class WebViewInjector {
-    private WebView webView;
-    private Context context;
-    private ParamsFileChooserRender.FileChooserInterface fileChooser;
+    private final WebView webView;
+    private final Context context;
+    private final ParamsFileChooserRender.FileChooserInterface fileChooser;
 
     @SuppressLint("SetJavaScriptEnabled")
     public WebViewInjector(WebView webView, ParamsFileChooserRender.FileChooserInterface fileChooser) {
@@ -96,8 +97,8 @@ public class WebViewInjector {
     }
 
     private class KrScriptEngine {
-        private Context context;
-        private NodeInfoBase vitualRootNode = new NodeInfoBase("");
+        private final Context context;
+        private final NodeInfoBase vitualRootNode = new NodeInfoBase("");
 
         private KrScriptEngine(Context context) {
             this.context = context;
@@ -210,7 +211,7 @@ public class WebViewInjector {
                             webView.post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    webView.evaluateJavascript(callbackFunction + "(" + message.toString() + ")", new ValueCallback<String>() {
+                                    webView.evaluateJavascript(callbackFunction + "(" + message + ")", new ValueCallback<String>() {
                                         @Override
                                         public void onReceiveValue(String value) {
                                         }
@@ -233,7 +234,7 @@ public class WebViewInjector {
                 public void run() {
                     String line;
                     try {
-                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
                         while ((line = bufferedReader.readLine()) != null) {
                             try {
                                 final JSONObject message = new JSONObject();
@@ -242,7 +243,7 @@ public class WebViewInjector {
                                 webView.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        webView.evaluateJavascript(callbackFunction + "(" + message.toString() + ")", new ValueCallback<String>() {
+                                        webView.evaluateJavascript(callbackFunction + "(" + message + ")", new ValueCallback<String>() {
                                             @Override
                                             public void onReceiveValue(String value) {
 
@@ -263,7 +264,7 @@ public class WebViewInjector {
                 public void run() {
                     String line;
                     try {
-                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(errorStream, "UTF-8"));
+                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(errorStream, StandardCharsets.UTF_8));
                         while ((line = bufferedReader.readLine()) != null) {
                             try {
                                 final JSONObject message = new JSONObject();
@@ -272,7 +273,7 @@ public class WebViewInjector {
                                 webView.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        webView.evaluateJavascript(callbackFunction + "(" + message.toString() + ")", new ValueCallback<String>() {
+                                        webView.evaluateJavascript(callbackFunction + "(" + message + ")", new ValueCallback<String>() {
                                             @Override
                                             public void onReceiveValue(String value) {
 
@@ -305,7 +306,7 @@ public class WebViewInjector {
                             webView.post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    webView.evaluateJavascript(callbackFunction + "(" + message.toString() + ")", new ValueCallback<String>() {
+                                    webView.evaluateJavascript(callbackFunction + "(" + message + ")", new ValueCallback<String>() {
                                         @Override
                                         public void onReceiveValue(String value) {
 

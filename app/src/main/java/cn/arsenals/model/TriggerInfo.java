@@ -1,9 +1,9 @@
 package cn.arsenals.model;
 
-import cn.arsenals.data.EventType;
-
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import cn.arsenals.data.EventType;
 
 public class TriggerInfo implements Serializable {
     // 是否启用

@@ -6,21 +6,22 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.os.Environment;
 
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import cn.arsenals.common.shared.FileWrite;
 import cn.arsenals.common.shared.MagiskExtend;
 import cn.arsenals.common.shell.KeepShell;
 import cn.arsenals.common.shell.KeepShellPublic;
 import cn.arsenals.krscript.FileOwner;
 import cn.arsenals.krscript.model.NodeInfoBase;
-
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.InputStream;
-import java.nio.charset.Charset;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class ScriptEnvironmen {
     private static final String ASSETS_FILE = "file:///android_asset/";
@@ -397,9 +398,9 @@ public class ScriptEnvironmen {
             }
         }
         try {
-            dataOutputStream.write(envpCmds.toString().getBytes("UTF-8"));
+            dataOutputStream.write(envpCmds.toString().getBytes(StandardCharsets.UTF_8));
 
-            dataOutputStream.write(getExecuteScript(context, cmds, tag).getBytes("UTF-8"));
+            dataOutputStream.write(getExecuteScript(context, cmds, tag).getBytes(StandardCharsets.UTF_8));
 
             dataOutputStream.writeBytes("\n\n");
             dataOutputStream.writeBytes("sleep 0.2;\n");

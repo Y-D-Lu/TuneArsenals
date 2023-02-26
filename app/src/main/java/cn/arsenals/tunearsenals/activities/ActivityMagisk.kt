@@ -8,8 +8,8 @@ import cn.arsenals.common.shared.RootFileInfo
 import cn.arsenals.common.shell.RootFile
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.common.ui.ProgressBarDialog
-import cn.arsenals.ui.AdapterRootFileSelector
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.ui.AdapterRootFileSelector
 import kotlinx.android.synthetic.main.activity_magisk.*
 import java.io.File
 

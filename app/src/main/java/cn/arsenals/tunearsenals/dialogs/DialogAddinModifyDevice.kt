@@ -15,9 +15,9 @@ import cn.arsenals.common.shell.RootFile
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.common.ui.DialogItemChooser2
 import cn.arsenals.library.shell.PropsUtils
-import cn.arsenals.utils.CommonCmds
 import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.activities.ActivityBase
+import cn.arsenals.utils.CommonCmds
 
 /**
  * Created by Hello on 2017/12/03.

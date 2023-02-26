@@ -3,8 +3,8 @@ package cn.arsenals.tunearsenals.dialogs
 import android.app.Activity
 import android.view.View
 import cn.arsenals.common.ui.DialogHelper
-import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
 
 class DialogAppPowerConfig(var context: Activity, val current: String?, val iResultCallback: IResultCallback) {
     interface IResultCallback {

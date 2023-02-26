@@ -13,7 +13,7 @@ import cn.arsenals.common.ui.ThemeMode
 import cn.arsenals.tunearsenals.R
 
 open class ActivityBase : AppCompatActivity() {
-    public lateinit var themeMode: ThemeMode
+    lateinit var themeMode: ThemeMode
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
 

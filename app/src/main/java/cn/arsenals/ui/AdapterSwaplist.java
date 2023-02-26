@@ -6,15 +6,15 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import cn.arsenals.tunearsenals.R;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import cn.arsenals.tunearsenals.R;
+
 public class AdapterSwaplist extends BaseAdapter {
 
-    private Context context;
-    private ArrayList<HashMap<String, String>> list;
+    private final Context context;
+    private final ArrayList<HashMap<String, String>> list;
 
     public AdapterSwaplist(Context context, ArrayList<HashMap<String, String>> list) {
         this.context = context;

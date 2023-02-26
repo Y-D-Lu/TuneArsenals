@@ -6,7 +6,7 @@ import cn.arsenals.krscript.R
 import cn.arsenals.krscript.model.GroupNode
 
 class ListItemGroup(context: Context,
-                    final var isRootGroup: Boolean,
+                    var isRootGroup: Boolean,
                     config: GroupNode) :
         ListItemView(
                 context,

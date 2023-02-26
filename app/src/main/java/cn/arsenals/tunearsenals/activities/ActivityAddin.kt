@@ -15,7 +15,6 @@ import cn.arsenals.tunearsenals.dialogs.DialogAddinModifyDevice
 import cn.arsenals.tunearsenals.dialogs.DialogAddinWIFI
 import cn.arsenals.tunearsenals.dialogs.DialogCustomMAC
 import kotlinx.android.synthetic.main.activity_addin.*
-import java.util.*
 
 
 class ActivityAddin : ActivityBase() {

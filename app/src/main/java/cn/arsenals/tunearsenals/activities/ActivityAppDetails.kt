@@ -22,17 +22,17 @@ import cn.arsenals.library.permissions.NotificationListener
 import cn.arsenals.library.shell.CGroupMemoryUtlis
 import cn.arsenals.model.TuneArsenalsConfigInfo
 import cn.arsenals.permissions.WriteSettings
-import cn.arsenals.tunearsenals_mode.ImmersivePolicyControl
-import cn.arsenals.tunearsenals_mode.ModeSwitcher
-import cn.arsenals.tunearsenals_mode.TuneArsenalsMode
-import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.store.SpfConfig
-import cn.arsenals.utils.AccessibleServiceHelper
+import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.dialogs.DialogAppBoostPolicy
 import cn.arsenals.tunearsenals.dialogs.DialogAppCGroupMem
 import cn.arsenals.tunearsenals.dialogs.DialogAppOrientation
 import cn.arsenals.tunearsenals.dialogs.DialogAppPowerConfig
+import cn.arsenals.tunearsenals_mode.ImmersivePolicyControl
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
+import cn.arsenals.tunearsenals_mode.TuneArsenalsMode
+import cn.arsenals.utils.AccessibleServiceHelper
 import kotlinx.android.synthetic.main.activity_app_details.*
 
 class ActivityAppDetails : ActivityBase() {
@@ -89,7 +89,7 @@ class ActivityAppDetails : ActivityBase() {
         }
 
         // 场景模式白名单开关
-        tunearsenalsBlackList = getSharedPreferences(SpfConfig.SCENE_BLACK_LIST, Context.MODE_PRIVATE);
+        tunearsenalsBlackList = getSharedPreferences(SpfConfig.SCENE_BLACK_LIST, Context.MODE_PRIVATE)
         tunearsenals_mode_allow.setOnClickListener {
             val checked = (it as Checkable).isChecked
             tunearsenals_mode_config.visibility = if (checked) View.VISIBLE else View.GONE
@@ -177,7 +177,7 @@ class ActivityAppDetails : ActivityBase() {
             if (!WriteSettings().getPermission(this)) {
                 WriteSettings().setPermission(this)
                 Toast.makeText(applicationContext, getString(R.string.tunearsenals_need_write_sys_settings), Toast.LENGTH_SHORT).show()
-                (it as Switch).isChecked = !(it as Switch).isChecked
+                (it as Switch).isChecked = !it.isChecked
                 return@setOnClickListener
             }
             val isSelected = (it as Switch).isChecked
@@ -193,7 +193,7 @@ class ActivityAppDetails : ActivityBase() {
             if (!WriteSettings().getPermission(this)) {
                 WriteSettings().setPermission(this)
                 Toast.makeText(applicationContext, getString(R.string.tunearsenals_need_write_sys_settings), Toast.LENGTH_SHORT).show()
-                (it as Switch).isChecked = !(it as Switch).isChecked
+                (it as Switch).isChecked = !it.isChecked
                 return@setOnClickListener
             }
             val isSelected = (it as Switch).isChecked
@@ -209,7 +209,7 @@ class ActivityAppDetails : ActivityBase() {
         app_details_icon.setOnClickListener {
             try {
                 saveConfig()
-                startActivity(getPackageManager().getLaunchIntentForPackage(app))
+                startActivity(packageManager.getLaunchIntentForPackage(app))
             } catch (ex: Exception) {
                 Toast.makeText(applicationContext, getString(R.string.start_app_fail), Toast.LENGTH_SHORT).show()
             }
@@ -386,11 +386,4 @@ class ActivityAppDetails : ActivityBase() {
         }
     }
 
-    override fun finish() {
-        super.finish()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
 }

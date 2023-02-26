@@ -5,9 +5,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import cn.arsenals.model.FpsWatchSession;
-
 import java.util.ArrayList;
+
+import cn.arsenals.model.FpsWatchSession;
 
 public class FpsWatchStore extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;

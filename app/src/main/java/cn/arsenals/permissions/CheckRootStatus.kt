@@ -13,8 +13,8 @@ import androidx.core.content.PermissionChecker
 import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.common.ui.DialogHelper
-import cn.arsenals.utils.CommonCmds
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.utils.CommonCmds
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -25,11 +25,11 @@ import kotlin.system.exitProcess
  * Created by helloklf on 2017/6/3.
  */
 
-public class CheckRootStatus(var context: Context, private val next: Runnable? = null, private var disableSeLinux: Boolean = false, private val skip: Runnable? = null) {
+class CheckRootStatus(var context: Context, private val next: Runnable? = null, private var disableSeLinux: Boolean = false, private val skip: Runnable? = null) {
     var myHandler: Handler = Handler(Looper.getMainLooper())
 
     var therad: Thread? = null
-    public fun forceGetRoot() {
+    fun forceGetRoot() {
         if (lastCheckResult) {
             if (next != null) {
                 myHandler.post(next)
@@ -112,7 +112,7 @@ public class CheckRootStatus(var context: Context, private val next: Runnable? =
     companion object {
         private var rootStatus = false
 
-        public fun checkRootAsync() {
+        fun checkRootAsync() {
             GlobalScope.launch(Dispatchers.IO) {
                 setRootStatus(KeepShellPublic.checkRoot())
             }

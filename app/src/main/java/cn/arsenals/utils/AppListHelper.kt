@@ -8,7 +8,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import cn.arsenals.model.AppInfo
 import java.io.File
-import java.util.*
 
 
 /**

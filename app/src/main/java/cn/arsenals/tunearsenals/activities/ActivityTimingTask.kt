@@ -16,15 +16,14 @@ import cn.arsenals.library.calculator.GetUpTime
 import cn.arsenals.model.CustomTaskAction
 import cn.arsenals.model.TaskAction
 import cn.arsenals.model.TimingTaskInfo
-import cn.arsenals.tunearsenals_mode.TimingTaskManager
 import cn.arsenals.store.TimingTaskStorage
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.tunearsenals_mode.TimingTaskManager
 import kotlinx.android.synthetic.main.activity_timing_task.*
 import java.io.File
 import java.io.FilenameFilter
 import java.net.URLDecoder
 import java.util.*
-import kotlin.collections.ArrayList
 
 class ActivityTimingTask : ActivityBase() {
     private lateinit var timingTaskInfo: TimingTaskInfo
@@ -50,7 +49,8 @@ class ActivityTimingTask : ActivityBase() {
         // 时间选择
         taks_trigger_time.setOnClickListener {
             TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-                taks_trigger_time.setText(String.format(getString(R.string.format_hh_mm), hourOfDay, minute))
+                taks_trigger_time.text =
+                    String.format(getString(R.string.format_hh_mm), hourOfDay, minute)
                 timingTaskInfo.triggerTimeMinutes = hourOfDay * 60 + minute
             }, timingTaskInfo.triggerTimeMinutes / 60, timingTaskInfo.triggerTimeMinutes % 60, true).show()
         }
@@ -130,7 +130,8 @@ class ActivityTimingTask : ActivityBase() {
             // 触发时间
             val hourOfDay = triggerTimeMinutes / 60
             val minute = triggerTimeMinutes % 60
-            taks_trigger_time.setText(String.format(getString(R.string.format_hh_mm), hourOfDay, minute))
+            taks_trigger_time.text =
+                String.format(getString(R.string.format_hh_mm), hourOfDay, minute)
 
             // 重复周期
             if (expireDate > 0) {
@@ -221,7 +222,4 @@ class ActivityTimingTask : ActivityBase() {
         finish()
     }
 
-    override fun onPause() {
-        super.onPause()
-    }
 }

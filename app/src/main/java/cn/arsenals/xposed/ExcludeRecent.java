@@ -1,5 +1,7 @@
 package cn.arsenals.xposed;
 
+import static android.content.Context.ACTIVITY_SERVICE;
+
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.os.Bundle;
@@ -7,8 +9,6 @@ import android.os.Bundle;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
-
-import static android.content.Context.ACTIVITY_SERVICE;
 
 public class ExcludeRecent {
     public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam loadPackageParam) {

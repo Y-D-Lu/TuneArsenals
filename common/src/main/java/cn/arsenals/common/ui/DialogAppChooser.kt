@@ -1,6 +1,5 @@
 package cn.arsenals.common.ui
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -69,7 +68,7 @@ class DialogAppChooser(
                     }
                 }
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    (absListView.adapter as Filterable).getFilter().filter(if (s == null) "" else s.toString())
+                    (absListView.adapter as Filterable).filter.filter(if (s == null) "" else s.toString())
                 }
             })
         }
@@ -88,7 +87,7 @@ class DialogAppChooser(
         fun onConfirm(apps: List<AdapterAppChooser.AppInfo>)
     }
 
-    public fun setExcludeApps(apps: Array<String>): DialogAppChooser {
+    fun setExcludeApps(apps: Array<String>): DialogAppChooser {
         this.excludeApps = apps
         if (this.view != null) {
             Log.e("@DialogAppChooser", "Unable to set the exclusion list, The list has been loaded")
@@ -97,7 +96,7 @@ class DialogAppChooser(
         return this
     }
 
-    public fun setAllowAllSelect(allow: Boolean): DialogAppChooser {
+    fun setAllowAllSelect(allow: Boolean): DialogAppChooser {
         this.allowAllSelect = allow
         view?.findViewById<CompoundButton?>(R.id.select_all)?.visibility = if (allow) View.VISIBLE else View.GONE
 
@@ -112,11 +111,4 @@ class DialogAppChooser(
         this.dismiss()
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
-    override fun onDismiss(dialog: DialogInterface) {
-        super.onDismiss(dialog)
-    }
 }

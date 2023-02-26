@@ -3,7 +3,6 @@ package cn.arsenals.tunearsenals_mode
 import android.content.Context
 import cn.arsenals.library.shell.CGroupMemoryUtlis
 import java.util.*
-import kotlin.collections.ArrayList
 
 class CGroupManager(private val context: Context) {
     private val cGroupMemoryUtlis = CGroupMemoryUtlis(context)
@@ -85,7 +84,7 @@ class CGroupManager(private val context: Context) {
         }
     }
 
-    public fun onAppLeave(packageName: String) {
+    fun onAppLeave(packageName: String) {
         var record = history.find { it.packageName == packageName }
         val time = System.currentTimeMillis()
         if (record != null) {
@@ -99,7 +98,7 @@ class CGroupManager(private val context: Context) {
         }
     }
 
-    public fun onAppEnter(packageName: String) {
+    fun onAppEnter(packageName: String) {
         var record = history.find { it.packageName == packageName }
         if (record != null) {
             if (record.state != ProcessHistory.STATE_TOP || record.state != ProcessHistory.STATE_BACKGROUND) {

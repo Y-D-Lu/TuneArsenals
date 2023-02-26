@@ -14,11 +14,11 @@ import cn.arsenals.data.EventBus
 import cn.arsenals.data.EventType
 import cn.arsenals.library.permissions.NotificationListener
 import cn.arsenals.library.shell.LocationHelper
-import cn.arsenals.tunearsenals_mode.ModeSwitcher
-import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.store.SpfConfig
-import cn.arsenals.utils.AccessibleServiceHelper
+import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
+import cn.arsenals.utils.AccessibleServiceHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

@@ -11,8 +11,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import cn.arsenals.library.basic.AppInfoLoader
 import cn.arsenals.model.BatteryAvgStatus
-import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -26,7 +26,7 @@ class AdapterBatteryStats(private var context: Context, private var list: List<B
     }
 
     override fun getCount(): Int {
-        return list.size ?: 0
+        return list.size
     }
 
     override fun getItem(position: Int): BatteryAvgStatus {

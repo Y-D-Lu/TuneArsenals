@@ -19,9 +19,9 @@ import cn.arsenals.kr.KrScriptConfig
 import cn.arsenals.library.shell.BatteryUtils
 import cn.arsenals.permissions.CheckRootStatus
 import cn.arsenals.shell_utils.BackupRestoreUtils
-import cn.arsenals.utils.AccessibleServiceHelper
 import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.activities.*
+import cn.arsenals.utils.AccessibleServiceHelper
 import com.projectkr.shell.OpenPageHelper
 import kotlinx.android.synthetic.main.fragment_nav.*
 
@@ -31,7 +31,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
     companion object {
         fun createPage(themeMode: ThemeMode): Fragment {
             val fragment = FragmentNav()
-            fragment.themeMode = themeMode;
+            fragment.themeMode = themeMode
             return fragment
         }
     }
@@ -102,7 +102,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
 
     private fun bindClickEvent(view: View) {
         view.setOnClickListener(this)
-        if (!CheckRootStatus.lastCheckResult && "root".equals(view.getTag())) {
+        if (!CheckRootStatus.lastCheckResult && "root".equals(view.tag)) {
             view.isEnabled = false
         }
     }
@@ -126,7 +126,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
             try {
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                intent.setComponent(ComponentName("cn.arsenals.gesture", "cn.arsenals.gesture.SettingsActivity"))
+                intent.component = ComponentName("cn.arsenals.gesture", "cn.arsenals.gesture.SettingsActivity")
                 startActivity(intent)
                 return
             } catch (ex: java.lang.Exception) {
@@ -135,7 +135,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
             try {
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                intent.setComponent(ComponentName("cn.arsenals.filter", "cn.arsenals.filter.SettingsActivity"))
+                intent.component = ComponentName("cn.arsenals.filter", "cn.arsenals.filter.SettingsActivity")
                 startActivity(intent)
                 return
             } catch (ex: java.lang.Exception) {
@@ -172,7 +172,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         v?.run {
-            if (!CheckRootStatus.lastCheckResult && "root".equals(getTag())) {
+            if (!CheckRootStatus.lastCheckResult && "root".equals(tag)) {
                 Toast.makeText(context, "没有获得ROOT权限，不能使用本功能", Toast.LENGTH_SHORT).show()
                 return
             }

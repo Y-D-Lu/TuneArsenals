@@ -18,8 +18,8 @@ import cn.arsenals.common.ui.ProgressBarDialog
 import cn.arsenals.krscript.FileOwner
 import cn.arsenals.library.basic.UninstalledApp
 import cn.arsenals.model.AppInfo
-import cn.arsenals.ui.AppListAdapter
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.ui.AppListAdapter
 import kotlinx.android.synthetic.main.activity_hidden_apps.*
 import java.lang.ref.WeakReference
 

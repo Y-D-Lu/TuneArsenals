@@ -15,8 +15,8 @@ import cn.arsenals.data.EventBus
 import cn.arsenals.data.EventType
 import cn.arsenals.shell_utils.AppErrorLogcatUtils
 import cn.arsenals.store.SpfConfig
-import cn.arsenals.utils.CommonCmds
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.utils.CommonCmds
 import kotlinx.android.synthetic.main.activity_other_settings.*
 
 class ActivityOtherSettings : ActivityBase() {

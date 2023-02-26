@@ -4,9 +4,7 @@ import android.app.Activity
 import android.view.View
 import android.widget.CompoundButton
 import android.widget.Toast
-import cn.arsenals.TuneArsenals
 import cn.arsenals.common.ui.DialogHelper
-import cn.arsenals.utils.AccessibleServiceHelper
 import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.popup.*
 

@@ -2,9 +2,9 @@ package cn.arsenals.krscript.executor;
 
 import android.content.Context;
 
-import cn.arsenals.common.shared.FileWrite;
-
 import java.util.HashMap;
+
+import cn.arsenals.common.shared.FileWrite;
 
 /**
  * Created by Hello on 2018/04/03.
@@ -12,9 +12,9 @@ import java.util.HashMap;
 
 public class ExtractAssets {
     // 用于记录已经提取过的资源，避免重复提取浪费性能
-    private static HashMap<String, String> extractHisotry = new HashMap<String, String>();
+    private static final HashMap<String, String> extractHisotry = new HashMap<String, String>();
 
-    private Context context;
+    private final Context context;
 
     public ExtractAssets(Context context) {
         this.context = context;

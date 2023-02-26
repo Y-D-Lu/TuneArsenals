@@ -12,9 +12,9 @@ import cn.arsenals.common.ui.ProgressBarDialog
 import cn.arsenals.data.EventBus
 import cn.arsenals.data.EventType
 import cn.arsenals.store.SpfConfig
+import cn.arsenals.tunearsenals.R
 import cn.arsenals.utils.AppListHelper
 import cn.arsenals.utils.AutoSkipCloudData
-import cn.arsenals.tunearsenals.R
 import kotlinx.android.synthetic.main.activity_auto_click.*
 
 

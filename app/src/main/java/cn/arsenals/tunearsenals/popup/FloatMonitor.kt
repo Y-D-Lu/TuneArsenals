@@ -28,9 +28,9 @@ import cn.arsenals.TuneArsenals
 import cn.arsenals.data.GlobalStatus
 import cn.arsenals.library.shell.*
 import cn.arsenals.store.SpfConfig
+import cn.arsenals.tunearsenals.R
 import cn.arsenals.ui.FloatMonitorBatteryView
 import cn.arsenals.ui.FloatMonitorChartView
-import cn.arsenals.tunearsenals.R
 import java.util.*
 
 class FloatMonitor(private val mContext: Context) {
@@ -89,7 +89,7 @@ class FloatMonitor(private val mContext: Context) {
 
         val navHeight = 0
         if (navHeight > 0) {
-            val display = mWindowManager!!.getDefaultDisplay()
+            val display = mWindowManager!!.defaultDisplay
             val p = Point()
             display.getRealSize(p)
             params.y = -navHeight
@@ -126,8 +126,8 @@ class FloatMonitor(private val mContext: Context) {
                     if (event != null) {
                         when (event.action) {
                             MotionEvent.ACTION_DOWN -> {
-                                touchStartX = event.getX()
-                                touchStartY = event.getY()
+                                touchStartX = event.x
+                                touchStartY = event.y
                                 touchStartRawX = event.rawX
                                 touchStartRawY = event.rawY
                                 isTouchDown = true
@@ -211,7 +211,7 @@ class FloatMonitor(private val mContext: Context) {
 
     private var totalMem = 0
     private var availMem = 0
-    private var coreCount = -1;
+    private var coreCount = -1
     private var showOtherInfo = false
     private var clusters = ArrayList<Array<String>>()
     private var clustersFreq = ArrayList<String>()
@@ -238,8 +238,8 @@ class FloatMonitor(private val mContext: Context) {
 
     private fun updateInfo() {
         if (coreCount < 1) {
-            coreCount = CpuFrequencyUtil.getCoreCount()
-            clusters = CpuFrequencyUtil.getClusterInfo()
+            coreCount = CpuFrequencyUtil.coreCount
+            clusters = CpuFrequencyUtil.clusterInfo
         }
         clustersFreq.clear()
         for (coreIndex in 0 until clusters.size) {
@@ -268,7 +268,7 @@ class FloatMonitor(private val mContext: Context) {
 
         var cpuLoad = cpuLoadUtils.cpuLoadSum
         if (cpuLoad < 0) {
-            cpuLoad = 0.toDouble();
+            cpuLoad = 0.toDouble()
         }
 
         // 电池电流
@@ -303,7 +303,7 @@ class FloatMonitor(private val mContext: Context) {
                     }
                     if (cluster.isNotEmpty()) {
                         try {
-                            val title = "#" + cluster[0] + "~" + cluster[cluster.size - 1] + "  " + subFreqStr(clustersFreq.get(clusterIndex)) + "Mhz";
+                            val title = "#" + cluster[0] + "~" + cluster[cluster.size - 1] + "  " + subFreqStr(clustersFreq.get(clusterIndex)) + "Mhz"
                             append(whiteBoldSpan(title))
 
                             val otherInfos = StringBuilder("")
@@ -345,7 +345,7 @@ class FloatMonitor(private val mContext: Context) {
 
         myHandler.post {
             if (showOtherInfo) {
-                otherInfo?.setText(null)
+                otherInfo?.text = null
 
                 otherInfo?.text = otherInfoBuilder
             }
@@ -359,8 +359,8 @@ class FloatMonitor(private val mContext: Context) {
             }
 
             temperatureChart!!.setData(100f, 100f - GlobalStatus.batteryCapacity, temperature)
-            temperatureText!!.setText(temperature.toString() + "°C")
-            batteryLevelText!!.setText(GlobalStatus.batteryCapacity.toString() + "%")
+            temperatureText!!.text = temperature.toString() + "°C"
+            batteryLevelText!!.text = GlobalStatus.batteryCapacity.toString() + "%"
             chargerView!!.visibility = (if (GlobalStatus.batteryStatus == BatteryManager.BATTERY_STATUS_CHARGING) {
                 View.VISIBLE
             } else {
@@ -428,7 +428,7 @@ class FloatMonitor(private val mContext: Context) {
 
     companion object {
         private var mWindowManager: WindowManager? = null
-        public var show: Boolean? = false
+        var show: Boolean? = false
 
         @SuppressLint("StaticFieldLeak")
         private var mView: View? = null

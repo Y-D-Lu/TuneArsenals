@@ -7,7 +7,6 @@ import cn.arsenals.library.shell.PlatformUtils
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.*
-import kotlin.collections.LinkedHashMap
 
 class CpuAffinity(private val context: Context) {
     private var apps = LinkedList<String>()
@@ -30,7 +29,7 @@ class CpuAffinity(private val context: Context) {
             val appOpts = jsonObject.getJSONArray("apps")
             val optCount = appOpts.length()
             for (i in 0 until optCount) {
-                val packages = appOpts.getJSONObject(i).getJSONArray("packages");
+                val packages = appOpts.getJSONObject(i).getJSONArray("packages")
                 val appCount = packages.length()
                 for (j in 0 until appCount) {
                     apps.add(packages.getString(j))
@@ -47,7 +46,7 @@ class CpuAffinity(private val context: Context) {
         val optCount = options.length()
         for (i in 0 until optCount) {
             val config = options.getJSONObject(i)
-            val packages = config.getJSONArray("packages");
+            val packages = config.getJSONArray("packages")
             val appCount = packages.length()
             for (j in 0 until appCount) {
                 if (packages.getString(j) == app) {

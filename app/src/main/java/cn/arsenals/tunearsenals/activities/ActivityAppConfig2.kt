@@ -20,17 +20,16 @@ import cn.arsenals.common.ui.ProgressBarDialog
 import cn.arsenals.data.EventBus
 import cn.arsenals.data.EventType
 import cn.arsenals.model.AppInfo
-import cn.arsenals.tunearsenals_mode.ModeSwitcher
-import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.store.SpfConfig
-import cn.arsenals.ui.TuneArsenalsModeAdapter
-import cn.arsenals.utils.AppListHelper
+import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.dialogs.DialogAppOrientation
 import cn.arsenals.tunearsenals.dialogs.DialogAppPowerConfig
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
+import cn.arsenals.ui.TuneArsenalsModeAdapter
+import cn.arsenals.utils.AppListHelper
 import kotlinx.android.synthetic.main.activity_app_config2.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class ActivityAppConfig2 : ActivityBase() {
@@ -47,7 +46,7 @@ class ActivityAppConfig2 : ActivityBase() {
         setContentView(R.layout.activity_app_config2)
 
         setBackArrow()
-        globalSPF = context!!.getSharedPreferences(SpfConfig.GLOBAL_SPF, Context.MODE_PRIVATE)
+        globalSPF = context.getSharedPreferences(SpfConfig.GLOBAL_SPF, Context.MODE_PRIVATE)
 
         this.onViewCreated()
     }

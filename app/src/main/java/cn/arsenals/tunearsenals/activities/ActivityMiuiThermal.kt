@@ -69,7 +69,7 @@ class ActivityMiuiThermal : ActivityBase() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CFG_FILE && data != null && data.extras != null) {
-            val fileName = data.extras!!.getString("file");
+            val fileName = data.extras!!.getString("file")
             if (!fileName!!.startsWith("thermal")) {
                 currentFile = fileName
                 title = fileName
@@ -93,7 +93,7 @@ class ActivityMiuiThermal : ActivityBase() {
         val file = File(currentFile)
         val output = MiuiThermalAESUtil.decrypt(file.readBytes())
         thermal_config.setText(String(output, Charset.forName("UTF-8")))
-        setTitle(file.name)
+        title = file.name
     }
 
     @SuppressLint("RestrictedApi")

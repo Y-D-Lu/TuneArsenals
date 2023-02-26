@@ -13,7 +13,6 @@ import android.widget.AdapterView
 import android.widget.CompoundButton
 import android.widget.Switch
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shared.FilePathResolver
 import cn.arsenals.common.shared.FileWrite
@@ -22,10 +21,11 @@ import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.data.EventBus
 import cn.arsenals.data.EventType
 import cn.arsenals.library.shell.ThermalDisguise
-import cn.arsenals.tunearsenals_mode.CpuConfigInstaller
-import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import cn.arsenals.store.SpfConfig
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.tunearsenals_mode.CpuConfigInstaller
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_cpu_modes.*
 import java.io.File
 import java.nio.charset.Charset

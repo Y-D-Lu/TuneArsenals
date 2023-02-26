@@ -23,7 +23,7 @@ class TuneArsenalsTileService : TileService() {
     }
 
     private fun getIcon(id: Int): Icon? {
-        return Icon.createWithResource(getApplicationContext(), id);
+        return Icon.createWithResource(applicationContext, id)
     }
 
     override fun onStartListening() {

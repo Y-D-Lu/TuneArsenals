@@ -2,7 +2,9 @@ package cn.arsenals.tunearsenals
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
-import android.content.*
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.graphics.Point
 import android.graphics.Rect
@@ -20,22 +22,21 @@ import cn.arsenals.data.IEventReceiver
 import cn.arsenals.library.basic.InputMethodApp
 import cn.arsenals.library.basic.LauncherApps
 import cn.arsenals.library.calculator.Flags
+import cn.arsenals.store.SpfConfig
+import cn.arsenals.tunearsenals.popup.FloatLogView
 import cn.arsenals.tunearsenals_mode.AppSwitchHandler
 import cn.arsenals.tunearsenals_mode.AutoClickInstall
 import cn.arsenals.tunearsenals_mode.AutoSkipAd
-import cn.arsenals.store.SpfConfig
 import cn.arsenals.utils.AutoSkipCloudData
-import cn.arsenals.tunearsenals.popup.FloatLogView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * Created by helloklf on 2016/8/27.
  */
-public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver {
+class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver {
     override val isAsync: Boolean
         get() = false
 
@@ -309,7 +310,7 @@ public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver 
             AccessibilityWindowInfo.TYPE_SPLIT_SCREEN_DIVIDER
     )
 
-    public fun getEffectiveWindows(includeSystemApp: Boolean = false): List<AccessibilityWindowInfo> {
+    fun getEffectiveWindows(includeSystemApp: Boolean = false): List<AccessibilityWindowInfo> {
         val windowsList = windows
         if (windowsList != null && windowsList.size > 1) {
             val effectiveWindows = windowsList.filter {
@@ -327,7 +328,7 @@ public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver 
         return ArrayList()
     }
 
-    public fun getForegroundApps(): Array<String> {
+    fun getForegroundApps(): Array<String> {
         val windows = this.getEffectiveWindows(true)
         return windows.map {
             it.root?.packageName

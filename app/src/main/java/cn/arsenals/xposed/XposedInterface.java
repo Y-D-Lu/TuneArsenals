@@ -1,5 +1,8 @@
 package cn.arsenals.xposed;
 
+import static de.robv.android.xposed.XposedHelpers.callMethod;
+import static de.robv.android.xposed.XposedHelpers.getObjectField;
+
 import android.app.Activity;
 import android.app.Notification;
 import android.app.Service;
@@ -11,13 +14,12 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Display;
 
-import cn.arsenals.store.XposedExtension;
-import cn.arsenals.xposed.wx.WeChatScanHook;
-
 import org.json.JSONObject;
 
 import java.util.Iterator;
 
+import cn.arsenals.store.XposedExtension;
+import cn.arsenals.xposed.wx.WeChatScanHook;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.IXposedHookZygoteInit;
 import de.robv.android.xposed.XC_MethodHook;
@@ -25,9 +27,6 @@ import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
-
-import static de.robv.android.xposed.XposedHelpers.callMethod;
-import static de.robv.android.xposed.XposedHelpers.getObjectField;
 
 /**
  * Created by helloklf on 2016/10/1.
@@ -43,7 +42,7 @@ public class XposedInterface implements IXposedHookLoadPackage, IXposedHookZygot
 
             Iterator<String> iter = config.keys();
             while (iter.hasNext()) {
-                String key = (String) iter.next();
+                String key = iter.next();
                 switch (key) {
                     case "dpi": {
                         appConfig.setDpi(config.getInt(key));

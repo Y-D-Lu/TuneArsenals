@@ -3,9 +3,9 @@ package cn.arsenals.utils
 import android.content.Context
 import android.os.Environment
 import cn.arsenals.common.shell.KeepShellPublic
-import cn.arsenals.tunearsenals_mode.AlwaysNotification
 import cn.arsenals.shell_utils.AppErrorLogcatUtils
 import cn.arsenals.store.SpfConfig
+import cn.arsenals.tunearsenals_mode.AlwaysNotification
 import java.io.File
 import java.io.FileOutputStream
 import java.io.PrintWriter

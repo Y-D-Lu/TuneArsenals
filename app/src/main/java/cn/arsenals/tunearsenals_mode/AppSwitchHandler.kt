@@ -15,16 +15,15 @@ import cn.arsenals.data.GlobalStatus
 import cn.arsenals.data.IEventReceiver
 import cn.arsenals.library.basic.InputMethodApp
 import cn.arsenals.library.basic.ScreenState
-import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.store.SpfConfig
-import cn.arsenals.utils.CommonCmds
+import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.tunearsenals.AccessibilityTuneArsenals
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.utils.CommonCmds
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  *

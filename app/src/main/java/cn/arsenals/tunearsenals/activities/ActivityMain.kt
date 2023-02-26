@@ -23,15 +23,15 @@ import cn.arsenals.common.shell.RootFile
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.permissions.CheckRootStatus
 import cn.arsenals.store.SpfConfig
-import cn.arsenals.ui.TabIconHelper2
-import cn.arsenals.utils.ElectricityUnit
-import cn.arsenals.utils.Update
 import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.dialogs.DialogMonitor
 import cn.arsenals.tunearsenals.dialogs.DialogPower
 import cn.arsenals.tunearsenals.fragments.FragmentHome
 import cn.arsenals.tunearsenals.fragments.FragmentNav
 import cn.arsenals.tunearsenals.fragments.FragmentNotRoot
+import cn.arsenals.ui.TabIconHelper2
+import cn.arsenals.utils.ElectricityUnit
+import cn.arsenals.utils.Update
 import kotlinx.android.synthetic.main.activity_main.*
 
 class ActivityMain : ActivityBase() {

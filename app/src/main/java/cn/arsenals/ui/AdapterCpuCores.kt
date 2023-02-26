@@ -8,7 +8,6 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import cn.arsenals.model.CpuCoreInfo
 import cn.arsenals.tunearsenals.R
-import java.util.*
 
 class AdapterCpuCores(private val context: Context, private val list: ArrayList<CpuCoreInfo>?) : BaseAdapter() {
 
@@ -38,10 +37,10 @@ class AdapterCpuCores(private val context: Context, private val list: ArrayList<
     }
 
     fun setData(list: ArrayList<CpuCoreInfo>): AdapterCpuCores {
-        this.list!!.clear();
+        this.list!!.clear()
         this.list.addAll(list)
         notifyDataSetChanged()
-        return this;
+        return this
     }
 
     @SuppressLint("SetTextI18n")

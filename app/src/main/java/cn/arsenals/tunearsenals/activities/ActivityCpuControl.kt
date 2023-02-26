@@ -17,16 +17,14 @@ import cn.arsenals.library.shell.GpuUtils
 import cn.arsenals.library.shell.ThermalControlUtils
 import cn.arsenals.model.CpuClusterStatus
 import cn.arsenals.model.CpuStatus
-import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import cn.arsenals.store.CpuConfigStorage
 import cn.arsenals.store.SpfConfig
-import cn.arsenals.utils.AccessibleServiceHelper
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
+import cn.arsenals.utils.AccessibleServiceHelper
 import kotlinx.android.synthetic.main.activity_cpu_control.*
 import java.util.*
 import java.util.concurrent.locks.ReentrantLock
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 class ActivityCpuControl : ActivityBase() {
     // 应用到指定的配置模式
@@ -53,7 +51,7 @@ class ActivityCpuControl : ActivityBase() {
     var qualcommThermalSupported: Boolean = false
 
     private fun initData() {
-        clusterCount = CpuFrequencyUtil.getClusterInfo().size
+        clusterCount = CpuFrequencyUtil.clusterInfo.size
         for (cluster in 0 until clusterCount) {
             cluterFreqs.put(cluster, CpuFrequencyUtil.getAvailableFrequencies(cluster))
             cluterGovernors.put(cluster, CpuFrequencyUtil.getAvailableGovernors(cluster))
@@ -66,7 +64,7 @@ class ActivityCpuControl : ActivityBase() {
 
         supportedGPU = GpuUtils.supported()
         adrenoGPU = GpuUtils.isAdrenoGPU()
-        qualcommThermalSupported = thermalControlUtils.isSupported()
+        qualcommThermalSupported = thermalControlUtils.isSupported
 
         if (supportedGPU) {
             adrenoGovernors = GpuUtils.getGovernors()
@@ -313,10 +311,10 @@ class ActivityCpuControl : ActivityBase() {
 
     private fun bindExynosConfig() {
         exynos_cpuhotplug.setOnClickListener {
-            CpuFrequencyUtil.setExynosHotplug((it as CheckBox).isChecked)
+            CpuFrequencyUtil.exynosHotplug = (it as CheckBox).isChecked
         }
         exynos_hmp_booster.setOnClickListener {
-            CpuFrequencyUtil.setExynosBooster((it as CheckBox).isChecked)
+            CpuFrequencyUtil.exynosBooster = (it as CheckBox).isChecked
         }
         exynos_hmp_up.setOnSeekBarChangeListener(OnSeekBarChangeListener(true, CpuFrequencyUtil))
         exynos_hmp_down.setOnSeekBarChangeListener(OnSeekBarChangeListener(false, CpuFrequencyUtil))
@@ -560,9 +558,9 @@ class ActivityCpuControl : ActivityBase() {
             }
 
             if (qualcommThermalSupported) {
-                status.coreControl = thermalControlUtils.getCoreControlState()
-                status.vdd = thermalControlUtils.getVDDRestrictionState()
-                status.msmThermal = thermalControlUtils.getTheramlState()
+                status.coreControl = thermalControlUtils.coreControlState
+                status.vdd = thermalControlUtils.vddRestrictionState
+                status.msmThermal = thermalControlUtils.theramlState
             }
 
             status.exynosHmpUP = CpuFrequencyUtil.exynosHmpUP
@@ -651,7 +649,7 @@ class ActivityCpuControl : ActivityBase() {
 
     private fun setText(view: TextView?, text: String) {
         if (view != null && view.text != text) {
-            view.setText(text)
+            view.text = text
         }
     }
 

@@ -1,5 +1,8 @@
 package cn.arsenals.xposed;
 
+import static de.robv.android.xposed.XposedHelpers.callMethod;
+import static de.robv.android.xposed.XposedHelpers.setObjectField;
+
 import android.os.IBinder;
 import android.view.Window;
 import android.view.WindowManager;
@@ -7,14 +10,10 @@ import android.view.WindowManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import cn.arsenals.library.calculator.Flags;
-
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
-
-import static de.robv.android.xposed.XposedHelpers.callMethod;
-import static de.robv.android.xposed.XposedHelpers.setObjectField;
 
 public class ReverseOptimizer {
     // 设置滚动缓存

@@ -4,17 +4,17 @@ import android.content.Context
 import cn.arsenals.common.shell.KeepShell
 import cn.arsenals.model.AppInfo.AppType.SYSTEM
 import cn.arsenals.model.AppInfo.AppType.USER
-import cn.arsenals.utils.AppListHelper
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.utils.AppListHelper
 
 class TuneArsenalsStandbyMode(private val context: Context, private val keepShell: KeepShell) {
     companion object {
-        public val configSpfName = "TuneArsenalsStandbyList"
+        val configSpfName = "TuneArsenalsStandbyList"
     }
 
     private val stateProp = "persist.tunearsenals.suspend"
 
-    public fun getCmds(on: Boolean): String {
+    fun getCmds(on: Boolean): String {
         val cmds = StringBuffer()
         if (on) {
             val apps = AppListHelper(context).getAll()
@@ -65,14 +65,14 @@ class TuneArsenalsStandbyMode(private val context: Context, private val keepShel
         return cmds.toString()
     }
 
-    public fun on() {
+    fun on() {
         if (keepShell.doCmdSync("getprop $stateProp").equals("1")) {
             return
         }
         keepShell.doCmdSync(getCmds(true))
     }
 
-    public fun off() {
+    fun off() {
         if (keepShell.doCmdSync("getprop $stateProp").equals("0")) {
             return
         }

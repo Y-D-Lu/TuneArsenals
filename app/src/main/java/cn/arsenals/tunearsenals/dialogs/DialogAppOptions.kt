@@ -16,8 +16,8 @@ import cn.arsenals.common.shell.KeepShell
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.model.AppInfo
-import cn.arsenals.utils.CommonCmds
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.utils.CommonCmds
 import java.io.File
 import java.util.*
 
@@ -25,7 +25,7 @@ import java.util.*
  * Created by helloklf on 2017/12/04.
  */
 
-open class DialogAppOptions(protected final var context: Activity, protected var apps: ArrayList<AppInfo>, protected var handler: Handler) {
+open class DialogAppOptions(protected var context: Activity, protected var apps: ArrayList<AppInfo>, protected var handler: Handler) {
     private var allowPigz = false
     private var backupPath = CommonCmds.AbsBackUpDir
     private var userdataPath = ""
@@ -98,7 +98,7 @@ open class DialogAppOptions(protected final var context: Activity, protected var
         }
         dialogView.findViewById<View>(R.id.app_options_uninstall).visibility = View.GONE
 
-        dialogView.findViewById<TextView>(R.id.app_options_title).setText("请选择操作")
+        dialogView.findViewById<TextView>(R.id.app_options_title).text = "请选择操作"
 
         dialogView.findViewById<View>(R.id.app_options_app_freeze).setOnClickListener {
             dialog.dismiss()

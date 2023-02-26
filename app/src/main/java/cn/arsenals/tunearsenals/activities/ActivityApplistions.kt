@@ -6,13 +6,13 @@ import android.provider.Settings
 import android.text.Editable
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
-import cn.arsenals.ui.SearchTextWatcher
-import cn.arsenals.ui.TabIconHelper2
 import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.fragments.FragmentAppBackup
 import cn.arsenals.tunearsenals.fragments.FragmentAppHelp
 import cn.arsenals.tunearsenals.fragments.FragmentAppSystem
 import cn.arsenals.tunearsenals.fragments.FragmentAppUser
+import cn.arsenals.ui.SearchTextWatcher
+import cn.arsenals.ui.TabIconHelper2
 import kotlinx.android.synthetic.main.activity_applictions.*
 
 class ActivityApplistions : ActivityBase() {

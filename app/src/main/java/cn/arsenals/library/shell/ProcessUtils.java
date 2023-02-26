@@ -3,12 +3,12 @@ package cn.arsenals.library.shell;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import cn.arsenals.common.shell.KeepShellPublic;
 import cn.arsenals.common.shell.KernelProrp;
 import cn.arsenals.model.ProcessInfo;
 import cn.arsenals.shell_utils.ToyboxIntaller;
-
-import java.util.ArrayList;
 
 /*
  * 进程管理相关

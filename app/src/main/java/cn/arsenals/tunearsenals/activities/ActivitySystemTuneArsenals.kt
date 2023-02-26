@@ -17,16 +17,16 @@ import cn.arsenals.library.calculator.GetUpTime
 import cn.arsenals.model.AppInfo
 import cn.arsenals.model.TimingTaskInfo
 import cn.arsenals.model.TriggerInfo
+import cn.arsenals.store.SpfConfig
+import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals_mode.ModeSwitcher
-import cn.arsenals.tunearsenals_mode.TuneArsenalsStandbyMode
 import cn.arsenals.tunearsenals_mode.TimingTaskManager
 import cn.arsenals.tunearsenals_mode.TriggerManager
-import cn.arsenals.store.SpfConfig
+import cn.arsenals.tunearsenals_mode.TuneArsenalsStandbyMode
+import cn.arsenals.ui.TabIconHelper
 import cn.arsenals.ui.TuneArsenalsTaskItem
 import cn.arsenals.ui.TuneArsenalsTriggerItem
-import cn.arsenals.ui.TabIconHelper
 import cn.arsenals.utils.AppListHelper
-import cn.arsenals.tunearsenals.R
 import kotlinx.android.synthetic.main.activity_system_tunearsenals.*
 
 class ActivitySystemTuneArsenals : ActivityBase() {
@@ -183,7 +183,8 @@ class ActivitySystemTuneArsenals : ActivityBase() {
 
     private fun buildCustomTaskItemView(timingTaskInfo: TimingTaskInfo): TuneArsenalsTaskItem {
         val tunearsenalsTaskItem = TuneArsenalsTaskItem(context, timingTaskInfo)
-        tunearsenalsTaskItem.setLayoutParams(LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT))
+        tunearsenalsTaskItem.layoutParams =
+            LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         tunearsenalsTaskItem.isClickable = true
         return tunearsenalsTaskItem
     }
@@ -208,7 +209,8 @@ class ActivitySystemTuneArsenals : ActivityBase() {
 
     private fun addCustomTriggerView(triggerInfo: TriggerInfo) {
         val itemView = TuneArsenalsTriggerItem(context, triggerInfo)
-        itemView.setLayoutParams(LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT))
+        itemView.layoutParams =
+            LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         itemView.isClickable = true
 
         system_tunearsenals_trigger_list.addView(itemView)

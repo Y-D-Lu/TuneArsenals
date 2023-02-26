@@ -20,7 +20,6 @@ import cn.arsenals.library.basic.AppInfoLoader
 import cn.arsenals.library.calculator.Flags
 import cn.arsenals.library.shell.PlatformUtils
 import cn.arsenals.store.FpsWatchStore
-import cn.arsenals.utils.AccessibleServiceHelper
 import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.popup.FloatFpsWatch
 import kotlinx.android.synthetic.main.activity_addin_online.*
@@ -87,7 +86,7 @@ class ActivityFpsChart : ActivityBase() {
         }
 
         // 处理loading、文件下载
-        tunearsenals_online.setWebViewClient(object : WebViewClient() {
+        tunearsenals_online.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 progressBarDialog.hideDialog()
@@ -108,11 +107,11 @@ class ActivityFpsChart : ActivityBase() {
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
                 return false
             }
-        })
+        }
 
         tunearsenals_online.settings.javaScriptEnabled = true
-        tunearsenals_online.settings.setLoadWithOverviewMode(true);
-        tunearsenals_online.settings.setUseWideViewPort(true);
+        tunearsenals_online.settings.loadWithOverviewMode = true
+        tunearsenals_online.settings.useWideViewPort = true
         val fpsWatchStore = FpsWatchStore(this)
 
         val appInfoLoader = AppInfoLoader(context)
@@ -142,7 +141,7 @@ class ActivityFpsChart : ActivityBase() {
             }
 
             @JavascriptInterface
-            public fun toggleFpsToolbar(show: Boolean) {
+            fun toggleFpsToolbar(show: Boolean) {
                 TuneArsenals.post {
                     if (show) {
                         FloatFpsWatch(context).showPopupWindow()
@@ -161,17 +160,17 @@ class ActivityFpsChart : ActivityBase() {
             }
 
             @JavascriptInterface
-            public fun getFpsToolbarState(): String {
+            fun getFpsToolbarState(): String {
                 return FloatFpsWatch.show.toString()
             }
 
             @JavascriptInterface
-            public fun deleteSession(sessionId: Long) {
-                fpsWatchStore.deleteSession(sessionId);
+            fun deleteSession(sessionId: Long) {
+                fpsWatchStore.deleteSession(sessionId)
             }
 
             @JavascriptInterface
-            public fun getDeviceInfo(): String {
+            fun getDeviceInfo(): String {
                 val obj = JSONObject()
                 obj.put("soc", PlatformUtils().getCPUName())
                 obj.put("model", Build.MODEL)
@@ -181,7 +180,7 @@ class ActivityFpsChart : ActivityBase() {
             }
 
             @JavascriptInterface
-            public fun getSessions(): String {
+            fun getSessions(): String {
                 val sessions = fpsWatchStore.sessions()
                 val obj = JSONArray()
                 sessions.forEach {
@@ -196,7 +195,7 @@ class ActivityFpsChart : ActivityBase() {
             }
 
             @JavascriptInterface
-            public fun getSessionData(sessionId: Long): String {
+            fun getSessionData(sessionId: Long): String {
                 return JSONObject().apply {
                     put("fps", JSONArray().apply {
                         fpsWatchStore.sessionFpsData(sessionId).forEach {
@@ -215,7 +214,7 @@ class ActivityFpsChart : ActivityBase() {
             }
 
             @JavascriptInterface
-            public fun setStatusBarColor(colorStr: String): Boolean {
+            fun setStatusBarColor(colorStr: String): Boolean {
                 try {
                     val color = Color.parseColor(colorStr)
                     tunearsenals_online.post {
@@ -235,7 +234,7 @@ class ActivityFpsChart : ActivityBase() {
             }
 
             @JavascriptInterface
-            public fun setNavigationBarColor(colorStr: String): Boolean {
+            fun setNavigationBarColor(colorStr: String): Boolean {
                 try {
                     val color = Color.parseColor(colorStr)
                     tunearsenals_online.post {
@@ -256,7 +255,7 @@ class ActivityFpsChart : ActivityBase() {
             }
 
             @JavascriptInterface
-            public fun showToast(str: String) {
+            fun showToast(str: String) {
                 try {
                     tunearsenals_online.post {
                         Toast.makeText(context, str, Toast.LENGTH_LONG).show()

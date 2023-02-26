@@ -19,15 +19,15 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import cn.arsenals.tunearsenals.R;
-import cn.arsenals.tunearsenals.activities.ActivityQuickStart;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.arsenals.tunearsenals.R;
+import cn.arsenals.tunearsenals.activities.ActivityQuickStart;
+
 public class FreezeAppShortcutHelper {
     private static int requestCount = 0;
-    private String prefix = "*";
+    private final String prefix = "*";
 
     /**
      * 移除快捷方式（实践表明，不管什么版本的系统，基本上都不好使）

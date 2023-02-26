@@ -13,7 +13,6 @@ import cn.arsenals.tunearsenals.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.util.*
 
 /**
  * Created by Hello on 2018/01/26.
@@ -59,7 +58,7 @@ class FreezeAppAdapter(private val context: Context, private var apps: ArrayList
 
                 for (i in 0 until count) {
                     val value = values[i]
-                    val valueText = value.appName!!.toString().toLowerCase()
+                    val valueText = value.appName.toString().toLowerCase()
 
                     // First match against the whole, non-splitted value
                     if (valueText.contains(prefixString)) {
@@ -142,7 +141,7 @@ class FreezeAppAdapter(private val context: Context, private var apps: ArrayList
         viewHolder.packageName = packageName
         viewHolder.itemTitle = convertView.findViewById(R.id.ItemTitle)
         viewHolder.imgView = convertView.findViewById(R.id.ItemIcon)
-        viewHolder.imgView!!.setTag(getItem(position).packageName)
+        viewHolder.imgView!!.tag = getItem(position).packageName
         viewHolder.itemTitle!!.text = item.appName.toString()
         viewHolder.imgView!!.alpha = if (item.enabled && !item.suspended) 1f else 0.3f
 

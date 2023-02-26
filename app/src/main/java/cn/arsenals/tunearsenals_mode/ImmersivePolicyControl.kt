@@ -38,11 +38,7 @@ class ImmersivePolicyControl(private var contentResolver: ContentResolver) {
             return true
         } else if (prop.contains("$STATUS=*")) {
             return true
-        } else if (prop.contains("$STATUS=apps")) {
-            return true
-        } else {
-            return false
-        }
+        } else return prop.contains("$STATUS=apps")
     }
 
     fun isHideStatusOnly(packageName: String): Boolean {

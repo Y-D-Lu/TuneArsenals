@@ -8,9 +8,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import cn.arsenals.common.ui.ProgressBarDialog
+import cn.arsenals.tunearsenals.R
 import cn.arsenals.ui.AdapterFileSelector
 import cn.arsenals.utils.CommonCmds
-import cn.arsenals.tunearsenals.R
 import kotlinx.android.synthetic.main.activity_file_selector.*
 import java.io.File
 

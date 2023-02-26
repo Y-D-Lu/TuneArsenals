@@ -6,10 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 import cn.arsenals.model.TuneArsenalsConfigInfo;
 import cn.arsenals.tunearsenals.R;
-
-import java.util.ArrayList;
 
 public class TuneArsenalsConfigStore extends SQLiteOpenHelper {
     private static final int DB_VERSION = 6;

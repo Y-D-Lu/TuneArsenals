@@ -19,19 +19,18 @@ import cn.arsenals.common.ui.ProgressBarDialog
 import cn.arsenals.data.GlobalStatus
 import cn.arsenals.library.shell.*
 import cn.arsenals.model.CpuCoreInfo
-import cn.arsenals.tunearsenals_mode.CpuConfigInstaller
-import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import cn.arsenals.store.SpfConfig
-import cn.arsenals.ui.AdapterCpuCores
-import cn.arsenals.utils.AccessibleServiceHelper
 import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.dialogs.DialogElectricityUnit
+import cn.arsenals.tunearsenals_mode.CpuConfigInstaller
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
+import cn.arsenals.ui.AdapterCpuCores
+import cn.arsenals.utils.AccessibleServiceHelper
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.*
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.util.*
-import kotlin.collections.HashMap
 
 class FragmentHome : androidx.fragment.app.Fragment() {
     private val modeSwitcher = ModeSwitcher()
@@ -261,7 +260,7 @@ class FragmentHome : androidx.fragment.app.Fragment() {
     @SuppressLint("SetTextI18n")
     private fun updateInfo() {
         if (coreCount < 1) {
-            coreCount = CpuFrequencyUtil.getCoreCount()
+            coreCount = CpuFrequencyUtil.coreCount
             myHandler.post {
                 try {
                     cpu_core_count.text = "$coreCount 核心"

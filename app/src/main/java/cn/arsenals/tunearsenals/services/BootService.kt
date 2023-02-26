@@ -19,13 +19,13 @@ import cn.arsenals.library.shell.BatteryUtils
 import cn.arsenals.library.shell.LMKUtils
 import cn.arsenals.library.shell.PropsUtils
 import cn.arsenals.library.shell.SwapUtils
+import cn.arsenals.store.CpuConfigStorage
+import cn.arsenals.store.SpfConfig
+import cn.arsenals.store.TuneArsenalsConfigStore
+import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import cn.arsenals.tunearsenals_mode.TuneArsenalsMode
-import cn.arsenals.store.CpuConfigStorage
-import cn.arsenals.store.TuneArsenalsConfigStore
-import cn.arsenals.store.SpfConfig
 import cn.arsenals.utils.CommonCmds
-import cn.arsenals.tunearsenals.R
 
 /**
  * Created by Hello on 2017/12/27.
@@ -41,7 +41,7 @@ class BootService : IntentService("tunearsenals-boot") {
     private lateinit var mPowerManager: PowerManager
     private lateinit var mWakeLock: PowerManager.WakeLock
     override fun onHandleIntent(intent: Intent?) {
-        mPowerManager = getSystemService(Context.POWER_SERVICE) as PowerManager;
+        mPowerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
         /*
             标记值                   CPU  屏幕  键盘
             PARTIAL_WAKE_LOCK       开启  关闭  关闭
@@ -49,7 +49,7 @@ class BootService : IntentService("tunearsenals-boot") {
             SCREEN_BRIGHT_WAKE_LOCK 开启  变亮  关闭
             FULL_WAKE_LOCK          开启  变亮  变亮
         */
-        mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "tunearsenals:BootService");
+        mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "tunearsenals:BootService")
         mWakeLock.acquire(10 * 60 * 1000) // 默认限制10分钟
 
         nm = getSystemService(NOTIFICATION_SERVICE) as NotificationManager

@@ -11,12 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
+
 import cn.arsenals.common.shared.RootFileInfo;
 import cn.arsenals.common.ui.DialogHelper;
 import cn.arsenals.common.ui.ProgressBarDialog;
 import cn.arsenals.tunearsenals.R;
-
-import java.util.ArrayList;
 
 public class AdapterRootFileSelector extends BaseAdapter {
     private ArrayList<RootFileInfo> fileArray;
@@ -24,7 +25,7 @@ public class AdapterRootFileSelector extends BaseAdapter {
     private Runnable fileDelete;
     private RootFileInfo currentDir;
     private RootFileInfo selectedFile;
-    private Handler handler = new Handler(Looper.getMainLooper());
+    private final Handler handler = new Handler(Looper.getMainLooper());
     private ProgressBarDialog progressBarDialog;
     private String extension;
     private boolean clickSelected = true; // 点击选中

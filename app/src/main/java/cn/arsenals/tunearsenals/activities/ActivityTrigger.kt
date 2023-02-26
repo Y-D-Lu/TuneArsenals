@@ -17,15 +17,14 @@ import cn.arsenals.krscript.executor.ExtractAssets
 import cn.arsenals.model.CustomTaskAction
 import cn.arsenals.model.TaskAction
 import cn.arsenals.model.TriggerInfo
-import cn.arsenals.tunearsenals_mode.TriggerManager
 import cn.arsenals.store.TriggerStorage
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.tunearsenals_mode.TriggerManager
 import kotlinx.android.synthetic.main.activity_trigger.*
 import java.io.File
 import java.io.FilenameFilter
 import java.net.URLDecoder
 import java.util.*
-import kotlin.collections.ArrayList
 
 class ActivityTrigger : ActivityBase() {
     private lateinit var triggerInfo: TriggerInfo
@@ -51,13 +50,15 @@ class ActivityTrigger : ActivityBase() {
         // 时间选择
         trigger_time_start.setOnClickListener {
             TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-                trigger_time_start.setText(String.format(getString(R.string.format_hh_mm), hourOfDay, minute))
+                trigger_time_start.text =
+                    String.format(getString(R.string.format_hh_mm), hourOfDay, minute)
                 triggerInfo.timeStart = hourOfDay * 60 + minute
             }, triggerInfo.timeStart / 60, triggerInfo.timeStart % 60, true).show()
         }
         trigger_time_end.setOnClickListener {
             TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-                trigger_time_end.setText(String.format(getString(R.string.format_hh_mm), hourOfDay, minute))
+                trigger_time_end.text =
+                    String.format(getString(R.string.format_hh_mm), hourOfDay, minute)
                 triggerInfo.timeEnd = hourOfDay * 60 + minute
             }, triggerInfo.timeEnd / 60, triggerInfo.timeEnd % 60, true).show()
         }
@@ -139,8 +140,8 @@ class ActivityTrigger : ActivityBase() {
             system_tunearsenals_task_enable.isChecked = enabled
             trigger_time_limit.isChecked = triggerInfo.timeLimited
             // 触发时间
-            trigger_time_start.setText(String.format(getString(R.string.format_hh_mm), triggerInfo.timeStart / 60, triggerInfo.timeStart % 60))
-            trigger_time_end.setText(String.format(getString(R.string.format_hh_mm), triggerInfo.timeEnd / 60, triggerInfo.timeEnd % 60))
+            trigger_time_start.text = String.format(getString(R.string.format_hh_mm), triggerInfo.timeStart / 60, triggerInfo.timeStart % 60)
+            trigger_time_end.text = String.format(getString(R.string.format_hh_mm), triggerInfo.timeEnd / 60, triggerInfo.timeEnd % 60)
 
             // 触发事件
             events?.run {
@@ -239,7 +240,4 @@ class ActivityTrigger : ActivityBase() {
         finish()
     }
 
-    override fun onPause() {
-        super.onPause()
-    }
 }

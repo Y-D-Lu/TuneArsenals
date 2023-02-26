@@ -13,8 +13,8 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import cn.arsenals.library.shell.ProcessUtils2
-import cn.arsenals.ui.FloatProcessAdapter
 import cn.arsenals.tunearsenals.R
+import cn.arsenals.ui.FloatProcessAdapter
 import java.util.*
 
 class FloatTaskManager(private val context: Context) {
@@ -95,8 +95,8 @@ class FloatTaskManager(private val context: Context) {
                 if (event != null) {
                     when (event.action) {
                         MotionEvent.ACTION_DOWN -> {
-                            touchStartX = event.getX()
-                            touchStartY = event.getY()
+                            touchStartX = event.x
+                            touchStartY = event.y
                             touchStartRawX = event.rawX
                             touchStartRawY = event.rawY
                             isTouchDown = true

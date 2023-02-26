@@ -2,9 +2,9 @@ package cn.arsenals.library.shell;
 
 import android.annotation.SuppressLint;
 
-import cn.arsenals.common.shell.KernelProrp;
-
 import java.util.HashMap;
+
+import cn.arsenals.common.shell.KernelProrp;
 
 /**
  * CPU负载计算器

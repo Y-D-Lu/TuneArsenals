@@ -1,16 +1,16 @@
 package cn.arsenals.library.shell;
 
-import cn.arsenals.common.shell.KeepShellPublic;
-import cn.arsenals.common.shell.KernelProrp;
-import cn.arsenals.model.CpuClusterStatus;
-import cn.arsenals.model.CpuStatus;
-import cn.arsenals.tunearsenals.TuneArsenalsJNI;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Objects;
+
+import cn.arsenals.common.shell.KeepShellPublic;
+import cn.arsenals.common.shell.KernelProrp;
+import cn.arsenals.model.CpuClusterStatus;
+import cn.arsenals.model.CpuStatus;
+import cn.arsenals.tunearsenals.TuneArsenalsJNI;
 
 public class CpuFrequencyUtils {
     private static String platform;
@@ -23,7 +23,7 @@ public class CpuFrequencyUtils {
     private final String scaling_governor = cpufreq_sys_dir + "scaling_governor";
     private final Object cpuClusterInfoLoading = true;
     private ArrayList<String[]> cpuClusterInfo;
-    private TuneArsenalsJNI JNI = new TuneArsenalsJNI();
+    private final TuneArsenalsJNI JNI = new TuneArsenalsJNI();
     private int coreCount = -1;
 
     private boolean isMTK() {
@@ -208,7 +208,7 @@ public class CpuFrequencyUtils {
                     stringBuilder.append(maxFrequency);
                     stringBuilder.append(" ");
                 }
-                commands.add("echo " + stringBuilder.toString() + "> /sys/module/msm_performance/parameters/cpu_max_freq");
+                commands.add("echo " + stringBuilder + "> /sys/module/msm_performance/parameters/cpu_max_freq");
                 KeepShellPublic.INSTANCE.doCmdSync(commands);
             }
         }
@@ -445,7 +445,7 @@ public class CpuFrequencyUtils {
                                 stringBuilder.append(config.max_freq);
                                 stringBuilder.append(" ");
                             }
-                            commands.add("echo " + stringBuilder.toString() + "> /sys/module/msm_performance/parameters/cpu_max_freq");
+                            commands.add("echo " + stringBuilder + "> /sys/module/msm_performance/parameters/cpu_max_freq");
                             if (config.min_freq != null && !config.min_freq.isEmpty()) {
                                 commands.add("chmod 0664 " + scaling_min_freq.replace("cpu0", "cpu" + core));
                                 commands.add("echo " + config.min_freq + " > " + scaling_min_freq.replace("cpu0", "cpu" + core));

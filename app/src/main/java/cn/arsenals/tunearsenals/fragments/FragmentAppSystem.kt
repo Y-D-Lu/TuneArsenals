@@ -15,11 +15,11 @@ import cn.arsenals.TuneArsenals
 import cn.arsenals.common.ui.OverScrollListView
 import cn.arsenals.common.ui.ProgressBarDialog
 import cn.arsenals.model.AppInfo
-import cn.arsenals.ui.AppListAdapter
-import cn.arsenals.utils.AppListHelper
 import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.dialogs.DialogAppOptions
 import cn.arsenals.tunearsenals.dialogs.DialogSingleAppOptions
+import cn.arsenals.ui.AppListAdapter
+import cn.arsenals.utils.AppListHelper
 import kotlinx.android.synthetic.main.fragment_app_list.*
 import java.lang.ref.WeakReference
 
@@ -69,9 +69,9 @@ class FragmentAppSystem(private val myHandler: Handler) : androidx.fragment.app.
         }
 
         if (selectedItems.size == 1) {
-            DialogSingleAppOptions(activity, selectedItems.first(), myHandler!!).showSingleAppOptions()
+            DialogSingleAppOptions(activity, selectedItems.first(), myHandler).showSingleAppOptions()
         } else {
-            DialogAppOptions(activity, selectedItems, myHandler!!).selectSystemAppOptions()
+            DialogAppOptions(activity, selectedItems, myHandler).selectSystemAppOptions()
         }
     }
 
@@ -122,7 +122,7 @@ class FragmentAppSystem(private val myHandler: Handler) : androidx.fragment.app.
         }
     }
 
-    public var searchText: String
+    var searchText: String
         get () {
             return keywords
         }

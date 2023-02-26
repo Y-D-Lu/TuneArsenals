@@ -17,20 +17,20 @@ import cn.arsenals.data.publisher.BatteryState
 import cn.arsenals.data.publisher.ScreenState
 import cn.arsenals.permissions.Busybox
 import cn.arsenals.permissions.CheckRootStatus
+import cn.arsenals.store.SpfConfig
+import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals_mode.TimingTaskManager
 import cn.arsenals.tunearsenals_mode.TriggerIEventMonitor
-import cn.arsenals.store.SpfConfig
 import cn.arsenals.utils.CrashHandler
-import cn.arsenals.tunearsenals.R
 
 class TuneArsenals : Application() {
     companion object {
         private val handler = Handler(Looper.getMainLooper())
-        public lateinit var context: Application
-        public lateinit var thisPackageName: String
+        lateinit var context: Application
+        lateinit var thisPackageName: String
         private var nightMode = false
         private var config: SharedPreferences? = null
-        public val globalConfig:SharedPreferences
+        val globalConfig:SharedPreferences
             get () {
                 if (config == null) {
                     config = context.getSharedPreferences(SpfConfig.GLOBAL_SPF, Context.MODE_PRIVATE)
@@ -38,46 +38,46 @@ class TuneArsenals : Application() {
                 return config!!
             }
 
-        public val isNightMode: Boolean
+        val isNightMode: Boolean
             get() {
                 return nightMode
             }
 
-        public fun getBoolean(key: String, defaultValue: Boolean): Boolean {
+        fun getBoolean(key: String, defaultValue: Boolean): Boolean {
             return globalConfig.getBoolean(key, defaultValue)
         }
 
-        public fun setBoolean(key: String, value: Boolean) {
+        fun setBoolean(key: String, value: Boolean) {
             globalConfig.edit().putBoolean(key, value).apply()
         }
 
-        public fun getString(key: String, defaultValue: String): String? {
+        fun getString(key: String, defaultValue: String): String? {
             return globalConfig.getString(key, defaultValue)
         }
 
-        public fun toast(message: String, time: Int) {
+        fun toast(message: String, time: Int) {
             handler.post {
                 Toast.makeText(context, message, time).show()
             }
         }
 
-        public fun toast(message: String) {
+        fun toast(message: String) {
             handler.post {
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             }
         }
 
-        public fun toast(message: Int, time: Int) {
+        fun toast(message: Int, time: Int) {
             handler.post {
                 Toast.makeText(context, message, time).show()
             }
         }
 
-        public fun post(runnable: Runnable) {
+        fun post(runnable: Runnable) {
             handler.post(runnable)
         }
 
-        public fun postDelayed(runnable: Runnable, delayMillis: Long) {
+        fun postDelayed(runnable: Runnable, delayMillis: Long) {
             handler.postDelayed(runnable, delayMillis)
         }
     }
@@ -106,10 +106,6 @@ class TuneArsenals : Application() {
         }
         */
         nightMode = ((newConfig.uiMode and Configuration.UI_MODE_NIGHT_YES) != 0)
-    }
-
-    override fun onCreate() {
-        super.onCreate()
     }
 
     override fun attachBaseContext(base: Context?) {

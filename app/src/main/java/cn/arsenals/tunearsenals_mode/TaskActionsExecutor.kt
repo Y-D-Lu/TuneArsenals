@@ -15,7 +15,6 @@ import cn.arsenals.library.shell.ZenModeUtils
 import cn.arsenals.model.CustomTaskAction
 import cn.arsenals.model.TaskAction
 import cn.arsenals.tunearsenals.R
-import java.util.*
 
 class TaskActionsExecutor(
         private val taskActions: ArrayList<TaskAction>?,
@@ -35,14 +34,14 @@ class TaskActionsExecutor(
                     currentShell = commonInstance
                     isCommonShell = true
                 } else {
-                    currentShell = KeepShell();
+                    currentShell = KeepShell()
                 }
             }
             return currentShell!!
         }
 
-    public fun run() {
-        mPowerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager;
+    fun run() {
+        mPowerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager
         /*
             标记值                   CPU  屏幕  键盘
             PARTIAL_WAKE_LOCK       开启  关闭  关闭
@@ -50,7 +49,7 @@ class TaskActionsExecutor(
             SCREEN_BRIGHT_WAKE_LOCK 开启  变亮  关闭
             FULL_WAKE_LOCK          开启  变亮  变亮
         */
-        mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "tunearsenals:TaskActionsExecutor");
+        mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "tunearsenals:TaskActionsExecutor")
         mWakeLock.acquire(600 * 1000) // 默认限制10分钟
 
         taskActions?.forEach {

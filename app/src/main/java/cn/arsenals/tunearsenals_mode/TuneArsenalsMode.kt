@@ -11,14 +11,13 @@ import cn.arsenals.common.shared.FileWrite
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.library.shell.*
 import cn.arsenals.model.TuneArsenalsConfigInfo
-import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.store.SpfConfig
+import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.tunearsenals.AccessibilityTuneArsenals
 import cn.arsenals.tunearsenals.popup.FloatMonitorMini
 import cn.arsenals.tunearsenals.popup.FloatScreenRotation
 import java.nio.charset.Charset
 import java.util.*
-import kotlin.collections.ArrayList
 
 class TuneArsenalsMode private constructor(private val context: AccessibilityTuneArsenals, private var store: TuneArsenalsConfigStore) {
     private var lastAppPackageName = "com.android.systemui"
@@ -46,11 +45,11 @@ class TuneArsenalsMode private constructor(private val context: AccessibilityTun
 
     private val floatScreenRotation = FloatScreenRotation(context)
 
-    public fun cancelFreezeAppThread() {
+    fun cancelFreezeAppThread() {
         PropsUtils.setPorp("tunearsenals.freeze_delay", "")
     }
 
-    public class FreezeAppThread(
+    class FreezeAppThread(
         private val context: Context,
         private val ignoreState: Boolean = false,
         private val delaySecond: Int = 0
@@ -109,7 +108,7 @@ class TuneArsenalsMode private constructor(private val context: AccessibilityTun
 
         fun suspendApp(app: String) {
             if (app.equals("com.android.vending")) {
-                GAppsUtilis().disable(KeepShellPublic.secondaryKeepShell);
+                GAppsUtilis().disable(KeepShellPublic.secondaryKeepShell)
             } else {
                 KeepShellPublic.doCmdSync("pm suspend ${app}\nam force-stop ${app} || am kill current ${app}")
             }
@@ -117,7 +116,7 @@ class TuneArsenalsMode private constructor(private val context: AccessibilityTun
 
         fun freezeApp(app: String) {
             if (app.equals("com.android.vending")) {
-                GAppsUtilis().disable(KeepShellPublic.secondaryKeepShell);
+                GAppsUtilis().disable(KeepShellPublic.secondaryKeepShell)
             } else {
                 KeepShellPublic.doCmdSync("pm disable ${app}")
             }
@@ -127,7 +126,7 @@ class TuneArsenalsMode private constructor(private val context: AccessibilityTun
             getCurrentInstance()?.setFreezeAppLeaveTime(app)
 
             if (app.equals("com.android.vending")) {
-                GAppsUtilis().enable(KeepShellPublic.secondaryKeepShell);
+                GAppsUtilis().enable(KeepShellPublic.secondaryKeepShell)
             } else {
                 KeepShellPublic.doCmdSync("pm unsuspend ${app}\npm enable ${app}")
             }
@@ -233,8 +232,8 @@ class TuneArsenalsMode private constructor(private val context: AccessibilityTun
         freezList.remove(app)
     }
 
-    var brightnessMode = -1;
-    var screenBrightness = -1;
+    var brightnessMode = -1
+    var screenBrightness = -1
     var currentTuneArsenalsConfig: TuneArsenalsConfigInfo? = null
 
     // 备份亮度设置
@@ -253,7 +252,7 @@ class TuneArsenalsMode private constructor(private val context: AccessibilityTun
     // 恢复亮度设置
     private fun resumeBrightnessState() {
         try {
-            val modeBackup = brightnessMode;
+            val modeBackup = brightnessMode
             if (modeBackup > -1) {
                 Settings.System.putInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS_MODE, modeBackup)
                 contentResolver.notifyChange(Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS_MODE), null)

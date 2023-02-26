@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.google.android.material.tabs.TabLayout
 import cn.arsenals.tunearsenals.R
+import com.google.android.material.tabs.TabLayout
 
 class TabIconHelper2(
         private var tabLayout: TabLayout,
@@ -23,7 +23,7 @@ class TabIconHelper2(
     private val fragments = ArrayList<Fragment>()
     private var views = ArrayList<View>()
     private var tabsInited = false
-    public val adapter = object : FragmentPagerAdapter(supportFragmentManager) {
+    val adapter = object : FragmentPagerAdapter(supportFragmentManager) {
         override fun getCount(): Int {
             return fragments.size
         }
@@ -47,7 +47,7 @@ class TabIconHelper2(
         val textView = layout.findViewById<TextView>(R.id.ItemTitle)
         val tabId = "tab_" + views.size
 
-        textView.setText(text)
+        textView.text = text
 
         // val tintIcon = DrawableCompat.wrap(view.drawable)
         // val csl = getResources().getColorStateList(R.color.colorAccent)
@@ -97,7 +97,7 @@ class TabIconHelper2(
                 if (!tabsInited) {
                     for (i in 0 until tabLayout.tabCount) {
                         val tab = tabLayout.getTabAt(i)
-                        tab?.setCustomView(views.get(i))
+                        tab?.customView = views.get(i)
                     }
                     tabsInited = true
                 }

@@ -5,10 +5,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 import cn.arsenals.model.ChargeSpeedHistory;
 import cn.arsenals.model.ChargeTimeHistory;
-
-import java.util.ArrayList;
 
 public class ChargeSpeedStore extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
