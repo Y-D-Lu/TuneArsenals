@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="cn.arsenals.tunearsenals"
-    android:sharedUserId="android.uid.system"
     android:installLocation="internalOnly">
 
     <!-- <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/> -->
