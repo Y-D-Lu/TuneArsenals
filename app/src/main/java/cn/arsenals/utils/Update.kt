@@ -37,7 +37,6 @@ class Update {
     fun checkUpdate(context: Context) {
         val handler = Handler(Looper.getMainLooper())
         Thread(Runnable {
-            //http://47.106.224.127/
             try {
                 val url = URL("https://tunearsenals.arsenals.cn/vi/TuneArsenals.json")
                 val connection = url.openConnection()
