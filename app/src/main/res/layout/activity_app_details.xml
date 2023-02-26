@@ -10,7 +10,7 @@
     android:keepScreenOn="false"
     tools:openDrawer="start">
 
-    <com.omarea.common.ui.OverScrollView
+    <cn.arsenals.common.ui.OverScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="?android:actionBarSize">
@@ -336,7 +336,7 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </com.omarea.common.ui.OverScrollView>
+    </cn.arsenals.common.ui.OverScrollView>
 
     <include
         layout="@layout/layout_app_bar"

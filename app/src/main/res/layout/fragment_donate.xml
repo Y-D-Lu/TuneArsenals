@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.omarea.common.ui.OverScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<cn.arsenals.common.ui.OverScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.omarea.vtools.fragments.FragmentHome">
+    tools:context="cn.arsenals.tunearsenals.fragments.FragmentHome">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -98,4 +98,4 @@
                 android:text="你知道的，你的捐赠是对开发者辛勤劳动的肯定。在我们凌晨熬夜修Bug或绞尽脑汁探索新功能时，会有你们的鼓励化为动力\n" />
         </LinearLayout>
     </LinearLayout>
-</com.omarea.common.ui.OverScrollView>
+</cn.arsenals.common.ui.OverScrollView>

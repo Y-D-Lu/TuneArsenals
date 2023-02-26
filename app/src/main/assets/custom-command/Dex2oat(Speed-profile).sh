@@ -1,1 +1,1 @@
-am startservice -n com.omarea.vtools/.services.CompileService -a com.omarea.vtools.SpeedProfileCompile
+am startservice -n cn.arsenals.tunearsenals/.services.CompileService -a cn.arsenals.tunearsenals.SpeedProfileCompile

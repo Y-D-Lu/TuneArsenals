@@ -29,14 +29,14 @@
 #-keepclassmembers public class com.android.vending.licensing.ILicensingService
 #-keepclassmembers class android.support.** {*;}
 
--keep class com.omarea.xposed.XposedInterface{*;}
--keep class com.omarea.xposed.XposedCheck{*;}
--keep class com.omarea.data.customer.ServiceBattery{*;}
--keep class com.omarea.vtools.activities.ActivityFreezeApps{*;}
--keep class com.omarea.model.**{*;}
--keep class com.omarea.krscript.model.**{*;}
+-keep class cn.arsenals.xposed.XposedInterface{*;}
+-keep class cn.arsenals.xposed.XposedCheck{*;}
+-keep class cn.arsenals.data.customer.ServiceBattery{*;}
+-keep class cn.arsenals.tunearsenals.activities.ActivityFreezeApps{*;}
+-keep class cn.arsenals.model.**{*;}
+-keep class cn.arsenals.krscript.model.**{*;}
 
--keepclassmembers class com.omarea.xposed.XposedInterface{*;}
--keepclassmembers class com.omarea.xposed.XposedCheck{*;}
--keepclassmembers class com.omarea.data.customer.ServiceBattery{*;}
--keepclassmembers class com.omarea.vtools.activities.ActivityFreezeApps{*;}
+-keepclassmembers class cn.arsenals.xposed.XposedInterface{*;}
+-keepclassmembers class cn.arsenals.xposed.XposedCheck{*;}
+-keepclassmembers class cn.arsenals.data.customer.ServiceBattery{*;}
+-keepclassmembers class cn.arsenals.tunearsenals.activities.ActivityFreezeApps{*;}

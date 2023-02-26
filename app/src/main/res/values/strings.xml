@@ -390,11 +390,11 @@
     <string name="start_app_fail">启动应用失败！</string>
     <string name="scene_need_notic_listing">请先授权允许Scene“通知使用权限”！</string>
 
-    <string name="scene_create_shortcut_action">com.omarea.vtools.CreateShortcut</string>
-    <string name="scene_speed_compile">com.omarea.vtools.SpeedCompile</string>
-    <string name="scene_speed_profile_compile">com.omarea.vtools.SpeedProfileCompile</string>
-    <string name="scene_everything_compile">com.omarea.vtools.EverythingCompile</string>
-    <string name="scene_reset_compile">com.omarea.vtools.ResetCompile</string>
+    <string name="scene_create_shortcut_action">cn.arsenals.tunearsenals.CreateShortcut</string>
+    <string name="scene_speed_compile">cn.arsenals.tunearsenals.SpeedCompile</string>
+    <string name="scene_speed_profile_compile">cn.arsenals.tunearsenals.SpeedProfileCompile</string>
+    <string name="scene_everything_compile">cn.arsenals.tunearsenals.EverythingCompile</string>
+    <string name="scene_reset_compile">cn.arsenals.tunearsenals.ResetCompile</string>
 
     <string name="scene_contract_title">风险声明</string>
     <string name="scene_contract">Scene是一款面向玩机爱好者的应用，使用它需要拥有优秀的视力、阅读理解能力和良好的心态。\n\n使用过程中可能出现无法预料的错误，导致数据丢失，甚至无法正常开机。\n\n请务必不要在你[用于工作]或者存有[重要数据]的手机上使用，以免造成损失！\n\n使用过程中，务必仔细阅读提示信息谨慎操作，不要轻易拨动不理解的功能选项！\n\n此外，本应用作者不保证会提供使用帮助和故障恢复建议！</string>
