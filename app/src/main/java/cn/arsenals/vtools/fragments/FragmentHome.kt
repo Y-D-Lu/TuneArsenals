@@ -12,7 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.common.ui.ProgressBarDialog
@@ -96,16 +96,16 @@ class FragmentHome : androidx.fragment.app.Fragment() {
             home_raminfo_text.text = getString(R.string.please_wait)
             GlobalScope.launch(Dispatchers.Main) {
                 dropCaches()
-                Scene.toast("缓存已清理...", Toast.LENGTH_SHORT)
+                TuneArsenals.toast("缓存已清理...", Toast.LENGTH_SHORT)
             }
         }
 
         home_clear_swap.setOnClickListener {
             home_zramsize_text.text = getText(R.string.please_wait)
             GlobalScope.launch(Dispatchers.Main) {
-                Scene.toast("开始回收少量内存(长按回收更多~)", Toast.LENGTH_SHORT)
+                TuneArsenals.toast("开始回收少量内存(长按回收更多~)", Toast.LENGTH_SHORT)
                 val result = forceKSWAPD(1)
-                Scene.toast(result, Toast.LENGTH_SHORT)
+                TuneArsenals.toast(result, Toast.LENGTH_SHORT)
             }
         }
 
@@ -113,7 +113,7 @@ class FragmentHome : androidx.fragment.app.Fragment() {
             home_zramsize_text.text = getText(R.string.please_wait)
             GlobalScope.launch(Dispatchers.Main) {
                 val result = forceKSWAPD(2)
-                Scene.toast(result, Toast.LENGTH_SHORT)
+                TuneArsenals.toast(result, Toast.LENGTH_SHORT)
             }
             true
         }
@@ -171,7 +171,7 @@ class FragmentHome : androidx.fragment.app.Fragment() {
         }
         activity!!.title = getString(R.string.app_name)
 
-        if (globalSPF.getBoolean(SpfConfig.HOME_QUICK_SWITCH, true) && (CpuConfigInstaller().dynamicSupport(Scene.context) || modeSwitcher.modeConfigCompleted())) {
+        if (globalSPF.getBoolean(SpfConfig.HOME_QUICK_SWITCH, true) && (CpuConfigInstaller().dynamicSupport(TuneArsenals.context) || modeSwitcher.modeConfigCompleted())) {
             powermode_toggles.visibility = View.VISIBLE
         } else {
             powermode_toggles.visibility = View.GONE
@@ -443,7 +443,7 @@ class FragmentHome : androidx.fragment.app.Fragment() {
                 if (!globalSPF.getBoolean(SpfConfig.GLOBAL_SPF_POWERCFG_FRIST_NOTIFY, false)) {
                     DialogHelper.confirm(activity!!,
                             "提示",
-                            "如果你已允许Scene自启动，手机重启后，Scene还会自动激活刚刚选择的模式。\n\n如果需要恢复系统默认调度，请再次点击，然后重启手机！",
+                            "如果你已允许TuneArsenals自启动，手机重启后，TuneArsenals还会自动激活刚刚选择的模式。\n\n如果需要恢复系统默认调度，请再次点击，然后重启手机！",
                             DialogHelper.DialogButton(getString(R.string.btn_confirm)),
                             DialogHelper.DialogButton(getString(R.string.btn_dontshow), {
                                 globalSPF.edit().putBoolean(SpfConfig.GLOBAL_SPF_POWERCFG_FRIST_NOTIFY, true).apply()

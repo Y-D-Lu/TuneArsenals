@@ -118,7 +118,7 @@ force_reclaim() {
         sleep_time=6
       fi
     else
-      echo Scene App $(($RecyclingSize / 1024))MB >> /cache/force_compact.log
+      echo TuneArsenals App $(($RecyclingSize / 1024))MB >> /cache/force_compact.log
       sleep_time=$(($RecyclingSize / 1024 / 60 + 2))
     fi
 

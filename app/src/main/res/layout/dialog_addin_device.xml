@@ -140,7 +140,7 @@
 
         <Button
             android:id="@+id/dialog_chooser"
-            style="@style/SceneButton"
+            style="@style/TuneArsenalsButton"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginEnd="6dp"
@@ -149,7 +149,7 @@
 
         <Button
             android:id="@+id/dialog_addin_default"
-            style="@style/SceneButton"
+            style="@style/TuneArsenalsButton"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginEnd="6dp"

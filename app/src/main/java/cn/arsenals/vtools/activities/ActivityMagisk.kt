@@ -35,7 +35,7 @@ class ActivityMagisk : ActivityBase() {
         if (MagiskExtend.magiskSupported()) {
             if (!MagiskExtend.moduleInstalled()) {
                 DialogHelper.confirm(this, "安装Magisk拓展？",
-                        "安装Scene提供的Magisk拓展模块，从而在不修改系统文件的情况下，更改一些参数~",
+                        "安装TuneArsenals提供的Magisk拓展模块，从而在不修改系统文件的情况下，更改一些参数~",
                         {
                             MagiskExtend.magiskModuleInstall(context)
                             Toast.makeText(context, "操作已执行~", Toast.LENGTH_LONG).show()

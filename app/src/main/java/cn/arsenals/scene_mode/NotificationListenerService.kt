@@ -18,7 +18,7 @@ class NotificationListenerService : NotificationListenerService() {
         }
         */
         if (sbn.isClearable) {
-            val instance = SceneMode.getCurrentInstance()
+            val instance = TuneArsenalsMode.getCurrentInstance()
             if (instance == null) {
                 // Log.e("vtool-disnotice", "辅助服务未启动")
                 return

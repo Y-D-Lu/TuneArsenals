@@ -7,9 +7,9 @@ import cn.arsenals.model.AppInfo.AppType.USER
 import cn.arsenals.utils.AppListHelper
 import cn.arsenals.tunearsenals.R
 
-class SceneStandbyMode(private val context: Context, private val keepShell: KeepShell) {
+class TuneArsenalsStandbyMode(private val context: Context, private val keepShell: KeepShell) {
     companion object {
-        public val configSpfName = "SceneStandbyList"
+        public val configSpfName = "TuneArsenalsStandbyList"
     }
 
     private val stateProp = "persist.vtools.suspend"

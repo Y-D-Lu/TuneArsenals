@@ -20,7 +20,7 @@ public class AppInfo extends AdapterAppChooser.AppInfo {
     public String versionName = "";
     public int versionCode = 0;
     public AppType appType = AppType.UNKNOW;
-    public SceneConfigInfo sceneConfigInfo;
+    public TuneArsenalsConfigInfo sceneConfigInfo;
     public CharSequence desc;
     public int targetSdkVersion;
     public int minSdkVersion;

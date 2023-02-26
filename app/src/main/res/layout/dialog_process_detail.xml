@@ -297,7 +297,7 @@
 
                 <Button
                     android:id="@+id/ProcessStopApp"
-                    style="@style/SceneButton"
+                    style="@style/TuneArsenalsButton"
                     android:layout_width="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:paddingLeft="6dp"
@@ -307,7 +307,7 @@
 
                 <Button
                     android:id="@+id/ProcessKill"
-                    style="@style/SceneButton"
+                    style="@style/TuneArsenalsButton"
                     android:text="停止" />
             </LinearLayout>
         </LinearLayout>

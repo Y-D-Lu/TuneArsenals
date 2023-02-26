@@ -20,12 +20,12 @@ import cn.arsenals.data.EventBus
 import cn.arsenals.data.EventType
 import cn.arsenals.library.permissions.NotificationListener
 import cn.arsenals.library.shell.CGroupMemoryUtlis
-import cn.arsenals.model.SceneConfigInfo
+import cn.arsenals.model.TuneArsenalsConfigInfo
 import cn.arsenals.permissions.WriteSettings
 import cn.arsenals.scene_mode.ImmersivePolicyControl
 import cn.arsenals.scene_mode.ModeSwitcher
-import cn.arsenals.scene_mode.SceneMode
-import cn.arsenals.store.SceneConfigStore
+import cn.arsenals.scene_mode.TuneArsenalsMode
+import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.store.SpfConfig
 import cn.arsenals.utils.AccessibleServiceHelper
 import cn.arsenals.tunearsenals.R
@@ -38,7 +38,7 @@ import kotlinx.android.synthetic.main.activity_app_details.*
 class ActivityAppDetails : ActivityBase() {
     var app = ""
     lateinit var immersivePolicyControl: ImmersivePolicyControl
-    lateinit var sceneConfigInfo: SceneConfigInfo
+    lateinit var sceneConfigInfo: TuneArsenalsConfigInfo
     private var dynamicCpu: Boolean = false
     private var _result = RESULT_CANCELED
     private lateinit var sceneBlackList: SharedPreferences
@@ -215,7 +215,7 @@ class ActivityAppDetails : ActivityBase() {
             }
         }
 
-        sceneConfigInfo = SceneConfigStore(this).getAppConfig(app)
+        sceneConfigInfo = TuneArsenalsConfigStore(this).getAppConfig(app)
 
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP) {
             app_details_hidenotice.isEnabled = false
@@ -254,7 +254,7 @@ class ActivityAppDetails : ActivityBase() {
         app_details_freeze.setOnClickListener {
             sceneConfigInfo.freeze = (it as Switch).isChecked
             if (!sceneConfigInfo.freeze) {
-                SceneMode.unfreezeApp(sceneConfigInfo.packageName)
+                TuneArsenalsMode.unfreezeApp(sceneConfigInfo.packageName)
             }
         }
 
@@ -351,7 +351,7 @@ class ActivityAppDetails : ActivityBase() {
     }
 
     private fun saveConfig() {
-        val originConfig = SceneConfigStore(this).getAppConfig(sceneConfigInfo.packageName)
+        val originConfig = TuneArsenalsConfigStore(this).getAppConfig(sceneConfigInfo.packageName)
 
         if (
                 sceneConfigInfo.screenOrientation != originConfig.screenOrientation ||
@@ -369,7 +369,7 @@ class ActivityAppDetails : ActivityBase() {
         } else {
             setResult(_result, this.intent)
         }
-        if (!SceneConfigStore(this).setAppConfig(sceneConfigInfo)) {
+        if (!TuneArsenalsConfigStore(this).setAppConfig(sceneConfigInfo)) {
             Toast.makeText(applicationContext, getString(R.string.config_save_fail), Toast.LENGTH_LONG).show()
         } else {
             if (sceneConfigInfo.fgCGroupMem != originConfig.fgCGroupMem ||
@@ -380,7 +380,7 @@ class ActivityAppDetails : ActivityBase() {
 
             if (sceneConfigInfo.freeze != originConfig.freeze) {
                 if (sceneConfigInfo.freeze) {
-                    SceneMode.getCurrentInstance()?.setFreezeAppLeaveTime(sceneConfigInfo.packageName)
+                    TuneArsenalsMode.getCurrentInstance()?.setFreezeAppLeaveTime(sceneConfigInfo.packageName)
                 }
             }
         }

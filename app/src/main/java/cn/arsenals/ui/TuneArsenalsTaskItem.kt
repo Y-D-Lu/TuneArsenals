@@ -11,7 +11,7 @@ import cn.arsenals.model.TimingTaskInfo
 import cn.arsenals.tunearsenals.R
 import kotlinx.android.synthetic.main.list_scene_task_item.view.*
 
-class SceneTaskItem : LinearLayout {
+class TuneArsenalsTaskItem : LinearLayout {
     constructor(context: Context) : super(context) {
         setLayout(context)
     }

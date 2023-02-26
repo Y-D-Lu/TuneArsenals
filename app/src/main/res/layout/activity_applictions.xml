@@ -39,6 +39,6 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_list"
-        style="@style/SceneTabLayout" />
+        style="@style/TuneArsenalsTabLayout" />
 
 </RelativeLayout>

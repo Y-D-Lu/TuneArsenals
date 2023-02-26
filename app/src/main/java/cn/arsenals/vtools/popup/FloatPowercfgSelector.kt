@@ -9,13 +9,13 @@ import android.provider.Settings
 import android.view.*
 import android.view.WindowManager.LayoutParams
 import android.widget.*
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.data.EventBus
 import cn.arsenals.data.EventType
 import cn.arsenals.library.permissions.NotificationListener
 import cn.arsenals.library.shell.LocationHelper
 import cn.arsenals.scene_mode.ModeSwitcher
-import cn.arsenals.store.SceneConfigStore
+import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.store.SpfConfig
 import cn.arsenals.utils.AccessibleServiceHelper
 import cn.arsenals.tunearsenals.R
@@ -111,7 +111,7 @@ class FloatPowercfgSelector(context: Context) {
     }
 
     private fun setUpView(context: Context, packageName: String): View {
-        val store = SceneConfigStore(context)
+        val store = TuneArsenalsConfigStore(context)
         val appConfig = store.getAppConfig(packageName)
 
         val view = LayoutInflater.from(context).inflate(R.layout.fw_powercfg_selector, null)
@@ -388,7 +388,7 @@ class FloatPowercfgSelector(context: Context) {
                         floatTaskManager.showPopupWindow()
                         it.alpha = 1f
                     } else {
-                        Scene.toast(context.getString(R.string.monitor_process_unsupported), Toast.LENGTH_SHORT)
+                        TuneArsenals.toast(context.getString(R.string.monitor_process_unsupported), Toast.LENGTH_SHORT)
                     }
                 }
             }

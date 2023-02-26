@@ -3,7 +3,7 @@ package cn.arsenals.scene_mode
 import android.content.Context
 import android.os.SystemClock
 import android.util.Log
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shared.FileWrite
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.library.shell.PropsUtils
@@ -41,7 +41,7 @@ open class ModeSwitcher {
             if (CpuConfigInstaller().outsideConfigInstalled()) {
                 return SOURCE_OUTSIDE
             }
-            val config = Scene.context
+            val config = TuneArsenals.context
                     .getSharedPreferences(SpfConfig.GLOBAL_SPF, Context.MODE_PRIVATE)
                     .getString(SpfConfig.GLOBAL_SPF_PROFILE_SOURCE, SOURCE_UNKNOWN)
             if (config == SOURCE_SCENE_CUSTOM || CpuConfigInstaller().insideConfigInstalled()) {
@@ -57,10 +57,10 @@ open class ModeSwitcher {
                     "外部来源"
                 }
                 "SOURCE_SCENE_CONSERVATIVE" -> {
-                    "Scene-经典"
+                    "TuneArsenals-经典"
                 }
                 "SOURCE_SCENE_ACTIVE" -> {
-                    "Scene-性能"
+                    "TuneArsenals-性能"
                 }
                 "SOURCE_SCENE_CUSTOM" -> {
                     "自定义"
@@ -80,7 +80,7 @@ open class ModeSwitcher {
             })
         }
 
-        // 是否已经完成内置配置文件的自动更新（如果使用的是Scene自带的配置，每次切换调度前，先安装配置）
+        // 是否已经完成内置配置文件的自动更新（如果使用的是TuneArsenals自带的配置，每次切换调度前，先安装配置）
         private var innerConfigUpdated = false
 
         const val OUTSIDE_POWER_CFG_PATH = "/data/powercfg.sh"
@@ -176,11 +176,11 @@ open class ModeSwitcher {
             lastInitProvider = PROVIDER_OUTSIDE
         } else {
             if (!innerConfigUpdated) {
-                installer.applyConfigNewVersion(Scene.context)
+                installer.applyConfigNewVersion(TuneArsenals.context)
                 innerConfigUpdated = true
             }
             lastInitProvider = PROVIDER_INSIDE
-            configProvider = FileWrite.getPrivateFilePath(Scene.context, "powercfg.sh")
+            configProvider = FileWrite.getPrivateFilePath(TuneArsenals.context, "powercfg.sh")
         }
 
         if (configProvider.isNotEmpty()) {
@@ -199,12 +199,12 @@ open class ModeSwitcher {
             val source = getCurrentSource()
             when (source) {
                 SOURCE_SCENE_CUSTOM -> {
-                    val cpuConfigStorage = CpuConfigStorage(Scene.context)
+                    val cpuConfigStorage = CpuConfigStorage(TuneArsenals.context)
                     if (cpuConfigStorage.exists(mode)) {
-                        cpuConfigStorage.applyCpuConfig(Scene.context, mode)
+                        cpuConfigStorage.applyCpuConfig(TuneArsenals.context, mode)
                         setCurrentPowercfg(mode)
                     } else {
-                        Log.e("Scene", "" + mode + "Profile lost!")
+                        Log.e("TuneArsenals", "" + mode + "Profile lost!")
                     }
                 }
                 SOURCE_OUTSIDE -> {
@@ -213,8 +213,8 @@ open class ModeSwitcher {
                     }
 
                     if (configProvider.isNotEmpty()) {
-                        val dynamic = Scene.getBoolean(SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL, SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL_DEFAULT)
-                        val strictMode = Scene.getBoolean(SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL_STRICT, false)
+                        val dynamic = TuneArsenals.getBoolean(SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL, SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL_DEFAULT)
+                        val strictMode = TuneArsenals.getBoolean(SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL_STRICT, false)
                         if (dynamic && strictMode) {
                             keepShellExec(
                                     "export top_app=$packageName\n" +
@@ -228,7 +228,7 @@ open class ModeSwitcher {
                         }
                         setCurrentPowercfg(mode)
                     } else {
-                        Log.e("Scene", "" + mode + "Profile lost!")
+                        Log.e("TuneArsenals", "" + mode + "Profile lost!")
                     }
                 }
                 else -> {
@@ -237,8 +237,8 @@ open class ModeSwitcher {
                     }
 
                     if (configProvider.isNotEmpty()) {
-                        val dynamic = Scene.getBoolean(SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL, SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL_DEFAULT)
-                        val strictMode = Scene.getBoolean(SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL_STRICT, false)
+                        val dynamic = TuneArsenals.getBoolean(SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL, SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL_DEFAULT)
+                        val strictMode = TuneArsenals.getBoolean(SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL_STRICT, false)
                         if (dynamic && strictMode) {
                             val currentTime = SystemClock.elapsedRealtime()
                             keepShellExec(
@@ -253,7 +253,7 @@ open class ModeSwitcher {
                         }
                         setCurrentPowercfg(mode)
                     } else {
-                        Log.e("Scene", "" + mode + "Profile lost!")
+                        Log.e("TuneArsenals", "" + mode + "Profile lost!")
                     }
                 }
             }
@@ -263,7 +263,7 @@ open class ModeSwitcher {
     }
 
     internal fun executePowercfgMode(mode: String, app: String): ModeSwitcher {
-        if (app != Scene.thisPackageName) {
+        if (app != TuneArsenals.thisPackageName) {
             executeMode(mode, app)
             setCurrentPowercfgApp(app)
         } else {
@@ -275,7 +275,7 @@ open class ModeSwitcher {
 
     // 是否已经完成指定模式的自定义
     public fun modeReplaced(mode: String): Boolean {
-        return CpuConfigStorage(Scene.context).exists(mode)
+        return CpuConfigStorage(TuneArsenals.context).exists(mode)
     }
 
     // 是否已完成四个模式的配置
@@ -301,7 +301,7 @@ open class ModeSwitcher {
 
     // 是否已经完成所有模式的自定义
     public fun allModeReplaced(): Boolean {
-        val storage = CpuConfigStorage(Scene.context)
+        val storage = CpuConfigStorage(TuneArsenals.context)
 
         return storage.exists(POWERSAVE) &&
                 storage.exists(BALANCE) &&

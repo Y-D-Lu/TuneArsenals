@@ -14,7 +14,7 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_list"
-        style="@style/SceneTabLayout" />
+        style="@style/TuneArsenalsTabLayout" />
 
     <include
         layout="@layout/layout_app_bar"

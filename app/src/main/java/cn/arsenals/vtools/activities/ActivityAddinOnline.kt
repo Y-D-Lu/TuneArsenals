@@ -237,7 +237,7 @@ class ActivityAddinOnline : ActivityBase() {
                 } catch (ex: java.lang.Exception) {
                 }
             }
-        }, "SceneUI")
+        }, "TuneArsenalsUI")
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {

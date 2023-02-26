@@ -15,7 +15,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shared.MagiskExtend
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.common.shell.KernelProrp
@@ -40,7 +40,7 @@ class ActivityMain : ActivityBase() {
 
     private class ThermalCheckThread(private var context: Activity) : Thread() {
         private fun deleteThermalCopyWarn(onYes: Runnable) {
-            Scene.post {
+            TuneArsenals.post {
                 if (!context.isFinishing) {
                     val view = LayoutInflater.from(context).inflate(R.layout.dialog_delete_thermal, null)
                     val dialog = DialogHelper.customDialog(context, view)
@@ -79,7 +79,7 @@ class ActivityMain : ActivityBase() {
                                         MagiskExtend.getMagiskReplaceFilePath("/system/vendor/etc/thermal-normal.conf")
                                 )
                         ) {
-                            // Scene.toast("文件相同，跳过温控清理", Toast.LENGTH_SHORT)
+                            // TuneArsenals.toast("文件相同，跳过温控清理", Toast.LENGTH_SHORT)
                             return
                         } else {
                             deleteThermalCopyWarn {

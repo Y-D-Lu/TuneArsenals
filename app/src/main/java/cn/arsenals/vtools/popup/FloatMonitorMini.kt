@@ -19,7 +19,7 @@ import android.view.WindowManager
 import android.view.WindowManager.LayoutParams
 import android.widget.TextView
 import android.widget.Toast
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.data.GlobalStatus
 import cn.arsenals.library.shell.*
 import cn.arsenals.store.SpfConfig
@@ -104,7 +104,7 @@ public class FloatMonitorMini(private val mContext: Context) {
             startTimer()
             return true
         } catch (ex: Exception) {
-            Scene.toast("FloatMonitorMini Error\n" + ex.message)
+            TuneArsenals.toast("FloatMonitorMini Error\n" + ex.message)
             return false
         }
     }

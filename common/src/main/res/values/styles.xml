@@ -39,7 +39,7 @@
         <item name="android:layout_margin">0dp</item>
     </style>
 
-    <style name="SceneSpinner">
+    <style name="TuneArsenalsSpinner">
         <item name="android:paddingStart">0dp</item>
         <item name="android:paddingEnd">10dp</item>
         <item name="android:textAlignment">textEnd</item>
@@ -51,7 +51,7 @@
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="SceneSwitch" parent="Widget.AppCompat.CompoundButton.Switch">
+    <style name="TuneArsenalsSwitch" parent="Widget.AppCompat.CompoundButton.Switch">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">14dp</item>
@@ -64,7 +64,7 @@
         <item name="android:showText">false</item>
     </style>
 
-    <style name="SceneCheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+    <style name="TuneArsenalsCheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:button">@drawable/checkbox_style</item>
         <item name="android:background">@null</item>
@@ -76,7 +76,7 @@
         <item name="android:textSize">14dp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
-    <style name="SceneRadioBox" parent="Widget.AppCompat.CompoundButton.RadioButton">
+    <style name="TuneArsenalsRadioBox" parent="Widget.AppCompat.CompoundButton.RadioButton">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:button">@drawable/radio_style</item>
         <item name="android:background">@null</item>
@@ -88,7 +88,7 @@
         <item name="android:textSize">14dp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
-    <style name="SceneSeekBar" parent="Widget.AppCompat.SeekBar">
+    <style name="TuneArsenalsSeekBar" parent="Widget.AppCompat.SeekBar">
         <item name="android:thumbOffset">0dp</item>
         <item name="android:paddingStart">0dp</item>
         <item name="android:paddingEnd">0dp</item>
@@ -103,7 +103,7 @@
         <item name="android:alpha">0.45</item>
         <item name="android:background">@null</item>
     </style>
-    <style name="SceneSeekbarIcon">
+    <style name="TuneArsenalsSeekbarIcon">
         <item name="android:layout_width">20dp</item>
         <item name="android:layout_height">20dp</item>
         <item name="android:alpha">0.45</item>
@@ -113,7 +113,7 @@
         <item name="android:scaleType">centerInside</item>
     </style>
 
-    <style name="SceneButton" parent="@style/Widget.AppCompat.Button.Borderless">
+    <style name="TuneArsenalsButton" parent="@style/Widget.AppCompat.Button.Borderless">
         <item name="android:background">@drawable/btn_bg</item>
         <item name="android:layout_width">60dp</item>
         <item name="android:layout_height">32dp</item>

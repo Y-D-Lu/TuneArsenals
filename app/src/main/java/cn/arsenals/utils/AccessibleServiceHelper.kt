@@ -16,7 +16,7 @@ class AccessibleServiceHelper {
     }
 
     // 停止场景模式服务
-    fun stopSceneModeService(context: Context): Boolean {
+    fun stopTuneArsenalsModeService(context: Context): Boolean {
         return AccessibilityServiceUtils().stopService("${context.packageName}/${AccessibilityTuneArsenals::class.java.name}")
     }
 

@@ -9,7 +9,7 @@ import android.os.StatFs
 import android.widget.AdapterView
 import android.widget.SimpleAdapter
 import android.widget.Toast
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shared.FilePathResolver
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.shell_utils.BackupRestoreUtils
@@ -94,7 +94,7 @@ class ActivityImg : ActivityBase() {
 
     private fun backupImg(action: Int) {
         if (getSDFreeSizeMB() < 200) {
-            Scene.toast(getString(R.string.backup_space_small), Toast.LENGTH_LONG)
+            TuneArsenals.toast(getString(R.string.backup_space_small), Toast.LENGTH_LONG)
             return
         } else {
             var fileName = ""

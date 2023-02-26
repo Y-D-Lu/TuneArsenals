@@ -13,7 +13,7 @@ import android.view.View
 import android.view.WindowManager
 import android.webkit.*
 import android.widget.Toast
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.common.ui.ProgressBarDialog
 import cn.arsenals.library.basic.AppInfoLoader
@@ -51,7 +51,7 @@ class ActivityFpsChart : ActivityBase() {
         }
 
         vtools_online.loadUrl("file:///android_asset/fps-chart/index.html")
-        // vtools_online.loadUrl("https://vtools.oss-cn-beijing.aliyuncs.com/Scene-Online/fps-chart/index.html")
+        // vtools_online.loadUrl("https://vtools.oss-cn-beijing.aliyuncs.com/TuneArsenals-Online/fps-chart/index.html")
         val context = this@ActivityFpsChart
         val progressBarDialog = ProgressBarDialog(context)
 
@@ -143,7 +143,7 @@ class ActivityFpsChart : ActivityBase() {
 
             @JavascriptInterface
             public fun toggleFpsToolbar(show: Boolean) {
-                Scene.post {
+                TuneArsenals.post {
                     if (show) {
                         FloatFpsWatch(context).showPopupWindow()
                         /*
@@ -151,7 +151,7 @@ class ActivityFpsChart : ActivityBase() {
                         if (serviceState) {
                             FloatFpsWatch(context).showPopupWindow()
                         } else {
-                            Scene.toast("请在系统设置里激活[Scene - 场景模式]辅助服务", Toast.LENGTH_SHORT)
+                            TuneArsenals.toast("请在系统设置里激活[TuneArsenals - 场景模式]辅助服务", Toast.LENGTH_SHORT)
                         }
                         */
                     } else {
@@ -264,7 +264,7 @@ class ActivityFpsChart : ActivityBase() {
                 } catch (ex: java.lang.Exception) {
                 }
             }
-        }, "SceneJS")
+        }, "TuneArsenalsJS")
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {

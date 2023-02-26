@@ -9,7 +9,7 @@ import android.provider.Settings
 import android.widget.Toast
 import cn.arsenals.tunearsenals.popup.FloatPowercfgSelector
 
-class ReceiverSceneMode : BroadcastReceiver() {
+class ReceiverTuneArsenalsMode : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.extras != null) {
             val parameterValue = intent.getStringExtra("packageName");
@@ -23,7 +23,7 @@ class ReceiverSceneMode : BroadcastReceiver() {
                 val overlayPermission = Intent().addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 overlayPermission.action = "android.settings.APPLICATION_DETAILS_SETTINGS"
                 overlayPermission.data = Uri.fromParts("package", context.packageName, null)
-                Toast.makeText(context, "为Scene授权显示悬浮窗权限，从而在应用中快速切换模式！", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "为TuneArsenals授权显示悬浮窗权限，从而在应用中快速切换模式！", Toast.LENGTH_SHORT).show();
             } else {
                 FloatPowercfgSelector(context.applicationContext).open(parameterValue)
             }

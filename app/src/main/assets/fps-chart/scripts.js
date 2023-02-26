@@ -1,5 +1,5 @@
 
-const SceneJS = window.SceneJS;
+const TuneArsenalsJS = window.TuneArsenalsJS;
 
 function dateFormat(timeLong, fmt) {
   if (!timeLong) {
@@ -30,8 +30,8 @@ var stackedLine;
 var app = new Vue({
   el: '#app',
   data: {
-    toolbarOn: SceneJS ? JSON.parse(SceneJS.getFpsToolbarState()) : false,
-    sessions: SceneJS ? JSON.parse(SceneJS.getSessions()) : [],
+    toolbarOn: TuneArsenalsJS ? JSON.parse(TuneArsenalsJS.getFpsToolbarState()) : false,
+    sessions: TuneArsenalsJS ? JSON.parse(TuneArsenalsJS.getSessions()) : [],
     detail: {
       max: 0,
       min: 0,
@@ -40,7 +40,7 @@ var app = new Vue({
       highTempRatio: '--',
       maxTemp: '--'
     },
-    device: SceneJS ? JSON.parse(SceneJS.getDeviceInfo()) : {}
+    device: TuneArsenalsJS ? JSON.parse(TuneArsenalsJS.getDeviceInfo()) : {}
   },
   filters: {
     dateFormat: (date) => {
@@ -126,13 +126,13 @@ var app = new Vue({
   },
   methods: {
     toggleFpsToolbar () {
-      SceneJS.toggleFpsToolbar(!this.toolbarOn)
+      TuneArsenalsJS.toggleFpsToolbar(!this.toolbarOn)
       setTimeout(() => {
-        this.toolbarOn = JSON.parse(SceneJS.getFpsToolbarState())
+        this.toolbarOn = JSON.parse(TuneArsenalsJS.getFpsToolbarState())
       }, 100)
     },
     deleteSession(session) {
-      SceneJS.deleteSession(session.sessionId);
+      TuneArsenalsJS.deleteSession(session.sessionId);
       this.sessions.splice(this.sessions.indexOf(session), 1)
       if (this.sessions.length > 0) {
         this.onSessionClick(this.sessions[this.sessions.length - 1])
@@ -140,7 +140,7 @@ var app = new Vue({
     },
     onSessionClick(session) {
       const detail = {
-        ...(JSON.parse(SceneJS.getSessionData(session.sessionId))),
+        ...(JSON.parse(TuneArsenalsJS.getSessionData(session.sessionId))),
         ...session
       };
       this.detail = detail;

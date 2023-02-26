@@ -91,7 +91,7 @@ then
 
     echo 3 > /proc/sys/vm/drop_caches
 
-    echo '注意：开启省电模式后，Scene可能会无法保持后台'
+    echo '注意：开启省电模式后，TuneArsenals可能会无法保持后台'
     echo '并且，可能会收不到后台消息推送！'
     echo ''
 else

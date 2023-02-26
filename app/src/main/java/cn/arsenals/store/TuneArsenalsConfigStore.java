@@ -6,16 +6,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import cn.arsenals.model.SceneConfigInfo;
+import cn.arsenals.model.TuneArsenalsConfigInfo;
 import cn.arsenals.tunearsenals.R;
 
 import java.util.ArrayList;
 
-public class SceneConfigStore extends SQLiteOpenHelper {
+public class TuneArsenalsConfigStore extends SQLiteOpenHelper {
     private static final int DB_VERSION = 6;
     private final Context context;
 
-    public SceneConfigStore(Context context) {
+    public TuneArsenalsConfigStore(Context context) {
         super(context, "scene3_config", null, DB_VERSION);
         this.context = context;
     }
@@ -84,8 +84,8 @@ public class SceneConfigStore extends SQLiteOpenHelper {
         }
     }
 
-    public SceneConfigInfo getAppConfig(String app) {
-        SceneConfigInfo sceneConfigInfo = new SceneConfigInfo();
+    public TuneArsenalsConfigInfo getAppConfig(String app) {
+        TuneArsenalsConfigInfo sceneConfigInfo = new TuneArsenalsConfigInfo();
         sceneConfigInfo.packageName = app;
         try {
             SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
@@ -111,7 +111,7 @@ public class SceneConfigStore extends SQLiteOpenHelper {
         return sceneConfigInfo;
     }
 
-    public boolean setAppConfig(SceneConfigInfo sceneConfigInfo) {
+    public boolean setAppConfig(TuneArsenalsConfigInfo sceneConfigInfo) {
         SQLiteDatabase database = getWritableDatabase();
         getWritableDatabase().beginTransaction();
         try {

@@ -1,7 +1,7 @@
 package cn.arsenals.utils
 
 import android.content.Context
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.store.AutoSkipConfigStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -36,7 +36,7 @@ class AutoSkipCloudData {
                 }
                 val data = JSONArray(stringBuilder.toString().trim { it <= ' ' })
                 if (showMsg) {
-                    Scene.toast("从云端获得 " + data.length() + " 条(自动跳过)数据")
+                    TuneArsenals.toast("从云端获得 " + data.length() + " 条(自动跳过)数据")
                 }
                 val db = AutoSkipConfigStore(context)
                 db.clearAll()
@@ -48,7 +48,7 @@ class AutoSkipCloudData {
                 }
             } catch (ex: Exception) {
                 if (showMsg) {
-                    Scene.toast("获取云端配置数据失败~")
+                    TuneArsenals.toast("获取云端配置数据失败~")
                 }
             }
         }

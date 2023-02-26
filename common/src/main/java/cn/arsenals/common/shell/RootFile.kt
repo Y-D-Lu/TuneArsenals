@@ -92,7 +92,7 @@ object RootFile {
                     if (file != null) {
                         files.add(file)
                     } else {
-                        Log.e(">>>> Scene", "MapDirError Row -> " + row)
+                        Log.e(">>>> TuneArsenals", "MapDirError Row -> " + row)
                     }
                 }
             }
@@ -116,7 +116,7 @@ object RootFile {
                     file.parentDir = absPath.substring(0, absPath.lastIndexOf("/"))
                     return file
                 } else {
-                    Log.e(">>>> Scene", "MapDirError Row -> " + row)
+                    Log.e(">>>> TuneArsenals", "MapDirError Row -> " + row)
                 }
             }
         }

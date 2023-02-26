@@ -7,7 +7,7 @@ import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Toast
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.store.AutoSkipConfigStore
 import cn.arsenals.store.SpfConfig
 import java.util.*
@@ -50,7 +50,7 @@ class AutoSkipAd(private val service: AccessibilityService) {
                         lastClickedNode = node
                         lastClickedApp = root.packageName?.toString()
                         autoClickBase.clickNode(node) || autoClickBase.tryTouchNodeRect(node, service)
-                        Scene.toast("Scene自动点了(${id})", Toast.LENGTH_SHORT)
+                        TuneArsenals.toast("TuneArsenals自动点了(${id})", Toast.LENGTH_SHORT)
                     }
                 }
                 return true
@@ -71,15 +71,15 @@ class AutoSkipAd(private val service: AccessibilityService) {
         val xMax = minSide * 0.3f
         val yMax = minSide * 0.28f
         if (top > yMax && bottom > yMax) {
-            Log.d("@Scene", "Y Filter ${top} ${bottom} ${yMax}")
+            Log.d("@TuneArsenals", "Y Filter ${top} ${bottom} ${yMax}")
             return false
         }
         if (left > xMax && right > xMax) {
-            Log.d("@Scene", "X Filter ${left} ${right} ${xMax}")
+            Log.d("@TuneArsenals", "X Filter ${left} ${right} ${xMax}")
             return false
         }
-        // Log.d("@Scene", "Y Filter ${top} ${bottom} ${yMax}")
-        // Log.d("@Scene", "X Filter ${left} ${right} ${xMax}")
+        // Log.d("@TuneArsenals", "Y Filter ${top} ${bottom} ${yMax}")
+        // Log.d("@TuneArsenals", "X Filter ${left} ${right} ${xMax}")
         return true
     }
 
@@ -134,8 +134,8 @@ class AutoSkipAd(private val service: AccessibilityService) {
                                 if (splash || pointFilter(p)) {
                                     // 尝试点子节点
                                     if (autoClickBase.clickNode(node)) {
-                                        Log.d("@Scene", "SkipAD √ $packageName ${p} id: ${viewId}, text:" + node.text)
-                                        Scene.toast("Scene自动点了(${text})", Toast.LENGTH_SHORT)
+                                        Log.d("@TuneArsenals", "SkipAD √ $packageName ${p} id: ${viewId}, text:" + node.text)
+                                        TuneArsenals.toast("TuneArsenals自动点了(${text})", Toast.LENGTH_SHORT)
                                         return
                                     }
 
@@ -145,11 +145,11 @@ class AutoSkipAd(private val service: AccessibilityService) {
                                     if (wrapNode != null) {
                                         wrapNode.getBoundsInScreen(pp)
                                         if ((splash || pointFilter(pp)) && autoClickBase.clickNode(wrapNode)) {
-                                            Log.d("@Scene", "SkipAD √ $packageName ${p} id: ${wrapNode.viewIdResourceName}, text:" + node.text)
+                                            Log.d("@TuneArsenals", "SkipAD √ $packageName ${p} id: ${wrapNode.viewIdResourceName}, text:" + node.text)
                                             lastClickedApp = packageName.toString()
                                             lastClickedNode = node
                                             lastCompletedEventTime = t
-                                            Scene.toast("Scene自动点了(${text})", Toast.LENGTH_SHORT)
+                                            TuneArsenals.toast("TuneArsenals自动点了(${text})", Toast.LENGTH_SHORT)
                                             return
                                         }
                                     }
@@ -159,7 +159,7 @@ class AutoSkipAd(private val service: AccessibilityService) {
                                         lastClickedApp = packageName.toString()
                                         lastClickedNode = node
                                         lastCompletedEventTime = t
-                                        Scene.toast("Scene尝试触摸了(${text})", Toast.LENGTH_SHORT)
+                                        TuneArsenals.toast("TuneArsenals尝试触摸了(${text})", Toast.LENGTH_SHORT)
                                         return
                                     }
                                 } else {
@@ -179,17 +179,17 @@ class AutoSkipAd(private val service: AccessibilityService) {
                                         FloatAdSkipConfirm(service).showConfirm(packageName, p) {
                                             autoClickBase.clickNode(clickableNode)
                                         }
-                                        Log.d("@Scene", "SkipAD SKip -> $packageName, ${source.className} ${p} id: ${viewId}, text:" + node.text)
+                                        Log.d("@TuneArsenals", "SkipAD SKip -> $packageName, ${source.className} ${p} id: ${viewId}, text:" + node.text)
                                     }
                                     */
                                 }
                                 return
                             }
                         } else {
-                            Log.d("@Scene", "SkipAD -> $className；" + node.text)
+                            Log.d("@TuneArsenals", "SkipAD -> $className；" + node.text)
                         }
                     } else {
-                        Log.d("@Scene", "SkipAD -> $className；" + node.text)
+                        Log.d("@TuneArsenals", "SkipAD -> $className；" + node.text)
                     }
                 }
             }
@@ -222,7 +222,7 @@ class AutoSkipAd(private val service: AccessibilityService) {
                                     lastClickedNode = node
                                     lastCompletedEventTime = t
 
-                                    Scene.toast("Scene自动点了(${text})", Toast.LENGTH_SHORT)
+                                    TuneArsenals.toast("TuneArsenals自动点了(${text})", Toast.LENGTH_SHORT)
                                 }
                             }
 
@@ -233,7 +233,7 @@ class AutoSkipAd(private val service: AccessibilityService) {
             }
             */
         } catch (ex: java.lang.Exception) {
-            Log.e("@Scene", "SkipAD Error -> ${ex.message}")
+            Log.e("@TuneArsenals", "SkipAD Error -> ${ex.message}")
         }
     }
 }

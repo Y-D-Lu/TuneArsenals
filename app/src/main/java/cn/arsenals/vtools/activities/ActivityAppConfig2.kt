@@ -13,7 +13,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.common.ui.OverScrollListView
 import cn.arsenals.common.ui.ProgressBarDialog
@@ -21,9 +21,9 @@ import cn.arsenals.data.EventBus
 import cn.arsenals.data.EventType
 import cn.arsenals.model.AppInfo
 import cn.arsenals.scene_mode.ModeSwitcher
-import cn.arsenals.store.SceneConfigStore
+import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.store.SpfConfig
-import cn.arsenals.ui.SceneModeAdapter
+import cn.arsenals.ui.TuneArsenalsModeAdapter
 import cn.arsenals.utils.AppListHelper
 import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.dialogs.DialogAppOrientation
@@ -40,7 +40,7 @@ class ActivityAppConfig2 : ActivityBase() {
     private lateinit var applistHelper: AppListHelper
     private var installedList: ArrayList<AppInfo>? = null
     private var displayList: ArrayList<AppInfo>? = null
-    private lateinit var sceneConfigStore: SceneConfigStore
+    private lateinit var sceneConfigStore: TuneArsenalsConfigStore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,7 +80,7 @@ class ActivityAppConfig2 : ActivityBase() {
         applistHelper = AppListHelper(this, false)
         spfPowercfg = getSharedPreferences(SpfConfig.POWER_CONFIG_SPF, Context.MODE_PRIVATE)
         globalSPF = getSharedPreferences(SpfConfig.GLOBAL_SPF, Context.MODE_PRIVATE)
-        sceneConfigStore = SceneConfigStore(this.context)
+        sceneConfigStore = TuneArsenalsConfigStore(this.context)
 
         if (spfPowercfg.all.isEmpty()) {
             initDefaultConfig()
@@ -118,7 +118,7 @@ class ActivityAppConfig2 : ActivityBase() {
                                 }.apply()
 
                                 setAppRowDesc(item)
-                                (parent.adapter as SceneModeAdapter).updateRow(position, view)
+                                (parent.adapter as TuneArsenalsModeAdapter).updateRow(position, view)
                                 notifyService(app, "" + mode)
                             }
                         }).show()
@@ -167,7 +167,7 @@ class ActivityAppConfig2 : ActivityBase() {
         if (requestCode == REQUEST_APP_CONFIG && data != null && displayList != null) {
             try {
                 if (resultCode == AppCompatActivity.RESULT_OK) {
-                    val adapter = (scene_app_list.adapter as SceneModeAdapter)
+                    val adapter = (scene_app_list.adapter as TuneArsenalsModeAdapter)
                     var index = -1
                     val packageName = data.extras!!.getString("app")
                     for (i in 0 until displayList!!.size) {
@@ -180,7 +180,7 @@ class ActivityAppConfig2 : ActivityBase() {
                     }
                     val item = adapter.getItem(index)
                     setAppRowDesc(item)
-                    (scene_app_list.adapter as SceneModeAdapter?)?.run {
+                    (scene_app_list.adapter as TuneArsenalsModeAdapter?)?.run {
                         updateRow(index, lastClickRow!!)
                     }
                     //loadList(false)
@@ -240,8 +240,8 @@ class ActivityAppConfig2 : ActivityBase() {
     }
 
     private fun setListData(dl: ArrayList<AppInfo>?, lv: OverScrollListView) {
-        Scene.post {
-            lv.adapter = SceneModeAdapter(
+        TuneArsenals.post {
+            lv.adapter = TuneArsenalsModeAdapter(
                     this,
                     dl!!,
                     globalSPF.getString(SpfConfig.GLOBAL_SPF_POWERCFG_FIRST_MODE, ModeSwitcher.DEFAULT)!!
@@ -266,7 +266,7 @@ class ActivityAppConfig2 : ActivityBase() {
                 installedList = applistHelper.getAll()
             }
             if (config_search_box == null) {
-                Scene.post {
+                TuneArsenals.post {
                     processBarDialog.hideDialog()
                 }
                 return@Runnable
@@ -305,7 +305,7 @@ class ActivityAppConfig2 : ActivityBase() {
                 }
             }
             sortAppList(displayList!!)
-            Scene.post {
+            TuneArsenals.post {
                 processBarDialog.hideDialog()
                 setListData(displayList, scene_app_list)
             }

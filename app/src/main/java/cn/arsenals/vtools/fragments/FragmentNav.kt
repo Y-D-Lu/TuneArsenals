@@ -12,7 +12,7 @@ import android.widget.GridLayout
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.common.ui.ThemeMode
 import cn.arsenals.kr.KrScriptConfig
@@ -61,7 +61,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
     }
 
     private fun startService() {
-        AccessibleServiceHelper().stopSceneModeService(activity!!.applicationContext)
+        AccessibleServiceHelper().stopTuneArsenalsModeService(activity!!.applicationContext)
 
         /* 使用ROOT权限激活辅助服务会导致某些授权拿不到，导致事件触发不完整 */
         /*
@@ -69,7 +69,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
         val dialog = ProgressBarDialog(context!!)
         dialog.showDialog("尝试使用ROOT权限开启服务...")
         Thread(Runnable {
-            if (!AccessibleServiceHelper().startSceneModeService(context!!)) {
+            if (!AccessibleServiceHelper().startTuneArsenalsModeService(context!!)) {
                 try {
                     myHandler.post {
                         val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
@@ -92,7 +92,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
             }
         }).start()
         */
-        Scene.toast("请在系统设置里激活[TuneArsenals - 场景模式]选项", Toast.LENGTH_SHORT)
+        TuneArsenals.toast("请在系统设置里激活[TuneArsenals - 场景模式]选项", Toast.LENGTH_SHORT)
         try {
             val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -263,7 +263,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
                     return
                 }
                 R.id.nav_system_scene -> {
-                    val intent = Intent(context, ActivitySystemScene::class.java)
+                    val intent = Intent(context, ActivitySystemTuneArsenals::class.java)
                     startActivity(intent)
                     return
                 }
@@ -310,7 +310,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
                         val intent = Intent(context, ActivityFpsChart::class.java)
                         startActivity(intent)
                     } else {
-                        Scene.toast("请在系统设置里激活[TuneArsenals - 场景模式]辅助服务", Toast.LENGTH_SHORT)
+                        TuneArsenals.toast("请在系统设置里激活[TuneArsenals - 场景模式]辅助服务", Toast.LENGTH_SHORT)
                     }
                     return
                 }
@@ -356,7 +356,7 @@ class FragmentNav : Fragment(), View.OnClickListener {
             if (XposedCheck.xposedIsRunning()) {
                 onPass.run()
             } else {
-                Toast.makeText(context, "请先在Xposed管理器中重新勾选“Scene”，并重启手机", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "请先在Xposed管理器中重新勾选“TuneArsenals”，并重启手机", Toast.LENGTH_LONG).show()
             }
         } else {
             installVAddin()

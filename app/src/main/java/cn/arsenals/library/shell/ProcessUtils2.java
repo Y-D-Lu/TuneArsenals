@@ -97,10 +97,10 @@ public class ProcessUtils2 {
                 processInfo.pid = Integer.parseInt(columns[3]);
                 return processInfo;
             } catch (Exception ex) {
-                // Log.e("Scene-ProcessUtils", "" + ex.getMessage() + " -> " + row);
+                // Log.e("TuneArsenals-ProcessUtils", "" + ex.getMessage() + " -> " + row);
             }
         } else {
-            // Log.e("Scene-ProcessUtils", "" + row);
+            // Log.e("TuneArsenals-ProcessUtils", "" + row);
         }
         return null;
     }
@@ -183,10 +183,10 @@ public class ProcessUtils2 {
                     }};
                     threadData.add(threadInfo);
                 } catch (Exception ex) {
-                    // Log.e("Scene-ProcessUtils", "" + ex.getMessage() + " -> " + row);
+                    // Log.e("TuneArsenals-ProcessUtils", "" + ex.getMessage() + " -> " + row);
                 }
             } else {
-                // Log.e("Scene-ProcessUtils", "" + ex.getMessage() + " -> " + row);
+                // Log.e("TuneArsenals-ProcessUtils", "" + ex.getMessage() + " -> " + row);
             }
         }
         Collections.sort(threadData, new Comparator<ThreadInfo>() {

@@ -12,7 +12,7 @@
         android:textColor="?android:textColorPrimary"
         android:alpha="0.8"
         android:textSize="14dp"
-        style="@style/SceneCheckBox"
+        style="@style/TuneArsenalsCheckBox"
         android:paddingStart="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

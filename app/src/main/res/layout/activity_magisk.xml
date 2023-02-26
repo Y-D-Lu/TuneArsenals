@@ -60,13 +60,13 @@
                         <Button
                             android:id="@+id/magisk_props_reset"
                             android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                            style="@style/SceneButton"
+                            style="@style/TuneArsenalsButton"
                             android:layout_width="wrap_content"
                             android:text="撤销更改" />
 
                         <Button
                             android:id="@+id/magisk_props_save"
-                            style="@style/SceneButton"
+                            style="@style/TuneArsenalsButton"
                             android:layout_width="wrap_content"
                             android:text="保存" />
                     </LinearLayout>
@@ -110,13 +110,13 @@
                         <Button
                             android:id="@+id/magisk_beforestart_reset"
                             android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                            style="@style/SceneButton"
+                            style="@style/TuneArsenalsButton"
                             android:layout_width="wrap_content"
                             android:text="撤销更改" />
 
                         <Button
                             android:id="@+id/magisk_beforestart_save"
-                            style="@style/SceneButton"
+                            style="@style/TuneArsenalsButton"
                             android:layout_width="wrap_content"
                             android:text="保存" />
                     </LinearLayout>
@@ -148,14 +148,14 @@
 
                         <Button
                             android:id="@+id/magisk_afterstart_reset"
-                            style="@style/SceneButton"
+                            style="@style/TuneArsenalsButton"
                             android:layout_marginEnd="@dimen/activity_horizontal_margin"
                             android:layout_width="wrap_content"
                             android:text="撤销更改" />
 
                         <Button
                             android:id="@+id/magisk_afterstart_save"
-                            style="@style/SceneButton"
+                            style="@style/TuneArsenalsButton"
                             android:layout_width="wrap_content"
                             android:text="保存" />
                     </LinearLayout>

@@ -67,7 +67,7 @@ public class MagiskExtend {
                     "version=v1\\n" +
                     "versionCode=1\\n" +
                     "author=嘟嘟ski\\n" +
-                    "description=用于将第三方应用转换成系统应用的模块，由Scene创建并添加\n" +
+                    "description=用于将第三方应用转换成系统应用的模块，由TuneArsenals创建并添加\n" +
                     "minMagisk=17000\\n";
 
             if (MagiskVersion < 19) {
@@ -128,11 +128,11 @@ public class MagiskExtend {
 
     public static void magiskModuleInstall(Context context) {
         String moduleProp = "id=scene_systemless\n" +
-                "name=Scene的附加模块\n" +
+                "name=TuneArsenals的附加模块\n" +
                 "version=v1\n" +
                 "versionCode=1\n" +
                 "author=嘟嘟ski\n" +
-                "description=Scene提供的Magisk拓展模块，从而在不修改系统文件的情况下，更改一些参数\n" +
+                "description=TuneArsenals提供的Magisk拓展模块，从而在不修改系统文件的情况下，更改一些参数\n" +
                 "minMagisk=17000\n";
         String systemProp = "# This file will be read by resetprop\n" +
                 "# 示例: 更改 dpi\n" +

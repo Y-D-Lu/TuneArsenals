@@ -7,7 +7,7 @@
 
     <ImageButton
         android:id="@+id/kr_param_seekbar_minus"
-        style="@style/SceneSeekbarIcon"
+        style="@style/TuneArsenalsSeekbarIcon"
         android:src="@drawable/kr_minus" />
 
     <RelativeLayout
@@ -19,7 +19,7 @@
 
         <SeekBar
             android:id="@+id/kr_param_seekbar"
-            style="@style/SceneSeekBar"
+            style="@style/TuneArsenalsSeekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -33,7 +33,7 @@
 
     <ImageButton
         android:id="@+id/kr_param_seekbar_plus"
-        style="@style/SceneSeekbarIcon"
+        style="@style/TuneArsenalsSeekbarIcon"
         android:src="@drawable/kr_plus" />
 
 

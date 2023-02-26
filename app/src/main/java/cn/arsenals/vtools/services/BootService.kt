@@ -20,9 +20,9 @@ import cn.arsenals.library.shell.LMKUtils
 import cn.arsenals.library.shell.PropsUtils
 import cn.arsenals.library.shell.SwapUtils
 import cn.arsenals.scene_mode.ModeSwitcher
-import cn.arsenals.scene_mode.SceneMode
+import cn.arsenals.scene_mode.TuneArsenalsMode
 import cn.arsenals.store.CpuConfigStorage
-import cn.arsenals.store.SceneConfigStore
+import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.store.SpfConfig
 import cn.arsenals.utils.CommonCmds
 import cn.arsenals.tunearsenals.R
@@ -120,7 +120,7 @@ class BootService : IntentService("vtools-boot") {
             }
         }
 
-        // 如果没有单独安装Magisk模块来处理虚拟内存，则在Scene的自启动中控制
+        // 如果没有单独安装Magisk模块来处理虚拟内存，则在TuneArsenals的自启动中控制
         if (!keepShell.doCmdSync("getprop vtools.swap.controller").equals("magisk")) {
             if (swapConfig.getBoolean(SpfConfig.SWAP_SPF_SWAP, false)) {
                 enableSwap(keepShell, context)
@@ -158,14 +158,14 @@ class BootService : IntentService("vtools-boot") {
         }
 
         updateNotification(getString(R.string.boot_freeze))
-        val launchedFreezeApp = SceneMode.getCurrentInstance()?.getLaunchedFreezeApp()
+        val launchedFreezeApp = TuneArsenalsMode.getCurrentInstance()?.getLaunchedFreezeApp()
         val suspendMode = globalConfig.getBoolean(SpfConfig.GLOBAL_SPF_FREEZE_SUSPEND, Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-        for (item in SceneConfigStore(context).freezeAppList) {
+        for (item in TuneArsenalsConfigStore(context).freezeAppList) {
             if (launchedFreezeApp == null || !launchedFreezeApp.contains(item)) {
                 if (suspendMode) {
-                    SceneMode.suspendApp(item)
+                    TuneArsenalsMode.suspendApp(item)
                 } else {
-                    SceneMode.freezeApp(item)
+                    TuneArsenalsMode.freezeApp(item)
                 }
             }
         }

@@ -62,7 +62,7 @@ public class CGroupMemoryUtlis(private val context: Context) {
             val cmd = String.format(memcgShell!!, packageName, groupPath)
             KeepShellPublic.doCmdSync(cmd)
         } else {
-            Log.e("Scene", "CGroup Init Fail!")
+            Log.e("TuneArsenals", "CGroup Init Fail!")
             return
         }
     }

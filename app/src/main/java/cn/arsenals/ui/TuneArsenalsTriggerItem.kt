@@ -12,7 +12,7 @@ import cn.arsenals.model.TriggerInfo
 import cn.arsenals.tunearsenals.R
 import kotlinx.android.synthetic.main.list_scene_task_item.view.*
 
-class SceneTriggerItem : LinearLayout {
+class TuneArsenalsTriggerItem : LinearLayout {
     constructor(context: Context) : super(context) {
         setLayout(context)
     }

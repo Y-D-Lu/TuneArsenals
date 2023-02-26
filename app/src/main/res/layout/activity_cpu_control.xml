@@ -57,7 +57,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="开机后应用当前设置，需要允许Scene开机自启动"
+                    android:text="开机后应用当前设置，需要允许TuneArsenals开机自启动"
                     android:textSize="13dp" />
             </LinearLayout>
 
@@ -428,7 +428,7 @@
 
                 <SeekBar
                     android:id="@+id/exynos_hmp_up"
-                    style="@style/SceneSeekBar"
+                    style="@style/TuneArsenalsSeekBar"
                     android:layout_row="3"
                     android:layout_column="0"
                     android:layout_gravity="fill_horizontal"
@@ -456,7 +456,7 @@
 
                 <SeekBar
                     android:id="@+id/exynos_hmp_down"
-                    style="@style/SceneSeekBar"
+                    style="@style/TuneArsenalsSeekBar"
                     android:layout_row="5"
                     android:layout_column="0"
                     android:layout_gravity="fill_horizontal"
@@ -500,7 +500,7 @@
                     <cn.arsenals.ui.HelpIcon
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:text="诸如温控和场景智能加速都可能会不断调节参数，导致你关闭的核心被重新开启，这是正常现象\n\n除非你禁用掉所有企图自启调节相关的功能(Scene并不能帮你找出并关闭这些东西)" />
+                        app:text="诸如温控和场景智能加速都可能会不断调节参数，导致你关闭的核心被重新开启，这是正常现象\n\n除非你禁用掉所有企图自启调节相关的功能(TuneArsenals并不能帮你找出并关闭这些东西)" />
 
                     <TextView
                         style="@style/textTitle"

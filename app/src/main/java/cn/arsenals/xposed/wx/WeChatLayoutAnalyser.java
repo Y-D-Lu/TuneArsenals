@@ -16,7 +16,7 @@ public class WeChatLayoutAnalyser {
                 View child = vp.getChildAt(i);
                 String className = child.getClass().getName();
                 // 输出日志，用于分析Layout层级
-                // XposedBridge.log("Scene WeChat " + prefixSpace(level) + className);
+                // XposedBridge.log("TuneArsenals WeChat " + prefixSpace(level) + className);
 
                 // 根据日志得出的结论 ScanMaskView后面有个适于插入控件的容器
                 // 所以找到ScanMaskView后，就返回它的下一个节点
@@ -56,7 +56,7 @@ public class WeChatLayoutAnalyser {
                 View child = vp.getChildAt(i);
                 String className = child.getClass().getName();
                 // 输出日志，用于分析Layout层级
-                // XposedBridge.log("Scene WeChat " + prefixSpace(level) + className);
+                // XposedBridge.log("TuneArsenals WeChat " + prefixSpace(level) + className);
 
                 // 根据日志得出的结论 ScanSharedMaskView里有个适于插入控件的容器
                 // 所以找到ScanSharedMaskView后，就返回它里面的一个容器控件
@@ -75,7 +75,7 @@ public class WeChatLayoutAnalyser {
     }
 
     public RelativeLayout getInjectContainer(Activity wxActivity) {
-        XposedBridge.log("Scene WeChat BaseScanUI onResume -> getInjectContainer");
+        XposedBridge.log("TuneArsenals WeChat BaseScanUI onResume -> getInjectContainer");
 
         int versionCode = 1841; // 微信 8.0.1
         View rootView = wxActivity.getWindow().getDecorView();

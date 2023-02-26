@@ -23,7 +23,7 @@ import cn.arsenals.store.SpfConfig
 import cn.arsenals.utils.CrashHandler
 import cn.arsenals.tunearsenals.R
 
-class Scene : Application() {
+class TuneArsenals : Application() {
     companion object {
         private val handler = Handler(Looper.getMainLooper())
         public lateinit var context: Application

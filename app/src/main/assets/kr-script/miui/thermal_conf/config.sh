@@ -2,7 +2,7 @@ platform=`getprop ro.board.platform`
 mode="$state"
 
 if [[ ! -n "$MAGISK_PATH" ]]; then
-    echo 'Scene 附加模块未启用，请先前往Magisk助手初始化模块' 1>&2
+    echo 'TuneArsenals 附加模块未启用，请先前往Magisk助手初始化模块' 1>&2
     exit 4
 fi
 
@@ -60,7 +60,7 @@ function install_thermal() {
                 echo '发现其它修改温控的模块：' 1>&2
                 echo "$result" 1>&2
                 echo '请删除以上位置的文件，或禁用相关模块！' 1>&2
-                echo '否则，Scene无法正常替换系统温控！' 1>&2
+                echo '否则，TuneArsenals无法正常替换系统温控！' 1>&2
                 exit 5
             fi
         fi

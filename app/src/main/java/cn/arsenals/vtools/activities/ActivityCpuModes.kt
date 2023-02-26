@@ -14,7 +14,7 @@ import android.widget.CompoundButton
 import android.widget.Switch
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shared.FilePathResolver
 import cn.arsenals.common.shared.FileWrite
 import cn.arsenals.common.shell.KeepShellPublic
@@ -88,7 +88,7 @@ class ActivityCpuModes : ActivityBase() {
 
         cpu_mode_delete_outside.setOnClickListener {
             DialogHelper.confirm(this, "确定删除?",
-                    "确定删除安装在 /data/powercfg.sh 的外部配置脚本吗？\n它可能是Scene2遗留下来的，也可能是其它优化模块创建的\n（删除后建议重启手机一次）",
+                    "确定删除安装在 /data/powercfg.sh 的外部配置脚本吗？\n它可能是TuneArsenals2遗留下来的，也可能是其它优化模块创建的\n（删除后建议重启手机一次）",
                     {
                         configInstaller.removeOutsideConfig()
                         cpu_mode_outside.visibility = View.GONE
@@ -264,7 +264,7 @@ class ActivityCpuModes : ActivityBase() {
 
     private fun outsideOverrided(): Boolean {
         if (configInstaller.outsideConfigInstalled()) {
-            DialogHelper.helpInfo(context, "你需要先删除外部配置，因为Scene会优先使用它！")
+            DialogHelper.helpInfo(context, "你需要先删除外部配置，因为TuneArsenals会优先使用它！")
             return true
         }
         return false
@@ -400,7 +400,7 @@ class ActivityCpuModes : ActivityBase() {
             }
             val lines = readFileLines(file)
             if (lines == null) {
-                Toast.makeText(context, "Scene无法读取此文件！", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "TuneArsenals无法读取此文件！", Toast.LENGTH_LONG).show()
                 return
             }
             val configStar = lines.split("\n").firstOrNull()
@@ -448,7 +448,7 @@ class ActivityCpuModes : ActivityBase() {
     private fun getOnlineConfig() {
         DialogHelper.alert(this,
                 "提示",
-                "目前，Scene已不再提供【在线获取配置脚本】功能，如有需要，推荐使用“yc9559”提供的优化模块，通过Magisk刷入后重启手机，即可在Scene里体验调度切换功能~") {
+                "目前，TuneArsenals已不再提供【在线获取配置脚本】功能，如有需要，推荐使用“yc9559”提供的优化模块，通过Magisk刷入后重启手机，即可在TuneArsenals里体验调度切换功能~") {
             openUrl("https://github.com/yc9559/uperf")
         }
 
@@ -497,7 +497,7 @@ class ActivityCpuModes : ActivityBase() {
     //安装调频文件
     private fun installConfig(active: Boolean) {
         if (!configInstaller.dynamicSupport(context)) {
-            Scene.toast(R.string.not_support_config, Toast.LENGTH_LONG)
+            TuneArsenals.toast(R.string.not_support_config, Toast.LENGTH_LONG)
             return
         }
 
@@ -509,7 +509,7 @@ class ActivityCpuModes : ActivityBase() {
         updateState()
 
         if (globalSPF.getBoolean(SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL, SpfConfig.GLOBAL_SPF_DYNAMIC_CONTROL_DEFAULT)) {
-            Scene.toast(getString(R.string.config_installed), Toast.LENGTH_LONG)
+            TuneArsenals.toast(getString(R.string.config_installed), Toast.LENGTH_LONG)
             reStartService()
         } else {
             DialogHelper.confirm(

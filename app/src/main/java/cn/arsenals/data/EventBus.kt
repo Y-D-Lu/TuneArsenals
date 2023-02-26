@@ -25,7 +25,7 @@ object EventBus {
                         }
                     }
                 } catch (ex: Exception) {
-                    Log.e("SceneEventBus", "" + ex.message)
+                    Log.e("TuneArsenalsEventBus", "" + ex.message)
                 }
             }
         }

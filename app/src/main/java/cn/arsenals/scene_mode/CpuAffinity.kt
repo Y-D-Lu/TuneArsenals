@@ -39,7 +39,7 @@ class CpuAffinity(private val context: Context) {
 
             options = appOpts
         } catch (ex: Exception) {
-            // Log.e("@Scene", "" + ex.message)
+            // Log.e("@TuneArsenals", "" + ex.message)
         }
     }
 

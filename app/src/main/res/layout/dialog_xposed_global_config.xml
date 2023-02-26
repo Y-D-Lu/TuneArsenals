@@ -32,7 +32,7 @@
             android:layout_height="wrap_content">
             <SeekBar
                 android:id="@+id/swap_size"
-                style="@style/SceneSeekBar"
+                style="@style/TuneArsenalsSeekBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"

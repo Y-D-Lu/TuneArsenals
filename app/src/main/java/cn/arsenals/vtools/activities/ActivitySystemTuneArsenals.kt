@@ -18,18 +18,18 @@ import cn.arsenals.model.AppInfo
 import cn.arsenals.model.TimingTaskInfo
 import cn.arsenals.model.TriggerInfo
 import cn.arsenals.scene_mode.ModeSwitcher
-import cn.arsenals.scene_mode.SceneStandbyMode
+import cn.arsenals.scene_mode.TuneArsenalsStandbyMode
 import cn.arsenals.scene_mode.TimingTaskManager
 import cn.arsenals.scene_mode.TriggerManager
 import cn.arsenals.store.SpfConfig
-import cn.arsenals.ui.SceneTaskItem
-import cn.arsenals.ui.SceneTriggerItem
+import cn.arsenals.ui.TuneArsenalsTaskItem
+import cn.arsenals.ui.TuneArsenalsTriggerItem
 import cn.arsenals.ui.TabIconHelper
 import cn.arsenals.utils.AppListHelper
 import cn.arsenals.tunearsenals.R
 import kotlinx.android.synthetic.main.activity_system_scene.*
 
-class ActivitySystemScene : ActivityBase() {
+class ActivitySystemTuneArsenals : ActivityBase() {
     private lateinit var processBarDialog: ProgressBarDialog
     private lateinit var globalSPF: SharedPreferences
     private lateinit var chargeConfig: SharedPreferences
@@ -137,7 +137,7 @@ class ActivitySystemScene : ActivityBase() {
     private fun standbyAppConfig() {
         processBarDialog.showDialog()
         Thread {
-            val configFile = context.getSharedPreferences(SceneStandbyMode.configSpfName, Context.MODE_PRIVATE)
+            val configFile = context.getSharedPreferences(TuneArsenalsStandbyMode.configSpfName, Context.MODE_PRIVATE)
             val whiteList = context.resources.getStringArray(R.array.scene_standby_white_list)
             val options = ArrayList(AppListHelper(context).getAll().filter {
                 !whiteList.contains(it.packageName)
@@ -167,7 +167,7 @@ class ActivitySystemScene : ActivityBase() {
 
     // 保存休眠应用配置
     private fun saveStandbyAppConfig(apps: List<AppInfo>) {
-        val configFile = getSharedPreferences(SceneStandbyMode.configSpfName, Context.MODE_PRIVATE).edit()
+        val configFile = getSharedPreferences(TuneArsenalsStandbyMode.configSpfName, Context.MODE_PRIVATE).edit()
         configFile.clear()
 
         apps.forEach {
@@ -181,8 +181,8 @@ class ActivitySystemScene : ActivityBase() {
         configFile.apply()
     }
 
-    private fun buildCustomTaskItemView(timingTaskInfo: TimingTaskInfo): SceneTaskItem {
-        val sceneTaskItem = SceneTaskItem(context, timingTaskInfo)
+    private fun buildCustomTaskItemView(timingTaskInfo: TimingTaskInfo): TuneArsenalsTaskItem {
+        val sceneTaskItem = TuneArsenalsTaskItem(context, timingTaskInfo)
         sceneTaskItem.setLayoutParams(LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT))
         sceneTaskItem.isClickable = true
         return sceneTaskItem
@@ -207,7 +207,7 @@ class ActivitySystemScene : ActivityBase() {
     }
 
     private fun addCustomTriggerView(triggerInfo: TriggerInfo) {
-        val itemView = SceneTriggerItem(context, triggerInfo)
+        val itemView = TuneArsenalsTriggerItem(context, triggerInfo)
         itemView.setLayoutParams(LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT))
         itemView.isClickable = true
 

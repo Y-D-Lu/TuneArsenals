@@ -14,7 +14,7 @@ import android.widget.CompoundButton
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.model.SelectItem
 import cn.arsenals.common.shared.MagiskExtend
 import cn.arsenals.common.shell.KeepShellPublic
@@ -41,7 +41,7 @@ class ActivitySwap : ActivityBase() {
     private val myHandler = Handler(Looper.getMainLooper())
     private lateinit var swapConfig: SharedPreferences
     private var totalMem = 2048
-    private val swapUtils = SwapUtils(Scene.context)
+    private val swapUtils = SwapUtils(TuneArsenals.context)
     private val swapModuleUtils = SwapModuleUtils()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -481,7 +481,7 @@ class ActivitySwap : ActivityBase() {
 
             val size = swapSize.progress * 128
             if (size < 1) {
-                Scene.toast("请先设定SWAP大小！")
+                TuneArsenals.toast("请先设定SWAP大小！")
                 return@setOnClickListener
             } else if (size == swapUtils.swapFileSize) {
                 // 如果大小和已经创建的文件一致，跳过创建
@@ -583,7 +583,7 @@ class ActivitySwap : ActivityBase() {
                         swapConfig.getBoolean(SpfConfig.SWAP_SPF_SWAP_USE_LOOP, false)
                 )
                 if (result.isNotEmpty()) {
-                    Scene.toast(result, Toast.LENGTH_LONG)
+                    TuneArsenals.toast(result, Toast.LENGTH_LONG)
                 }
 
                 getSwaps()

@@ -7,7 +7,7 @@ import android.content.SharedPreferences
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.data.EventBus
 import cn.arsenals.data.EventType
@@ -15,7 +15,7 @@ import cn.arsenals.data.GlobalStatus
 import cn.arsenals.data.IEventReceiver
 import cn.arsenals.library.basic.InputMethodApp
 import cn.arsenals.library.basic.ScreenState
-import cn.arsenals.store.SceneConfigStore
+import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.store.SpfConfig
 import cn.arsenals.utils.CommonCmds
 import cn.arsenals.tunearsenals.AccessibilityTuneArsenals
@@ -38,7 +38,7 @@ class AppSwitchHandler(private var context: AccessibilityTuneArsenals, override 
     private var sceneBlackList = context.getSharedPreferences(SpfConfig.SCENE_BLACK_LIST, Context.MODE_PRIVATE)
     private val spfGlobal: SharedPreferences
         get() {
-            return Scene.globalConfig
+            return TuneArsenals.globalConfig
         }
     private var ignoredList = ArrayList<String>()
     private val dynamicCore: Boolean
@@ -53,7 +53,7 @@ class AppSwitchHandler(private var context: AccessibilityTuneArsenals, override 
     private val SCREEN_OFF_SWITCH_NETWORK_DELAY: Long = 25000
     private var handler = Handler(Looper.getMainLooper())
     private var notifyHelper = AlwaysNotification(context, true)
-    private val sceneMode = SceneMode.getNewInstance(context, SceneConfigStore(context))!!
+    private val sceneMode = TuneArsenalsMode.getNewInstance(context, TuneArsenalsConfigStore(context))!!
     private var timer: Timer? = null
     private var sceneAppChanged: BroadcastReceiver? = null
     private var screenState = ScreenState(context)
@@ -175,7 +175,7 @@ class AppSwitchHandler(private var context: AccessibilityTuneArsenals, override 
 
     private fun setDelayFreezeApps() {
         val delay = spfGlobal.getInt(SpfConfig.GLOBAL_SPF_FREEZE_DELAY, 0)
-        SceneMode.FreezeAppThread(context.applicationContext, true, if (delay > 0) (delay * 60) else 0).start()
+        TuneArsenalsMode.FreezeAppThread(context.applicationContext, true, if (delay > 0) (delay * 60) else 0).start()
     }
 
     /**
@@ -237,7 +237,7 @@ class AppSwitchHandler(private var context: AccessibilityTuneArsenals, override 
             }
             EventType.SCENE_CONFIG -> {
                 updateConfig()
-                Scene.toast("性能调节配置参数已更新，将在下次切换应用时生效！", Toast.LENGTH_SHORT)
+                TuneArsenals.toast("性能调节配置参数已更新，将在下次切换应用时生效！", Toast.LENGTH_SHORT)
             }
             EventType.SCENE_APP_CONFIG -> {
                 data?.run {

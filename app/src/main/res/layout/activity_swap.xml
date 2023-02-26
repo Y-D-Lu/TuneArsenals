@@ -147,12 +147,12 @@
 
                         <Button
                             android:id="@+id/btn_swap_create"
-                            style="@style/SceneButton"
+                            style="@style/TuneArsenalsButton"
                             android:layout_marginStart="8dp"
                             android:text="@string/swap_create" />
                         <Button
                             android:id="@+id/btn_swap_close"
-                            style="@style/SceneButton"
+                            style="@style/TuneArsenalsButton"
                             android:layout_marginStart="6dp"
                             android:text="@string/swap_stop" />
                     </LinearLayout>
@@ -259,7 +259,7 @@
 
                         <Button
                             android:id="@+id/btn_zram_resize"
-                            style="@style/SceneButton"
+                            style="@style/TuneArsenalsButton"
                             android:layout_marginStart="8dp"
                             android:text="@string/swap_zram_adjustment" />
                     </LinearLayout>
@@ -352,7 +352,7 @@
 
                     </LinearLayout>
 
-                    <Button style="@style/SceneButton" android:id="@+id/swappiness_adj" android:text="调整" android:layout_gravity="center_vertical" />
+                    <Button style="@style/TuneArsenalsButton" android:id="@+id/swappiness_adj" android:text="调整" android:layout_gravity="center_vertical" />
                 </LinearLayout>
             </TableLayout>
 

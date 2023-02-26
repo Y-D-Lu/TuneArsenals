@@ -9,7 +9,7 @@
         android:id="@+id/btn_hide"
         android:scaleX="0.8"
         android:scaleY="0.8"
-        style="@style/SceneButton"
+        style="@style/TuneArsenalsButton"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
         android:scaleType="centerInside"

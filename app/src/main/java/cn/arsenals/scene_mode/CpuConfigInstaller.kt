@@ -1,7 +1,7 @@
 package cn.arsenals.scene_mode
 
 import android.content.Context
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shared.FileWrite
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.common.shell.RootFile
@@ -87,7 +87,7 @@ class CpuConfigInstaller {
     // 尝试更新调度配置文件（目前仅支持自动更新内置的调度文件）
     fun applyConfigNewVersion(context: Context) {
         if (!outsideConfigInstalled()) {
-            val config = Scene.context.getSharedPreferences(SpfConfig.GLOBAL_SPF, Context.MODE_PRIVATE)
+            val config = TuneArsenals.context.getSharedPreferences(SpfConfig.GLOBAL_SPF, Context.MODE_PRIVATE)
             val source = config.getString(SpfConfig.GLOBAL_SPF_PROFILE_SOURCE, ModeSwitcher.SOURCE_UNKNOWN)
             when (source) {
                 ModeSwitcher.SOURCE_SCENE_ACTIVE -> {
@@ -158,6 +158,6 @@ class CpuConfigInstaller {
 
     // 是否已经安装内部配置文件
     fun insideConfigInstalled(): Boolean {
-        return File(FileWrite.getPrivateFilePath(Scene.context, "powercfg.sh")).exists()
+        return File(FileWrite.getPrivateFilePath(TuneArsenals.context, "powercfg.sh")).exists()
     }
 }

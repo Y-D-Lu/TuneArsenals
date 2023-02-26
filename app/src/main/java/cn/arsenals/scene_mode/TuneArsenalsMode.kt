@@ -6,12 +6,12 @@ import android.content.Context
 import android.os.Build
 import android.provider.Settings
 import android.util.Log
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shared.FileWrite
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.library.shell.*
-import cn.arsenals.model.SceneConfigInfo
-import cn.arsenals.store.SceneConfigStore
+import cn.arsenals.model.TuneArsenalsConfigInfo
+import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.store.SpfConfig
 import cn.arsenals.tunearsenals.AccessibilityTuneArsenals
 import cn.arsenals.tunearsenals.popup.FloatMonitorMini
@@ -20,7 +20,7 @@ import java.nio.charset.Charset
 import java.util.*
 import kotlin.collections.ArrayList
 
-class SceneMode private constructor(private val context: AccessibilityTuneArsenals, private var store: SceneConfigStore) {
+class TuneArsenalsMode private constructor(private val context: AccessibilityTuneArsenals, private var store: TuneArsenalsConfigStore) {
     private var lastAppPackageName = "com.android.systemui"
     private var contentResolver: ContentResolver = context.contentResolver
     private var freezList = ArrayList<FreezeAppHistory>()
@@ -60,7 +60,7 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
             val launchedFreezeApp = if (ignoreState) null else getCurrentInstance()?.getLaunchedFreezeApp()
             val suspendMode = globalConfig.getBoolean(SpfConfig.GLOBAL_SPF_FREEZE_SUSPEND, Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
             val targetApps = ArrayList<String>()
-            for (item in SceneConfigStore(context).freezeAppList) {
+            for (item in TuneArsenalsConfigStore(context).freezeAppList) {
                 if (launchedFreezeApp == null || !launchedFreezeApp.contains(item)) {
                     targetApps.add(item)
                 }
@@ -91,19 +91,19 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
     companion object {
 
         @Volatile
-        private var instance: SceneMode? = null
+        private var instance: TuneArsenalsMode? = null
 
         // 获取当前实例
-        fun getCurrentInstance(): SceneMode? {
+        fun getCurrentInstance(): TuneArsenalsMode? {
             return instance
         }
 
         // 创建一个新实例
-        fun getNewInstance(context: AccessibilityTuneArsenals, store: SceneConfigStore): SceneMode? {
+        fun getNewInstance(context: AccessibilityTuneArsenals, store: TuneArsenalsConfigStore): TuneArsenalsMode? {
             if (instance != null) {
                 instance?.clearState()
             }
-            instance = SceneMode(context, store)
+            instance = TuneArsenalsMode(context, store)
             return instance!!
         }
 
@@ -145,7 +145,7 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
         val apps = ArrayList<String>().apply {
             addAll(freezList.map { it.packageName })
         }
-        val configList = SceneConfigStore(context).freezeAppList
+        val configList = TuneArsenalsConfigStore(context).freezeAppList
         context.getForegroundApps().forEach {
             if (configList.contains(it) && !apps.contains(it)) {
                 apps.add(it)
@@ -235,7 +235,7 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
 
     var brightnessMode = -1;
     var screenBrightness = -1;
-    var currentSceneConfig: SceneConfigInfo? = null
+    var currentTuneArsenalsConfig: TuneArsenalsConfigInfo? = null
 
     // 备份亮度设置
     private fun backupBrightnessState(): Int {
@@ -291,7 +291,7 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
 
     // 设置屏幕旋转
     private fun updateScreenRotation() {
-        currentSceneConfig?.run {
+        currentTuneArsenalsConfig?.run {
             floatScreenRotation.update(this)
         }
     }
@@ -301,8 +301,8 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
      * @return 是否拦截
      */
     fun onNotificationPosted(): Boolean {
-        if (currentSceneConfig != null) {
-            return currentSceneConfig!!.disNotice
+        if (currentTuneArsenalsConfig != null) {
+            return currentTuneArsenalsConfig!!.disNotice
         }
         return false
     }
@@ -360,7 +360,7 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
     /**
      * 从应用离开时
      */
-    fun onAppLeave(sceneConfigInfo: SceneConfigInfo) {
+    fun onAppLeave(sceneConfigInfo: TuneArsenalsConfigInfo) {
         // 离开偏见应用时，记录偏见应用最后活动时间
         if (sceneConfigInfo.freeze) {
             setFreezeAppLeaveTime(sceneConfigInfo.packageName)
@@ -380,17 +380,17 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
 
         // 实验性新特性（cgroup/memory自动配置）
         if (sceneConfigInfo.fgCGroupMem != sceneConfigInfo.bgCGroupMem) {
-                CGroupMemoryUtlis(Scene.context).run {
+                CGroupMemoryUtlis(TuneArsenals.context).run {
                     if (isSupported) {
                         if (sceneConfigInfo.bgCGroupMem?.isNotEmpty() == true) {
                             setGroupAutoDelay(this, sceneConfigInfo.packageName!!, sceneConfigInfo.bgCGroupMem)
-                            // Scene.toast(sceneConfigInfo.packageName!! + "退出，cgroup调为[${sceneConfigInfo.bgCGroupMem}]\n(Scene试验性功能)")
+                            // TuneArsenals.toast(sceneConfigInfo.packageName!! + "退出，cgroup调为[${sceneConfigInfo.bgCGroupMem}]\n(TuneArsenals试验性功能)")
                         } else {
                             setGroup(sceneConfigInfo.packageName!!, "")
-                            // Scene.toast(sceneConfigInfo.packageName!! + "退出，cgroup调为[/]\n(Scene试验性功能)")
+                            // TuneArsenals.toast(sceneConfigInfo.packageName!! + "退出，cgroup调为[/]\n(TuneArsenals试验性功能)")
                         }
                     } else {
-                        Scene.toast("你的内核不支持cgroup设置！\n(Scene试验性功能)")
+                        TuneArsenals.toast("你的内核不支持cgroup设置！\n(TuneArsenals试验性功能)")
                     }
                 }
         }
@@ -408,38 +408,38 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
         synchronized(this) {
             try {
                 lastAppPackageName = packageName
-                if (currentSceneConfig != null && currentSceneConfig?.packageName != packageName) {
-                    onAppLeave(currentSceneConfig!!)
+                if (currentTuneArsenalsConfig != null && currentTuneArsenalsConfig?.packageName != packageName) {
+                    onAppLeave(currentTuneArsenalsConfig!!)
                 }
 
-                currentSceneConfig = store.getAppConfig(packageName)
-                if (currentSceneConfig == null) {
+                currentTuneArsenalsConfig = store.getAppConfig(packageName)
+                if (currentTuneArsenalsConfig == null) {
                     restoreLocationModeState()
                     resumeBrightnessState()
                     restoreHeaddUp()
                     stoptMemoryDynamicBooster()
                 } else {
-                    if (currentSceneConfig!!.aloneLight) {
+                    if (currentTuneArsenalsConfig!!.aloneLight) {
                         backupBrightnessState()
-                        autoLightOff(currentSceneConfig!!.aloneLightValue)
+                        autoLightOff(currentTuneArsenalsConfig!!.aloneLightValue)
                     } else {
                         resumeBrightnessState()
                     }
 
-                    if (currentSceneConfig!!.showMonitor) {
+                    if (currentTuneArsenalsConfig!!.showMonitor) {
                         if (FloatMonitorMini.show != true) {
-                            Scene.post {
+                            TuneArsenals.post {
                                 hideMonitorOnLeave = FloatMonitorMini(context).showPopupWindow()
                             }
                         }
                     } else if (hideMonitorOnLeave) {
-                        Scene.post {
+                        TuneArsenals.post {
                             FloatMonitorMini(context).hidePopupWindow()
                         }
                         hideMonitorOnLeave = false
                     }
 
-                    if (currentSceneConfig!!.gpsOn) {
+                    if (currentTuneArsenalsConfig!!.gpsOn) {
                         backupLocationModeState()
                         val mode = Settings.Secure.getString(contentResolver, Settings.Secure.LOCATION_PROVIDERS_ALLOWED)
                         if (!mode.contains("gps")) {
@@ -449,7 +449,7 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
                         restoreLocationModeState()
                     }
 
-                    if (currentSceneConfig!!.disNotice) {
+                    if (currentTuneArsenalsConfig!!.disNotice) {
                         try {
                             val mode = Settings.Global.getInt(contentResolver, "heads_up_notifications_enabled")
                             backupHeadUp()
@@ -463,24 +463,24 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
                         restoreHeaddUp()
                     }
 
-                    if (currentSceneConfig!!.freeze) {
+                    if (currentTuneArsenalsConfig!!.freeze) {
                         setFreezeAppStartTime(packageName)
                     }
 
                     // 实验性新特性（cgroup/memory自动配置）
-                    if (currentSceneConfig?.fgCGroupMem?.isNotEmpty() == true || currentSceneConfig?.bgCGroupMem != currentSceneConfig?.fgCGroupMem) {
-                        CGroupMemoryUtlis(Scene.context).run {
+                    if (currentTuneArsenalsConfig?.fgCGroupMem?.isNotEmpty() == true || currentTuneArsenalsConfig?.bgCGroupMem != currentTuneArsenalsConfig?.fgCGroupMem) {
+                        CGroupMemoryUtlis(TuneArsenals.context).run {
                             if (isSupported) {
-                                setGroup(currentSceneConfig!!.packageName!!, currentSceneConfig!!.fgCGroupMem)
-                                // Scene.toast("进入" + currentSceneConfig!!.packageName!! + "，cgroup调为[${currentSceneConfig!!.fgCGroupMem}]\n(Scene试验性功能)")
+                                setGroup(currentTuneArsenalsConfig!!.packageName!!, currentTuneArsenalsConfig!!.fgCGroupMem)
+                                // TuneArsenals.toast("进入" + currentTuneArsenalsConfig!!.packageName!! + "，cgroup调为[${currentTuneArsenalsConfig!!.fgCGroupMem}]\n(TuneArsenals试验性功能)")
                             } else {
-                                Scene.toast("你的内核不支持cgroup设置！\n(Scene试验性功能)")
+                                TuneArsenals.toast("你的内核不支持cgroup设置！\n(TuneArsenals试验性功能)")
                             }
                         }
                     }
 
                     // if (packageName.equals("com.miHoYo.Yuanshen") || packageName.equals("com.tencent.tmgp.sgame")) {
-                    if (currentSceneConfig?.dynamicBoostMem == true) {
+                    if (currentTuneArsenalsConfig?.dynamicBoostMem == true) {
                         startMemoryDynamicBooster()
                     } else {
                         stoptMemoryDynamicBooster()
@@ -496,14 +496,14 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
 
     private fun setGroupAutoDelay(util: CGroupMemoryUtlis, app: String, mode: String) {
         if (mode == "scene_bg") {
-            Scene.postDelayed({
-                if (currentSceneConfig?.packageName != app) {
+            TuneArsenals.postDelayed({
+                if (currentTuneArsenalsConfig?.packageName != app) {
                     util.setGroup(app, mode)
                 }
             }, 3000)
         } else if (mode == "scene_cache") {
-            Scene.postDelayed({
-                if (currentSceneConfig?.packageName != app) {
+            TuneArsenals.postDelayed({
+                if (currentTuneArsenalsConfig?.packageName != app) {
                     util.setGroup(app, mode)
                 }
             }, 8000)
@@ -558,7 +558,7 @@ class SceneMode private constructor(private val context: AccessibilityTuneArsena
         lastAppPackageName = "com.android.systemui"
         restoreLocationModeState()
         resumeBrightnessState()
-        currentSceneConfig = null
+        currentTuneArsenalsConfig = null
         floatScreenRotation.remove()
         instance = null
     }

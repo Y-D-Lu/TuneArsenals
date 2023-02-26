@@ -10,7 +10,7 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import androidx.core.content.PermissionChecker
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.utils.CommonCmds
@@ -144,7 +144,7 @@ public class CheckRootStatus(var context: Context, private val next: Runnable? =
                             // 未允许悬浮窗
                             try {
                                 //启动Activity让用户授权
-                                // Toast.makeText(context, "Scene未获得显示悬浮窗权限", Toast.LENGTH_SHORT).show()
+                                // Toast.makeText(context, "TuneArsenals未获得显示悬浮窗权限", Toast.LENGTH_SHORT).show()
                                 // val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
                                 // context.startActivity(intent);
                             } catch (ex: Exception) {
@@ -196,7 +196,7 @@ public class CheckRootStatus(var context: Context, private val next: Runnable? =
 
         private fun setRootStatus(root: Boolean) {
             rootStatus = root
-            Scene.setBoolean("root", root)
+            TuneArsenals.setBoolean("root", root)
         }
     }
 }

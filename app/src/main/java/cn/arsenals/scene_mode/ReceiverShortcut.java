@@ -21,9 +21,9 @@ public class ReceiverShortcut extends BroadcastReceiver {
             SharedPreferences config = context.getSharedPreferences(SpfConfig.GLOBAL_SPF, Context.MODE_PRIVATE);
             boolean useSuspendMode = config.getBoolean(SpfConfig.GLOBAL_SPF_FREEZE_SUSPEND, Build.VERSION.SDK_INT >= Build.VERSION_CODES.P);
             if (useSuspendMode) {
-                SceneMode.Companion.suspendApp(packageName);
+                TuneArsenalsMode.Companion.suspendApp(packageName);
             } else {
-                SceneMode.Companion.freezeApp(packageName);
+                TuneArsenalsMode.Companion.freezeApp(packageName);
             }
         }
     }

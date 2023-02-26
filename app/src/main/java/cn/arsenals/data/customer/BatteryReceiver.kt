@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import android.os.BatteryManager
 import android.util.Log
 import android.widget.Toast
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shared.FileWrite
 import cn.arsenals.common.shell.KeepShellAsync
 import cn.arsenals.data.EventType
@@ -212,13 +212,13 @@ class BatteryReceiver(private var service: Context, override val isAsync: Boolea
     }
 
     private fun disableCharge() {
-        Scene.toast("充电保护策略已为您暂停充电！", Toast.LENGTH_SHORT)
+        TuneArsenals.toast("充电保护策略已为您暂停充电！", Toast.LENGTH_SHORT)
         keepShellAsync?.doCmd(DisableCharge)
         chargeDisabled = true
     }
 
     private fun resumeCharge() {
-        Scene.toast("充电保护策略已为您恢复充电！", Toast.LENGTH_SHORT)
+        TuneArsenals.toast("充电保护策略已为您恢复充电！", Toast.LENGTH_SHORT)
         keepShellAsync!!.doCmd(ResumeCharge)
         chargeDisabled = false
     }
@@ -248,7 +248,7 @@ class BatteryReceiver(private var service: Context, override val isAsync: Boolea
     private var governorTimer: Timer? = null
     private fun startGovernorTimer() {
         if (governorTimer == null) {
-            Log.d("@Scene", "Start ForceQuickChargeTimer")
+            Log.d("@TuneArsenals", "Start ForceQuickChargeTimer")
             governorTimer = Timer().apply {
                 schedule(object : TimerTask() {
                     override fun run() {
@@ -262,7 +262,7 @@ class BatteryReceiver(private var service: Context, override val isAsync: Boolea
 
     private fun stopGovernorTimer() {
         if (governorTimer != null) {
-            Log.d("@Scene", "Stop ForceQuickChargeTimer")
+            Log.d("@TuneArsenals", "Stop ForceQuickChargeTimer")
             governorTimer?.cancel()
             governorTimer?.purge()
             governorTimer = null
@@ -293,7 +293,7 @@ class BatteryReceiver(private var service: Context, override val isAsync: Boolea
                     // 如果目标是降低充电速度，则不比频繁尝试调节速度，只需要在电量变化或者插拔充电器时执行即可
                     SpfConfig.CHARGE_SPF_EXEC_MODE_SPEED_DOWN -> {
                         if (eventType != EventType.BATTERY_CHANGED) {
-                            Log.d("@Scene", "CHARGE_SPF_EXEC_MODE_SPEED_DOWN > " + eventType.name)
+                            Log.d("@TuneArsenals", "CHARGE_SPF_EXEC_MODE_SPEED_DOWN > " + eventType.name)
                         }
                         forceRun = true
                         eventType == EventType.BATTERY_CAPACITY_CHANGED || eventType == EventType.POWER_CONNECTED || eventType == EventType.POWER_DISCONNECTED
@@ -304,7 +304,7 @@ class BatteryReceiver(private var service: Context, override val isAsync: Boolea
                             if (eventType != EventType.TIMER) {
                                 startGovernorTimer()
                             } else {
-                                Log.d("@Scene", "Exec ForceQuickChargeTimer")
+                                Log.d("@TuneArsenals", "Exec ForceQuickChargeTimer")
                             }
                             true
                         } else {

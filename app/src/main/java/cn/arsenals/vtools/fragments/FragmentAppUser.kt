@@ -11,7 +11,7 @@ import android.widget.AdapterView.OnItemClickListener
 import android.widget.CheckBox
 import android.widget.HeaderViewListAdapter
 import android.widget.Toast
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.ui.OverScrollListView
 import cn.arsenals.common.ui.ProgressBarDialog
 import cn.arsenals.model.AppInfo
@@ -64,7 +64,7 @@ class FragmentAppUser(private val myHandler: Handler) : androidx.fragment.app.Fr
         adapter = (adapter as HeaderViewListAdapter).wrappedAdapter
         val selectedItems = (adapter as AppListAdapter).getSelectedItems()
         if (selectedItems.size == 0) {
-            Scene.toast(R.string.app_selected_none, Toast.LENGTH_SHORT)
+            TuneArsenals.toast(R.string.app_selected_none, Toast.LENGTH_SHORT)
             return
         }
 

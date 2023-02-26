@@ -245,7 +245,7 @@
 
                     <Button
                         android:id="@+id/settings_logcat"
-                        style="@style/SceneButton"
+                        style="@style/TuneArsenalsButton"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
                         android:layout_width="wrap_content"

@@ -28,8 +28,8 @@ import cn.arsenals.library.shell.GAppsUtilis
 import cn.arsenals.model.AppInfo
 import cn.arsenals.scene_mode.FreezeAppShortcutHelper
 import cn.arsenals.scene_mode.LogoCacheManager
-import cn.arsenals.scene_mode.SceneMode
-import cn.arsenals.store.SceneConfigStore
+import cn.arsenals.scene_mode.TuneArsenalsMode
+import cn.arsenals.store.TuneArsenalsConfigStore
 import cn.arsenals.store.SpfConfig
 import cn.arsenals.ui.FreezeAppAdapter
 import cn.arsenals.ui.TabIconHelper
@@ -256,7 +256,7 @@ class ActivityFreezeApps : ActivityBase() {
         Thread(Runnable {
             try {
                 // 数据库
-                val store = SceneConfigStore(context)
+                val store = TuneArsenalsConfigStore(context)
                 // 数据库中记录的已添加的偏见应用
                 freezeApps = store.freezeAppList
                 val checkShortcuts = config.getBoolean(SpfConfig.GLOBAL_SPF_FREEZE_ICON_NOTIFY, true)
@@ -364,13 +364,13 @@ class ActivityFreezeApps : ActivityBase() {
         }
 
         val packageName = appInfo.packageName.toString()
-        val store = SceneConfigStore(context)
+        val store = TuneArsenalsConfigStore(context)
         val config = store.getAppConfig(packageName)
         config.freeze = false
         store.setAppConfig(config)
         store.close()
 
-        SceneMode.getCurrentInstance()?.removeFreezeAppHistory(packageName)
+        TuneArsenalsMode.getCurrentInstance()?.removeFreezeAppHistory(packageName)
         FreezeAppShortcutHelper().removeShortcut(context, packageName)
     }
 
@@ -413,7 +413,7 @@ class ActivityFreezeApps : ActivityBase() {
     }
 
     private fun enableApp(packageName: String) {
-        SceneMode.unfreezeApp(packageName)
+        TuneArsenalsMode.unfreezeApp(packageName)
     }
 
     private fun disableApp(appInfo: AppInfo) {
@@ -422,9 +422,9 @@ class ActivityFreezeApps : ActivityBase() {
 
     private fun disableApp(packageName: String) {
         if (useSuspendMode) {
-            SceneMode.suspendApp(packageName)
+            TuneArsenalsMode.suspendApp(packageName)
         } else {
-            SceneMode.freezeApp(packageName)
+            TuneArsenalsMode.freezeApp(packageName)
         }
     }
 
@@ -449,7 +449,7 @@ class ActivityFreezeApps : ActivityBase() {
             appInfo.suspended = false
             (freeze_apps?.adapter as FreezeAppAdapter?)?.notifyDataSetChanged()
         }
-        SceneMode.getCurrentInstance()?.setFreezeAppLeaveTime(appInfo.packageName)
+        TuneArsenalsMode.getCurrentInstance()?.setFreezeAppLeaveTime(appInfo.packageName)
         try {
             val intent = this.packageManager.getLaunchIntentForPackage(appInfo.packageName.toString())
             // intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_TASK_ON_HOME)
@@ -556,14 +556,14 @@ class ActivityFreezeApps : ActivityBase() {
         val packageManager: PackageManager = context.packageManager
         private fun disableApp(packageName: String) {
             if (useSuspendMode) {
-                SceneMode.suspendApp(packageName)
+                TuneArsenalsMode.suspendApp(packageName)
             } else {
-                SceneMode.freezeApp(packageName)
+                TuneArsenalsMode.freezeApp(packageName)
             }
         }
 
         override fun run() {
-            val store = SceneConfigStore(context)
+            val store = TuneArsenalsConfigStore(context)
             val iconManager = LogoCacheManager(context)
 
             for (it in selectedItems) {
@@ -668,7 +668,7 @@ class ActivityFreezeApps : ActivityBase() {
     private class RemoveAllThread(private var context: Context, private var freezeApps: ArrayList<String>, private var onCompleted: Runnable) : Thread() {
         override fun run() {
 
-            val store = SceneConfigStore(context)
+            val store = TuneArsenalsConfigStore(context)
             val shortcutHelper = FreezeAppShortcutHelper()
             for (it in freezeApps) {
                 if (it.equals("com.android.vending")) {
@@ -680,7 +680,7 @@ class ActivityFreezeApps : ActivityBase() {
                 config.freeze = false
                 store.setAppConfig(config)
                 shortcutHelper.removeShortcut(context, it)
-                SceneMode.getCurrentInstance()?.removeFreezeAppHistory(it)
+                TuneArsenalsMode.getCurrentInstance()?.removeFreezeAppHistory(it)
             }
             store.close()
 

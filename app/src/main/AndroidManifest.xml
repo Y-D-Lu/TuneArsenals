@@ -41,7 +41,7 @@
     -->
 
     <application
-        android:name="cn.arsenals.Scene"
+        android:name="cn.arsenals.TuneArsenals"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:icon="@drawable/android_studio"
@@ -53,10 +53,10 @@
         android:requestLegacyExternalStorage="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
         <provider
-            android:name=".SceneFreezeProvider"
+            android:name=".TuneArsenalsFreezeProvider"
             android:enabled="true"
             android:exported="true"
-            android:authorities="cn.arsenals.tunearsenals.SceneFreezeProvider" />
+            android:authorities="cn.arsenals.tunearsenals.TuneArsenalsFreezeProvider" />
 
         <activity
             android:name=".activities.ActivityPowerModeTile"
@@ -83,7 +83,7 @@
             android:name="cn.arsenals.scene_mode.TriggerExecutorService"
             android:exported="false" />
         <service
-            android:name="cn.arsenals.scene_mode.SceneTaskIntentService"
+            android:name="cn.arsenals.scene_mode.TuneArsenalsTaskIntentService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -92,11 +92,11 @@
         </service>
 
         <receiver
-            android:name="cn.arsenals.scene_mode.ReceiverSceneMode"
+            android:name="cn.arsenals.scene_mode.ReceiverTuneArsenalsMode"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="cn.arsenals.scene_mode.ReceiverSceneMode" />
+                <action android:name="cn.arsenals.scene_mode.ReceiverTuneArsenalsMode" />
             </intent-filter>
         </receiver>
         <receiver
@@ -156,7 +156,7 @@
             android:name=".activities.ActivityOtherSettings"
             android:configChanges="keyboardHidden|orientation|uiMode"
             android:excludeFromRecents="true"
-            android:label="Scene 杂项设置"
+            android:label="TuneArsenals 杂项设置"
             android:launchMode="singleTop"
             android:screenOrientation="behind" />
         <activity
@@ -297,7 +297,7 @@
         <activity android:name=".activities.ActivityBatteryStats" android:configChanges="orientation|screenSize" />
         <activity android:name=".activities.ActivityAppConfig2" android:configChanges="orientation|screenSize" />
         <activity android:name=".activities.ActivityAppXposedConfig" android:configChanges="orientation|screenSize" />
-        <activity android:name=".activities.ActivitySystemScene" android:configChanges="orientation|screenSize" />
+        <activity android:name=".activities.ActivitySystemTuneArsenals" android:configChanges="orientation|screenSize" />
         <activity android:name=".activities.ActivityAutoClick" android:configChanges="orientation|screenSize" />
         <activity android:name=".activities.ActivityMiuiThermal" android:windowSoftInputMode="adjustResize" android:configChanges="orientation|screenSize" />
         <activity android:name=".activities.ActivityCustomCommand" android:windowSoftInputMode="adjustResize" android:configChanges="orientation|screenSize" />
@@ -358,7 +358,7 @@
             android:enabled="true"
             android:permission="" />
         <service
-            android:name="cn.arsenals.scene_mode.SceneTileService"
+            android:name="cn.arsenals.scene_mode.TuneArsenalsTileService"
             android:icon="@drawable/p4"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">

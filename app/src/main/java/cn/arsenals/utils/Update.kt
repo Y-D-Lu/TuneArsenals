@@ -39,7 +39,7 @@ class Update {
         Thread(Runnable {
             //http://47.106.224.127/
             try {
-                val url = URL("https://vtools.oss-cn-beijing.aliyuncs.com/vi/Scene4.json")
+                val url = URL("https://vtools.oss-cn-beijing.aliyuncs.com/vi/TuneArsenals4.json")
                 val connection = url.openConnection()
                 // 设置连接方式：get
                 // connection.setRequestMethod("GET");
@@ -103,7 +103,7 @@ class Update {
                     //创建下载任务,downloadUrl就是下载链接
                     val request = DownloadManager.Request(Uri.parse(downloadUrl));
                     //指定下载路径和下载文件名
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "Scene_" + jsonObject.getString("versionName") + ".apk");
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "TuneArsenals_" + jsonObject.getString("versionName") + ".apk");
                     //在通知栏显示下载进度
                     request.allowScanningByMediaScanner();
                     request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE or DownloadManager.Request.NETWORK_WIFI)

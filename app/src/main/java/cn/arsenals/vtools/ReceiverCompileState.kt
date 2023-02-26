@@ -8,7 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 
 
 class ReceiverCompileState : BroadcastReceiver() {
@@ -18,7 +18,7 @@ class ReceiverCompileState : BroadcastReceiver() {
     }
 
     init {
-        nm = Scene.context.getSystemService(IntentService.NOTIFICATION_SERVICE) as NotificationManager
+        nm = TuneArsenals.context.getSystemService(IntentService.NOTIFICATION_SERVICE) as NotificationManager
     }
 
     private fun updateNotification(title: String, text: String, total: Int, current: Int, autoCancel: Boolean = true) {
@@ -27,9 +27,9 @@ class ReceiverCompileState : BroadcastReceiver() {
                 nm.createNotificationChannel(NotificationChannel("vtool-compile", "后台编译", NotificationManager.IMPORTANCE_LOW))
                 channelCreated = true
             }
-            NotificationCompat.Builder(Scene.context, "vtool-compile")
+            NotificationCompat.Builder(TuneArsenals.context, "vtool-compile")
         } else {
-            NotificationCompat.Builder(Scene.context)
+            NotificationCompat.Builder(TuneArsenals.context)
         }
 
         nm.notify(990, builder

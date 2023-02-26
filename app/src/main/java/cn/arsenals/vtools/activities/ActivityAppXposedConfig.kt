@@ -10,11 +10,11 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.ui.OverScrollListView
 import cn.arsenals.common.ui.ProgressBarDialog
 import cn.arsenals.model.AppInfo
-import cn.arsenals.model.SceneConfigInfo
+import cn.arsenals.model.TuneArsenalsConfigInfo
 import cn.arsenals.store.SpfConfig
 import cn.arsenals.store.XposedExtension
 import cn.arsenals.ui.XposedAppsAdapter
@@ -137,7 +137,7 @@ class ActivityAppXposedConfig : ActivityBase() {
     }
 
     private fun setListData(dl: ArrayList<AppInfo>?, lv: OverScrollListView) {
-        Scene.post {
+        TuneArsenals.post {
             lv.adapter = XposedAppsAdapter(
                     this,
                     dl!!
@@ -162,7 +162,7 @@ class ActivityAppXposedConfig : ActivityBase() {
                 installedList = applistHelper.getAll()
             }
             if (config_search_box == null) {
-                Scene.post {
+                TuneArsenals.post {
                     processBarDialog.hideDialog()
                 }
                 return@Runnable
@@ -189,7 +189,7 @@ class ActivityAppXposedConfig : ActivityBase() {
                 }
             }
             sortAppList(displayList!!)
-            Scene.post {
+            TuneArsenals.post {
                 processBarDialog.hideDialog()
                 setListData(displayList, scene_app_list)
             }
@@ -200,7 +200,7 @@ class ActivityAppXposedConfig : ActivityBase() {
     private fun setAppRowDesc(item: AppInfo) {
         item.selected = false
         val packageName = item.packageName
-        val configInfo = SceneConfigInfo()
+        val configInfo = TuneArsenalsConfigInfo()
         configInfo.packageName = packageName
         item.sceneConfigInfo = configInfo
 

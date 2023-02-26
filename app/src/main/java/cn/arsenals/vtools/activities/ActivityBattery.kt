@@ -12,7 +12,7 @@ import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
 import android.view.View
 import android.widget.*
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shared.FileWrite
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.common.ui.DialogHelper
@@ -71,9 +71,9 @@ class ActivityBattery : ActivityBase() {
             spf.edit().putBoolean(SpfConfig.CHARGE_SPF_QC_BOOSTER, checked).apply()
             if (checked) {
                 notifyConfigChanged()
-                Scene.toast(R.string.battery_auto_boot_desc, Toast.LENGTH_LONG)
+                TuneArsenals.toast(R.string.battery_auto_boot_desc, Toast.LENGTH_LONG)
             } else {
-                Scene.toast(R.string.battery_qc_rehoot_desc, Toast.LENGTH_LONG)
+                TuneArsenals.toast(R.string.battery_qc_rehoot_desc, Toast.LENGTH_LONG)
             }
         }
         settings_qc.setOnCheckedChangeListener { _, isChecked ->
@@ -90,7 +90,7 @@ class ActivityBattery : ActivityBase() {
                 KeepShellPublic.doCmdSync(ResumeCharge)
             } else {
                 notifyConfigChanged()
-                Scene.toast(R.string.battery_auto_boot_desc, Toast.LENGTH_LONG)
+                TuneArsenals.toast(R.string.battery_auto_boot_desc, Toast.LENGTH_LONG)
             }
         }
 
@@ -182,11 +182,11 @@ class ActivityBattery : ActivityBase() {
 
         bp_disable_charge.setOnClickListener {
             KeepShellPublic.doCmdSync("sh " + FileWrite.writePrivateShellFile("addin/disable_charge.sh", "addin/disable_charge.sh", this.context))
-            Scene.toast(R.string.battery_charge_disabled, Toast.LENGTH_LONG)
+            TuneArsenals.toast(R.string.battery_charge_disabled, Toast.LENGTH_LONG)
         }
         bp_enable_charge.setOnClickListener {
             KeepShellPublic.doCmdSync(ResumeCharge)
-            Scene.toast(R.string.battery_charge_resumed, Toast.LENGTH_LONG)
+            TuneArsenals.toast(R.string.battery_charge_resumed, Toast.LENGTH_LONG)
         }
 
         battery_get_up.setText(minutes2Str(spf.getInt(SpfConfig.CHARGE_SPF_TIME_GET_UP, SpfConfig.CHARGE_SPF_TIME_GET_UP_DEFAULT)))

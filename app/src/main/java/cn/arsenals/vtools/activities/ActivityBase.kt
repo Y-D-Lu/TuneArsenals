@@ -7,7 +7,7 @@ import android.os.PersistableBundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.common.ui.ThemeMode
 import cn.arsenals.tunearsenals.R
@@ -62,11 +62,11 @@ open class ActivityBase : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        Scene.postDelayed({
+        TuneArsenals.postDelayed({
             System.gc()
         }, 500)
         if (isTaskRoot) {
-            Scene.postDelayed({
+            TuneArsenals.postDelayed({
                 KeepShellPublic.doCmdSync("dumpsys meminfo " + context.packageName + " > /dev/null")
             }, 100)
         }

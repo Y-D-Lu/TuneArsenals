@@ -1,5 +1,5 @@
 <resources>
-    <style name="SceneTabLayout">
+    <style name="TuneArsenalsTabLayout">
         <item name="android:background">?cardBg</item>
         <item name="tabIndicator">@null</item>
         <item name="tabMaxWidth">0dp</item>
@@ -29,10 +29,10 @@
         <item name="windowNoTitle">true</item>
         <item name="cardBg">@color/cardBgLight</item>
         <item name="showHints">gone</item>
-        <item name="android:switchStyle">@style/SceneSwitch</item>
-        <item name="android:seekBarStyle">@style/SceneSeekBar</item>
-        <item name="android:checkboxStyle">@style/SceneCheckBox</item>
-        <item name="android:radioButtonStyle">@style/SceneRadioBox</item>
+        <item name="android:switchStyle">@style/TuneArsenalsSwitch</item>
+        <item name="android:seekBarStyle">@style/TuneArsenalsSeekBar</item>
+        <item name="android:checkboxStyle">@style/TuneArsenalsCheckBox</item>
+        <item name="android:radioButtonStyle">@style/TuneArsenalsRadioBox</item>
     </style>
 
     <style name="AppThemeNight" parent="Theme.AppCompat">
@@ -50,10 +50,10 @@
         <item name="windowNoTitle">true</item>
         <item name="cardBg">@color/cardBgDark</item>
         <item name="showHints">gone</item>
-        <item name="android:switchStyle">@style/SceneSwitch</item>
-        <item name="android:seekBarStyle">@style/SceneSeekBar</item>
-        <item name="android:checkboxStyle">@style/SceneCheckBox</item>
-        <item name="android:radioButtonStyle">@style/SceneRadioBox</item>
+        <item name="android:switchStyle">@style/TuneArsenalsSwitch</item>
+        <item name="android:seekBarStyle">@style/TuneArsenalsSeekBar</item>
+        <item name="android:checkboxStyle">@style/TuneArsenalsCheckBox</item>
+        <item name="android:radioButtonStyle">@style/TuneArsenalsRadioBox</item>
         <item name="android:windowAnimationStyle">@style/activityAnim</item>
     </style>
 
@@ -304,7 +304,7 @@
         <item name="android:layout_column">2</item>
     </style>
 
-    <style name="scene_config_item" parent="SceneSwitch">
+    <style name="scene_config_item" parent="TuneArsenalsSwitch">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">14dp</item>

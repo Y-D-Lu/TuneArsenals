@@ -196,7 +196,7 @@
 
                     <SeekBar
                         android:id="@+id/settings_qc_limit"
-                        style="@style/SceneSeekBar"
+                        style="@style/TuneArsenalsSeekBar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -251,7 +251,7 @@
 
                         <Spinner
                             android:id="@+id/battery_exec_options"
-                            style="@style/SceneSpinner"
+                            style="@style/TuneArsenalsSpinner"
                             android:entries="@array/battery_exec_options" />
                     </LinearLayout>
 
@@ -345,7 +345,7 @@
 
                 <SeekBar
                     android:id="@+id/settings_bp_level"
-                    style="@style/SceneSeekBar"
+                    style="@style/TuneArsenalsSeekBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -375,14 +375,14 @@
                     <Button
                         android:id="@+id/bp_disable_charge"
                         android:layout_width="wrap_content"
-                        style="@style/SceneButton"
+                        style="@style/TuneArsenalsButton"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
                         android:text="@string/battery_charge_disable" />
 
                     <Button
                         android:id="@+id/bp_enable_charge"
                         android:layout_width="wrap_content"
-                        style="@style/SceneButton"
+                        style="@style/TuneArsenalsButton"
                         android:text="@string/battery_charge_resume" />
                 </LinearLayout>
             </LinearLayout>
@@ -531,14 +531,14 @@
                     <Button
                         android:id="@+id/btn_battery_history"
                         android:layout_width="wrap_content"
-                        style="@style/SceneButton"
+                        style="@style/TuneArsenalsButton"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
                         android:text="@string/battery_view_history" />
 
                     <Button
                         android:id="@+id/btn_battery_history_del"
                         android:layout_width="wrap_content"
-                        style="@style/SceneButton"
+                        style="@style/TuneArsenalsButton"
                         android:text="@string/battery_delete_history" />
                 </LinearLayout>
             </LinearLayout>

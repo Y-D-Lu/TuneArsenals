@@ -21,13 +21,13 @@ public class CameraHookProvider {
     // 打印所有后置摄像头的Id
     private void dumpCameraList() {
         // 枚举所有摄像头
-        XposedBridge.log("Scene: 摄像头数量 " + Camera.getNumberOfCameras());
+        XposedBridge.log("TuneArsenals: 摄像头数量 " + Camera.getNumberOfCameras());
         for (int cameraId = 0; cameraId < Camera.getNumberOfCameras(); cameraId++) {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
             Camera.getCameraInfo(cameraId, cameraInfo);
             // 如果是后置摄像头
             if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {
-                XposedBridge.log("Scene [Dump CameraInfo] cameraId: " + cameraId);
+                XposedBridge.log("TuneArsenals [Dump CameraInfo] cameraId: " + cameraId);
             }
         }
     }
@@ -83,7 +83,7 @@ public class CameraHookProvider {
     public void setCameraIdHook(int cameraIndex) {
         hackCameraIndex = cameraIndex;
         valueKeepOnece = true;
-        XposedBridge.log("Scene: 切换摄像头 " + cameraIndex);
+        XposedBridge.log("TuneArsenals: 切换摄像头 " + cameraIndex);
     }
 
     public VirtualCameraInfo getCameraIdHook() {

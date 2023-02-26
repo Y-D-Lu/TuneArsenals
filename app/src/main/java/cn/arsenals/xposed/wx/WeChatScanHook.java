@@ -34,7 +34,7 @@ public class WeChatScanHook {
                     VirtualCameraInfo targetCamera = cameraHookProvider.getCameraIdHook();
                     param.args[0] = targetCamera.cameraId;
 
-                    XposedBridge.log("Scene: 微信启动相机 CameraId [" + param.args[0] + "] Total: " + Camera.getNumberOfCameras());
+                    XposedBridge.log("TuneArsenals: 微信启动相机 CameraId [" + param.args[0] + "] Total: " + Camera.getNumberOfCameras());
                 }
             });
 
@@ -47,7 +47,7 @@ public class WeChatScanHook {
                     if (className.equals("com.tencent.mm.plugin.scanner.ui.BaseScanUI")) {
                         scanActivityInject(param);
                     }
-                    // XposedBridge.log("Scene: Activity onResume [" + className + "]");
+                    // XposedBridge.log("TuneArsenals: Activity onResume [" + className + "]");
                 }
             });
 

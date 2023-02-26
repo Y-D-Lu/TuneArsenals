@@ -11,7 +11,7 @@ import android.os.PowerManager
 import android.os.PowerManager.PARTIAL_WAKE_LOCK
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shared.FileWrite
 import cn.arsenals.common.shell.KeepShell
 import cn.arsenals.tunearsenals.R
@@ -136,7 +136,7 @@ class CompileService : IntentService("vtools-compile") {
             }
             keepShell.tryExit()
             compileCanceled = true
-            Scene.Companion.toast("重置过程中手机会有点卡，请耐心等待~", Toast.LENGTH_LONG)
+            TuneArsenals.Companion.toast("重置过程中手机会有点卡，请耐心等待~", Toast.LENGTH_LONG)
         } else {
             for (packageName in packageNames) {
                 if (true) {

@@ -10,7 +10,7 @@ import android.os.Build
 import android.os.SystemClock
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.data.EventType
 import cn.arsenals.data.GlobalStatus
 import cn.arsenals.data.IEventReceiver
@@ -167,7 +167,7 @@ internal class AlwaysNotification(
         val clickIntent = PendingIntent.getBroadcast(
                 context,
                 0,
-                Intent(context, ReceiverSceneMode::class.java).putExtra("packageName", packageName),
+                Intent(context, ReceiverTuneArsenalsMode::class.java).putExtra("packageName", packageName),
                 PendingIntent.FLAG_UPDATE_CURRENT)
 
         val icon = getModIcon(mode)
@@ -195,7 +195,7 @@ internal class AlwaysNotification(
     }
 
     private fun getRemoteViews(): RemoteViews {
-        val layout = (if (Scene.isNightMode && globalSPF.getBoolean(SpfConfig.GLOBAL_NIGHT_BLACK_NOTIFICATION, false)) {
+        val layout = (if (TuneArsenals.isNightMode && globalSPF.getBoolean(SpfConfig.GLOBAL_NIGHT_BLACK_NOTIFICATION, false)) {
             R.layout.layout_notification_dark
         } else {
             R.layout.layout_notification

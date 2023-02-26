@@ -12,7 +12,7 @@ import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import android.view.accessibility.AccessibilityWindowInfo
 import android.widget.Toast
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.data.EventBus
 import cn.arsenals.data.EventType
 import cn.arsenals.data.GlobalStatus
@@ -151,13 +151,13 @@ public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver 
             }
         } else if (eventType == EventType.SCREEN_ON) {
             if (!serviceIsConnected) {
-                Scene.toast("辅助服务已失效，请重新激活辅助服务！")
+                TuneArsenals.toast("辅助服务已失效，请重新激活辅助服务！")
             }
         } else if (eventType == EventType.STATE_RESUME) {
             modernModeEvent(null)
         } else if (eventType == EventType.SERVICE_UPDATE) {
             updateConfig()
-            Scene.toast("辅助服务配置已更新~", Toast.LENGTH_SHORT)
+            TuneArsenals.toast("辅助服务配置已更新~", Toast.LENGTH_SHORT)
         }
     }
 
@@ -206,7 +206,7 @@ public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver 
         /* // 开发过程中用于分析界面点击（捕获广告按钮）
         if (event.eventType == AccessibilityEvent.TYPE_VIEW_CLICKED || event.eventType == AccessibilityEvent.TYPE_VIEW_FOCUSED) {
             val viewId = event.source?.viewIdResourceName // 有些跳过按钮不是文字来的 // if (event.text?.contains("跳过") == true) event.source?.viewIdResourceName else null
-            Log.d("@Scene", "点击了[$viewId]，在 ${event.className}")
+            Log.d("@TuneArsenals", "点击了[$viewId]，在 ${event.className}")
         }
         */
 
@@ -288,7 +288,7 @@ public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver 
 
             val packageName = event.packageName
             if (packageName == null || skipAdIgnoredApps.contains(packageName) || event.className === "android.widget.EditText") {
-                // Log.d("@Scene", "SkipAD -> ignore")
+                // Log.d("@TuneArsenals", "SkipAD -> ignore")
                 return
             }
 
@@ -353,7 +353,7 @@ public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver 
 
                 val logs = if (floatLogView == null) null else StringBuilder()
                 logs?.run {
-                    append("Scene窗口检测\n", "屏幕: ${displayHeight}x${displayWidth}")
+                    append("TuneArsenals窗口检测\n", "屏幕: ${displayHeight}x${displayWidth}")
                     if (isLandscape) {
                         append(" 横向")
                     } else {
@@ -473,8 +473,8 @@ public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver 
                         if (wp?.equals("com.miui.home") == true) {
                             /*
                             val node = root?.findAccessibilityNodeInfosByText("小窗应用")?.firstOrNull()
-                            Log.d("Scene-MIUI", "" + node?.parent?.viewIdResourceName)
-                            Log.d("Scene-MIUI", "" + node?.viewIdResourceName)
+                            Log.d("TuneArsenals-MIUI", "" + node?.parent?.viewIdResourceName)
+                            Log.d("TuneArsenals-MIUI", "" + node?.viewIdResourceName)
                             */
                             val node = lastWindow.root?.findAccessibilityNodeInfosByViewId("com.miui.home:id/txtSmallWindowContainer")?.firstOrNull()
                             if (node != null) {
@@ -529,7 +529,7 @@ public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver 
                         }
                     }
                 } else {
-                    // Log.d("@Scene", "windowCacheHit " + cache)
+                    // Log.d("@TuneArsenals", "windowCacheHit " + cache)
                     cache
                 }
             } catch (ex: Exception) {
@@ -543,8 +543,8 @@ public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver 
                 }
                 /*
                 val node = root?.findAccessibilityNodeInfosByText("小窗应用")?.firstOrNull()
-                Log.d("Scene-MIUI", "" + node?.parent?.viewIdResourceName)
-                Log.d("Scene-MIUI", "" + node?.viewIdResourceName)
+                Log.d("TuneArsenals-MIUI", "" + node?.parent?.viewIdResourceName)
+                Log.d("TuneArsenals-MIUI", "" + node?.viewIdResourceName)
                 */
                 val node = root?.findAccessibilityNodeInfosByViewId("com.miui.home:id/txtSmallWindowContainer")?.firstOrNull()
                 if (node != null) {
@@ -576,7 +576,7 @@ public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver 
                     override fun run() {
                         val interval = System.currentTimeMillis() - lastEventTime
                         if (interval <= pollingTimeout) {
-                            // Log.d(">>>>", "Scene Get Windows")
+                            // Log.d(">>>>", "TuneArsenals Get Windows")
                             modernModeEvent()
                         } else {
                             stopActivityPolling()
@@ -604,7 +604,7 @@ public class AccessibilityTuneArsenals : AccessibilityService(), IEventReceiver 
                 EventBus.unsubscribe(this)
             }
             appSwitchHandler = null
-            Toast.makeText(applicationContext, "Scene - 辅助服务已关闭！", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "TuneArsenals - 辅助服务已关闭！", Toast.LENGTH_SHORT).show()
             // disableSelf()
             stopSelf()
         }

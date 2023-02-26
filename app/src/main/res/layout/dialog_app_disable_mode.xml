@@ -162,7 +162,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="让应用从桌面和系统的应用管理列表消失，但你仍然可以在Scene找回它~" />
+                            android:text="让应用从桌面和系统的应用管理列表消失，但你仍然可以在TuneArsenals找回它~" />
                     </LinearLayout>
                     <Switch
                         android:id="@+id/disable_hide"

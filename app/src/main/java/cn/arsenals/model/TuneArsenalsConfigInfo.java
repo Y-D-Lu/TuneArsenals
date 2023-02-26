@@ -2,7 +2,7 @@ package cn.arsenals.model;
 
 import android.content.pm.ActivityInfo;
 
-public class SceneConfigInfo {
+public class TuneArsenalsConfigInfo {
     public String packageName;
 
     // 使用独立亮度

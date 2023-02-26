@@ -28,7 +28,7 @@ class SwapUtils(private val context: Context) {
             return RootFile.itemExists(swapfilePath)
         }
 
-    // 当前已由Scene激活的swap
+    // 当前已由TuneArsenals激活的swap
     val sceneSwaps: String
         get() {
             if (swapExists) {

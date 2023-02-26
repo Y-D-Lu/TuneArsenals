@@ -25,7 +25,7 @@ public class DumpView {
             for (int i = 0; i < vp.getChildCount(); i++) {
                 View viewchild = vp.getChildAt(i);
                 allChildren.add(viewchild);
-                XposedBridge.log("Scene Wechat : " + prefixSpace(level) + viewchild.getClass().getName());
+                XposedBridge.log("TuneArsenals Wechat : " + prefixSpace(level) + viewchild.getClass().getName());
                 //再次 调用本身（递归）
                 allChildren.addAll(getAllChildViews(viewchild, level + 1));
             }

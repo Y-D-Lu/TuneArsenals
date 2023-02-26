@@ -33,9 +33,9 @@ public class AppFreezeInjector {
     }
 
     private boolean unfreeze(Context context, String packageName) {
-        // 在手机刚开机未解锁的情况下，访问SceneContentProvider 会出现Unknown URL
+        // 在手机刚开机未解锁的情况下，访问TuneArsenalsContentProvider 会出现Unknown URL
         try {
-            Uri uri = Uri.parse("content://cn.arsenals.tunearsenals.SceneFreezeProvider");
+            Uri uri = Uri.parse("content://cn.arsenals.tunearsenals.TuneArsenalsFreezeProvider");
             ContentResolver contentProvider = context.getContentResolver();
             ContentValues contentValues = new ContentValues();
             contentValues.put("packageName", packageName);
@@ -54,13 +54,13 @@ public class AppFreezeInjector {
 
             Method method = packageManager.getClass().getMethod("isPackageSuspended", String.class);
             if ((Boolean) (method.invoke(packageManager, packageName))) {
-                // 方式3：通过Scene解冻后再启动
+                // 方式3：通过TuneArsenals解冻后再启动
                 if (unfreeze(context, packageName)) {
-                    // -> 通过Scene解冻就完事了咯
-                    Toast.makeText(context, "已通过Scene解冻应用：" + packageName, Toast.LENGTH_SHORT).show();
+                    // -> 通过TuneArsenals解冻就完事了咯
+                    Toast.makeText(context, "已通过TuneArsenals解冻应用：" + packageName, Toast.LENGTH_SHORT).show();
                 }
 
-                // 方式1： 由Scene通过ROOT启动
+                // 方式1： 由TuneArsenals通过ROOT启动
                 // intent.setClassName("cn.arsenals.tunearsenals", "cn.arsenals.tunearsenals.activities.ActivityQuickStart");
                 // intent.putExtra("packageName", packageName);
                 // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_TASK_ON_HOME | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -68,7 +68,7 @@ public class AppFreezeInjector {
                 // 方式2：由桌面自己解冻再启动（通常没有权限）
                 // // packageManager.setPackagesSuspended(packageNames, true, null, null, dialogMessage);
                 // Method setPackagesSuspended = packageManager.getClass().getMethod("setPackagesSuspended", String[].class, boolean.class, PersistableBundle.class, PersistableBundle.class, String.class);
-                // setPackagesSuspended.invoke(packageManager, new String[]{ packageName }, false, null, null, "通过Scene启动冻结的应用！");
+                // setPackagesSuspended.invoke(packageManager, new String[]{ packageName }, false, null, null, "通过TuneArsenals启动冻结的应用！");
             }
         } catch (Exception ex) {
             // Toast.makeText(context, "应用偏见处理异常\nAction: " + intent.getAction() + "\ngetPackage: " + intent.getPackage() + "\nComponentName: " + (component != null ? component.getClassName() : null), Toast.LENGTH_LONG).show();

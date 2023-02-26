@@ -17,7 +17,7 @@ import cn.arsenals.store.SpfConfig
  * Created by SYSTEM on 2018/07/19.
  */
 
-class SystemScene(private var context: Context) {
+class SystemTuneArsenals(private var context: Context) {
     private var spfAutoConfig: SharedPreferences = context.getSharedPreferences(SpfConfig.BOOSTER_SPF_CFG_SPF, Context.MODE_PRIVATE)
     private var keepShell = KeepShellAsync(context)
 

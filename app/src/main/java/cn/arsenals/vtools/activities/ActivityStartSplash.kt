@@ -16,7 +16,7 @@ import android.widget.Button
 import android.widget.CompoundButton
 import androidx.core.app.ActivityCompat
 import androidx.core.content.PermissionChecker
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.common.ui.ThemeMode
 import cn.arsenals.permissions.Busybox
@@ -59,7 +59,7 @@ class ActivityStartSplash : Activity() {
         var clickItems = 0
         timer.schedule(object : TimerTask() {
             override fun run() {
-                Scene.post {
+                TuneArsenals.post {
                     if (timeout > 0) {
                         timeout --
                         btnConfirm.text = timeout.toString() + "s"

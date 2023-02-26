@@ -1,6 +1,6 @@
 #!/system/bin/sh
 
-#环境变量由Scene提供
+#环境变量由TuneArsenals提供
 #echo "TEMP_DIR=$TEMP_DIR"
 #echo "ANDROID_UID=$ANDROID_UID"
 #echo "ANDROID_SDK=$ANDROID_SDK"

@@ -136,7 +136,7 @@ class ActivityAppXposedDetails : ActivityBase() {
                 throw Exception("")
             }
         } catch (ex: Exception) {
-            Toast.makeText(applicationContext, "连接到“Scene-高级设定”插件失败，请不要阻止插件自启动！", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "连接到“TuneArsenals-高级设定”插件失败，请不要阻止插件自启动！", Toast.LENGTH_LONG).show()
         }
     }
 

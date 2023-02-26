@@ -4,7 +4,7 @@ import cn.arsenals.common.shell.KeepShellPublic;
 import cn.arsenals.common.shell.KernelProrp;
 import cn.arsenals.model.CpuClusterStatus;
 import cn.arsenals.model.CpuStatus;
-import cn.arsenals.tunearsenals.SceneJNI;
+import cn.arsenals.tunearsenals.TuneArsenalsJNI;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class CpuFrequencyUtils {
     private final String scaling_governor = cpufreq_sys_dir + "scaling_governor";
     private final Object cpuClusterInfoLoading = true;
     private ArrayList<String[]> cpuClusterInfo;
-    private SceneJNI JNI = new SceneJNI();
+    private TuneArsenalsJNI JNI = new TuneArsenalsJNI();
     private int coreCount = -1;
 
     private boolean isMTK() {

@@ -7,8 +7,8 @@ import android.graphics.PixelFormat
 import android.os.Build
 import android.view.View
 import android.view.WindowManager
-import cn.arsenals.Scene
-import cn.arsenals.model.SceneConfigInfo
+import cn.arsenals.TuneArsenals
+import cn.arsenals.model.TuneArsenalsConfigInfo
 
 class FloatScreenRotation(mContext: Context) {
     private var view: View = View(mContext)
@@ -41,7 +41,7 @@ class FloatScreenRotation(mContext: Context) {
     private var show: Boolean = false
     private val wm = mContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager
 
-    public fun update(config: SceneConfigInfo) {
+    public fun update(config: TuneArsenalsConfigInfo) {
         val screenOrientation = config.screenOrientation
 
         if (screenOrientation == params.screenOrientation) {
@@ -49,7 +49,7 @@ class FloatScreenRotation(mContext: Context) {
         }
 
         params.screenOrientation = screenOrientation
-        Scene.post {
+        TuneArsenals.post {
             if (screenOrientation == ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) {
                 // Log.d(">>>>", "恢复" + screenOrientation)
                 if (show) {

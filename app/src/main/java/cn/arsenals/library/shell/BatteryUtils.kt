@@ -1,7 +1,7 @@
 package cn.arsenals.library.shell
 
 import android.content.Context
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.shared.FileWrite
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.common.shell.KernelProrp
@@ -408,7 +408,7 @@ class BatteryUtils {
         if (changeLimitRunning && !force) {
             return false
         } else {
-            synchronized(Scene.context) {
+            synchronized(TuneArsenals.context) {
                 changeLimitRunning = true
 
                 if (fastChargeScript.isEmpty()) {

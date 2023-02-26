@@ -6,11 +6,11 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.database.Cursor
 import android.net.Uri
-import cn.arsenals.Scene
-import cn.arsenals.scene_mode.SceneMode
+import cn.arsenals.TuneArsenals
+import cn.arsenals.scene_mode.TuneArsenalsMode
 import cn.arsenals.store.SpfConfig
 
-class SceneFreezeProvider : ContentProvider() {
+class TuneArsenalsFreezeProvider : ContentProvider() {
     override fun delete(uri: Uri, selection: String?, selectionArgs: Array<String>?): Int {
         return 0
     }
@@ -18,7 +18,7 @@ class SceneFreezeProvider : ContentProvider() {
     private var config: SharedPreferences? = null
     private fun allowXposedOpen(): Boolean {
         if (config == null) {
-            config = Scene.context.getSharedPreferences(SpfConfig.GLOBAL_SPF, Context.MODE_PRIVATE)
+            config = TuneArsenals.context.getSharedPreferences(SpfConfig.GLOBAL_SPF, Context.MODE_PRIVATE)
         }
         return config!!.getBoolean(SpfConfig.GLOBAL_SPF_FREEZE_XPOSED_OPEN, false)
     }
@@ -58,7 +58,7 @@ class SceneFreezeProvider : ContentProvider() {
             val packageName = values.get("packageName").toString()
             val source = values.get("source").toString()
             if (whiteList.contains(source) || allowXposedOpen()) {
-                SceneMode.unfreezeApp(packageName)
+                TuneArsenalsMode.unfreezeApp(packageName)
             }
             return uri;
         }

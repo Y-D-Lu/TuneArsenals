@@ -25,14 +25,14 @@ public class FastBlurUtility {
 
         /*
         Long startTime = System.currentTimeMillis();
-        Log.d("Scene", "takeScreenShot");
+        Log.d("TuneArsenals", "takeScreenShot");
         Bitmap bmp = takeScreenShot(activity);
-        Log.d("Scene", "startBlurBackground" + (System.currentTimeMillis() - startTime));
+        Log.d("TuneArsenals", "startBlurBackground" + (System.currentTimeMillis() - startTime));
         startBlurBackground(bmp);
         // Bitmap bitmap = startBlurBackground(bmp);
-        Log.d("Scene", "Blur Completed！"+ (System.currentTimeMillis() - startTime));
+        Log.d("TuneArsenals", "Blur Completed！"+ (System.currentTimeMillis() - startTime));
         Bitmap bitmap = blur(bmp, activity);
-        Log.d("Scene", "Blur Completed！"+ (System.currentTimeMillis() - startTime));
+        Log.d("TuneArsenals", "Blur Completed！"+ (System.currentTimeMillis() - startTime));
         return bitmap;
         */
     }

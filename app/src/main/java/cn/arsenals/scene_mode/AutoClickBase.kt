@@ -38,7 +38,7 @@ open class AutoClickBase {
                 }
                 node.isFocusable = true
             } catch (ex: Exception) {
-                // Log.e("@Scene", "" + ex.message)
+                // Log.e("@TuneArsenals", "" + ex.message)
             }
             */
 
@@ -46,12 +46,12 @@ open class AutoClickBase {
                 @Override
                 override fun onCompleted(gestureDescription: GestureDescription) {
                     super.onCompleted(gestureDescription);
-                    // Log.d("@Scene", "onCompleted: 完成..........");
+                    // Log.d("@TuneArsenals", "onCompleted: 完成..........");
                 }
 
                 override fun onCancelled(gestureDescription: GestureDescription) {
                     super.onCancelled(gestureDescription);
-                    // Log.d("@Scene", "onCancelled: 取消..........");
+                    // Log.d("@TuneArsenals", "onCancelled: 取消..........");
                 }
             }, null)
         }

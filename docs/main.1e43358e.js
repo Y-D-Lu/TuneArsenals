@@ -10654,23 +10654,23 @@ var _default = {
     return {
       s4Minimize: false,
       proVersionInfo: {
-        "title": "Scene",
+        "title": "TuneArsenals",
         "message": "",
         "versionName": "Loading...",
         "versionCode": "",
         "downloadUrl": ""
       },
       versionInfo: {
-        "title": "Scene",
+        "title": "TuneArsenals",
         "message": "",
         "versionName": "Loading...",
         "versionCode": "",
         "downloadUrl": ""
       },
       appRecommend: [{
-        appName: 'Scene xposed plug-in',
-        desc: 'Install it to use xposed related features in Scene',
-        downloadUrl: 'http://atools.oss-cn-shenzhen.aliyuncs.com/app1/Scene%20-%20%E9%AB%98%E7%BA%A7%E8%AE%BE%E5%AE%9A_1.0.7%20scene.apk'
+        appName: 'TuneArsenals xposed plug-in',
+        desc: 'Install it to use xposed related features in TuneArsenals',
+        downloadUrl: 'http://atools.oss-cn-shenzhen.aliyuncs.com/app1/TuneArsenals%20-%20%E9%AB%98%E7%BA%A7%E8%AE%BE%E5%AE%9A_1.0.7%20scene.apk'
       }],
       orientation: {
         absolute: false,
@@ -10691,18 +10691,18 @@ var _default = {
   created: function created() {
     var _this = this;
 
-    if (window.SceneUI) {
-      window.SceneUI.setStatusBarColor('#ff00b9c2');
-      window.SceneUI.setNavigationBarColor('#ff00b9c2');
+    if (window.TuneArsenalsUI) {
+      window.TuneArsenalsUI.setStatusBarColor('#ff00b9c2');
+      window.TuneArsenalsUI.setNavigationBarColor('#ff00b9c2');
     }
 
-    _axios.default.get(window.location.protocol + '//vtools.oss-cn-beijing.aliyuncs.com/vi/Scene5.json?dt=' + new Date().getTime()).then(function (r) {
+    _axios.default.get(window.location.protocol + '//vtools.oss-cn-beijing.aliyuncs.com/vi/TuneArsenals5.json?dt=' + new Date().getTime()).then(function (r) {
       _this.proVersionInfo = r.data;
     }).catch(function (e) {
       _this.proVersionInfo.versionName = 'coming soon'; // alert('获取版本信息失败~')
     });
 
-    _axios.default.get(window.location.protocol + '//vtools.oss-cn-beijing.aliyuncs.com/vi/Scene4.json?dt=' + new Date().getTime()).then(function (r) {
+    _axios.default.get(window.location.protocol + '//vtools.oss-cn-beijing.aliyuncs.com/vi/TuneArsenals4.json?dt=' + new Date().getTime()).then(function (r) {
       _this.versionInfo = r.data;
     }).catch(function (e) {
       alert('获取版本信息失败~');
@@ -10817,7 +10817,7 @@ exports.default = _default;
             _c("div", { staticClass: "content" }, [
               _c("div", { staticClass: "version" }, [
                 _vm._v(
-                  "Scene4 is a free and open source project, You must use ROOT permission"
+                  "TuneArsenals4 is a free and open source project, You must use ROOT permission"
                 )
               ]),
               _vm._v(" "),
@@ -10909,7 +10909,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "version" }, [
-      _vm._v("Scene5 is coming."),
+      _vm._v("TuneArsenals5 is coming."),
       _c("br"),
       _vm._v("There will be three modes: Basic, ADB, Root"),
       _c("br"),

@@ -12,7 +12,7 @@ import cn.arsenals.data.IEventReceiver
 import cn.arsenals.library.basic.ScreenState
 import cn.arsenals.store.TimingTaskStorage
 
-class SceneTaskIntentService : IntentService("SceneTaskIntentService") {
+class TuneArsenalsTaskIntentService : IntentService("TuneArsenalsTaskIntentService") {
     override fun onHandleIntent(intent: Intent?) {
         intent?.run {
             val taskId = if (intent.hasExtra("taskId")) intent.getStringExtra("taskId") else null
@@ -28,9 +28,9 @@ class SceneTaskIntentService : IntentService("SceneTaskIntentService") {
         timingTask?.run {
             if (timingTask.expireDate > 0 && timingTask.expireDate <= System.currentTimeMillis()) {
                 this.enabled = false
-                TimingTaskManager(this@SceneTaskIntentService).setTask(this)
+                TimingTaskManager(this@TuneArsenalsTaskIntentService).setTask(this)
             } else {
-                TimingTaskManager(this@SceneTaskIntentService).setTask(this)
+                TimingTaskManager(this@TuneArsenalsTaskIntentService).setTask(this)
             }
 
             if (chargeOnly && GlobalStatus.batteryStatus == BatteryManager.BATTERY_STATUS_DISCHARGING) {
@@ -50,7 +50,7 @@ class SceneTaskIntentService : IntentService("SceneTaskIntentService") {
     class ScreenDelayTaskReceiver(private val taskId: String, private val context: Context, override val isAsync: Boolean = false) : IEventReceiver {
         override fun onReceive(eventType: EventType, data: HashMap<String, Any>?) {
             EventBus.unsubscribe(this)
-            val taskIntent = Intent(context, SceneTaskIntentService::class.java)
+            val taskIntent = Intent(context, TuneArsenalsTaskIntentService::class.java)
             taskIntent.putExtra("taskId", taskId)
             taskIntent.action = taskId
 

@@ -10,9 +10,9 @@ import cn.arsenals.tunearsenals.R
 import cn.arsenals.tunearsenals.activities.ActivityPowerModeTile
 
 @RequiresApi(api = Build.VERSION_CODES.N)
-class SceneTileService : TileService() {
+class TuneArsenalsTileService : TileService() {
     override fun onClick() {
-        // sendBroadcast(Intent(this, ReceiverSceneMode::class.java).putExtra("packageName", packageName))
+        // sendBroadcast(Intent(this, ReceiverTuneArsenalsMode::class.java).putExtra("packageName", packageName))
         startActivityAndCollapse(
                 Intent(this, ActivityPowerModeTile::class.java)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

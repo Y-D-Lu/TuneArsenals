@@ -167,7 +167,7 @@ class ActivityHiddenApps : ActivityBase() {
         val uid = FileOwner(this).userId
         for (app in apps) {
             val cmd = "pm install-existing --user $uid ${app.packageName}"
-            Log.d("Scene", cmd)
+            Log.d("TuneArsenals", cmd)
             keepShell.doCmdSync(cmd)
         }
     }

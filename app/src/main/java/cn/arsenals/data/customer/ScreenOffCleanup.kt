@@ -1,7 +1,7 @@
 package cn.arsenals.data.customer
 
 import android.content.Context
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.data.EventType
 import cn.arsenals.data.IEventReceiver
 import cn.arsenals.tunearsenals.popup.*
@@ -13,7 +13,7 @@ class ScreenOffCleanup(private val context: Context) : IEventReceiver {
 
     private val status = booleanArrayOf(false, false, false, false, false)
     override fun onReceive(eventType: EventType, data: HashMap<String, Any>?) {
-        Scene.post {
+        TuneArsenals.post {
             if (eventType == EventType.SCREEN_OFF) {
                 status[0] = FloatMonitorMini.show == true
                 status[1] = FloatTaskManager.show == true
@@ -27,7 +27,7 @@ class ScreenOffCleanup(private val context: Context) : IEventReceiver {
                 FloatMonitor(context).hidePopupWindow()
                 FloatMonitorThreads(context).hidePopupWindow()
             } else if (eventType == EventType.SCREEN_ON) {
-                Scene.postDelayed({
+                TuneArsenals.postDelayed({
                     if (status[0]) {
                         FloatMonitorMini(context).showPopupWindow()
                         status[0] = false

@@ -1,6 +1,6 @@
 package cn.arsenals.tunearsenals
 
-class SceneJNI {
+class TuneArsenalsJNI {
     external fun getKernelPropLong(path: String): Long
 
     companion object {

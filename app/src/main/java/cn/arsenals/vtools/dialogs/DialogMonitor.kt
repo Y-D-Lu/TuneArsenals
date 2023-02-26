@@ -4,7 +4,7 @@ import android.app.Activity
 import android.view.View
 import android.widget.CompoundButton
 import android.widget.Toast
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.common.ui.DialogHelper
 import cn.arsenals.utils.AccessibleServiceHelper
 import cn.arsenals.tunearsenals.R
@@ -78,7 +78,7 @@ class DialogMonitor(var context: Activity) {
                         FloatFpsWatch(context).showPopupWindow()
                     } else {
                         isChecked = false
-                        Scene.toast("请在系统设置里激活[Scene - 场景模式]辅助服务", Toast.LENGTH_SHORT)
+                        TuneArsenals.toast("请在系统设置里激活[TuneArsenals - 场景模式]辅助服务", Toast.LENGTH_SHORT)
                     }
                     */
                 } else {

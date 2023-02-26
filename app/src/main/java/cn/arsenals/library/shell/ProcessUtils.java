@@ -112,10 +112,10 @@ public class ProcessUtils {
                 processInfo.cmdline = row.substring(row.indexOf(processInfo.command) + processInfo.command.length()).trim();
                 return processInfo;
             } catch (Exception ex) {
-                // Log.e("Scene-ProcessUtils", "" + ex.getMessage() + " -> " + row);
+                // Log.e("TuneArsenals-ProcessUtils", "" + ex.getMessage() + " -> " + row);
             }
         } else {
-            // Log.e("Scene-ProcessUtils", "" + row);
+            // Log.e("TuneArsenals-ProcessUtils", "" + row);
         }
         return null;
     }
@@ -145,8 +145,8 @@ public class ProcessUtils {
     public ProcessInfo getProcessDetail(int pid) {
         if (DETAIL_COMMAND != null) {
             String r = KeepShellPublic.INSTANCE.doCmdSync(DETAIL_COMMAND + pid);
-            Log.d("Scene-SWAP", DETAIL_COMMAND + pid);
-            Log.d("Scene-SWAP", "" + r);
+            Log.d("TuneArsenals-SWAP", DETAIL_COMMAND + pid);
+            Log.d("TuneArsenals-SWAP", "" + r);
             String[] rows = r.split("\n");
             if (rows.length > 1) {
                 ProcessInfo row = readRow(rows[1].trim());

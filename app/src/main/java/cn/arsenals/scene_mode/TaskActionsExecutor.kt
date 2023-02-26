@@ -62,11 +62,11 @@ class TaskActionsExecutor(
                     }
                     TaskAction.STANDBY_MODE_OFF -> {
                         updateNotification("关闭待机模式")
-                        SceneStandbyMode(context, keepShell).off()
+                        TuneArsenalsStandbyMode(context, keepShell).off()
                     }
                     TaskAction.STANDBY_MODE_ON -> {
                         updateNotification("打开待机模式")
-                        SceneStandbyMode(context, keepShell).on()
+                        TuneArsenalsStandbyMode(context, keepShell).on()
                     }
                     TaskAction.ZEN_MODE_ON -> {
                         updateNotification("打开勿扰模式")

@@ -16,7 +16,7 @@ public class TimingTaskManager(private var context: Context) {
 
     private fun getPendingIntent(timingTaskInfo: TimingTaskInfo): PendingIntent {
         val taskId = timingTaskInfo.taskId
-        val taskIntent = Intent(context, SceneTaskIntentService::class.java)
+        val taskIntent = Intent(context, TuneArsenalsTaskIntentService::class.java)
         taskIntent.putExtra("taskId", taskId)
         taskIntent.action = taskId
         taskIntent.setAction(taskId)

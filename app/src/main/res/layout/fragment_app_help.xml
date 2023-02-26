@@ -29,7 +29,7 @@
 
     <Button
         android:id="@+id/app_btn_hide2"
-        style="@style/SceneButton"
+        style="@style/TuneArsenalsButton"
         android:layout_width="wrap_content"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="找回[隐藏]的应用" />

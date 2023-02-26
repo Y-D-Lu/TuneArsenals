@@ -49,7 +49,7 @@ class CrashHandler : Thread.UncaughtExceptionHandler {
             if (getSharedPreferences(SpfConfig.GLOBAL_SPF, Context.MODE_PRIVATE).getBoolean(SpfConfig.GLOBAL_SPF_AUTO_EXIT, true)) {
                 val serviceHelper = AccessibleServiceHelper()
                 if (serviceHelper.serviceRunning(mContext!!)) {
-                    serviceHelper.stopSceneModeService(mContext!!)
+                    serviceHelper.stopTuneArsenalsModeService(mContext!!)
                 }
                 KeepShellPublic.doCmdSync("killall -9 $packageName || am force-stop $packageName")
 

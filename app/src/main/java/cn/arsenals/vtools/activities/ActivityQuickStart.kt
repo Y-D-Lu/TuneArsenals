@@ -12,7 +12,7 @@ import android.view.View
 import cn.arsenals.common.shell.KeepShellPublic
 import cn.arsenals.library.shell.GAppsUtilis
 import cn.arsenals.permissions.CheckRootStatus
-import cn.arsenals.scene_mode.SceneMode
+import cn.arsenals.scene_mode.TuneArsenalsMode
 import cn.arsenals.store.SpfConfig
 import cn.arsenals.tunearsenals.R
 import kotlinx.android.synthetic.main.activity_quick_start.*
@@ -88,7 +88,7 @@ class ActivityQuickStart : Activity() {
                     appIntent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION or Intent.FLAG_ACTIVITY_NEW_TASK
                     startActivity(appIntent)
                     // overridePendingTransition(0, 0)
-                    SceneMode.getCurrentInstance()?.setFreezeAppStartTime(appPackageName)
+                    TuneArsenalsMode.getCurrentInstance()?.setFreezeAppStartTime(appPackageName)
                 }.start()
                 return
             }

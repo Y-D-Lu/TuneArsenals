@@ -24,7 +24,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import cn.arsenals.Scene
+import cn.arsenals.TuneArsenals
 import cn.arsenals.data.GlobalStatus
 import cn.arsenals.library.shell.*
 import cn.arsenals.store.SpfConfig
@@ -167,7 +167,7 @@ class FloatMonitor(private val mContext: Context) {
 
             return true
         } catch (ex: Exception) {
-            Scene.toast("FloatMonitor Error\n" + ex.message)
+            TuneArsenals.toast("FloatMonitor Error\n" + ex.message)
             return false
         }
     }
