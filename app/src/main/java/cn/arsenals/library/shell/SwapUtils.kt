@@ -29,7 +29,7 @@ class SwapUtils(private val context: Context) {
         }
 
     // 当前已由TuneArsenals激活的swap
-    val sceneSwaps: String
+    val tunearsenalsSwaps: String
         get() {
             if (swapExists) {
                 val ret = KernelProrp.getProp("/proc/swaps")
@@ -37,7 +37,7 @@ class SwapUtils(private val context: Context) {
                 if (txt.contains("/data/swapfile") || txt.contains("/swapfile")) {
                     return "/data/swapfile"
                 } else {
-                    val loopName = PropsUtils.getProp("vtools.swap.loop").split("/").lastOrNull()
+                    val loopName = PropsUtils.getProp("tunearsenals.swap.loop").split("/").lastOrNull()
                     if (loopName != null && loopName != "error" && txt.contains(loopName)) {
                         return loopName
                     }
@@ -113,7 +113,7 @@ class SwapUtils(private val context: Context) {
         sb.append("sh ")
         sb.append(swapControlScript)
         sb.append(" disable_swap ")
-        if (sceneSwaps.contains("loop")) {
+        if (tunearsenalsSwaps.contains("loop")) {
             sb.append("1")
         } else {
             sb.append("0")
@@ -132,7 +132,7 @@ class SwapUtils(private val context: Context) {
         sb.append("sh ")
         sb.append(swapControlScript)
         sb.append(" disable_swap ")
-        if (sceneSwaps.contains("loop")) {
+        if (tunearsenalsSwaps.contains("loop")) {
             sb.append("1")
         } else {
             sb.append("0")
@@ -294,7 +294,7 @@ class SwapUtils(private val context: Context) {
 
     val swapUsedSize: Int
         get() {
-            var loopName: String? = PropsUtils.getProp("vtools.swap.loop").split("/").lastOrNull()
+            var loopName: String? = PropsUtils.getProp("tunearsenals.swap.loop").split("/").lastOrNull()
             if (loopName != null && !loopName.contains("loop")) {
                 loopName = null
             }

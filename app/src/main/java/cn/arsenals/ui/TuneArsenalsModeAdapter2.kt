@@ -15,7 +15,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cn.arsenals.model.AppInfo
-import cn.arsenals.scene_mode.ModeSwitcher
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import cn.arsenals.tunearsenals.R
 import java.io.File
 import java.util.*
@@ -121,7 +121,7 @@ class TuneArsenalsModeAdapter2(private val context: Context, apps: ArrayList<App
     fun updateRow(position: Int, viewHolder: ViewHolder) {
         val item = getItem(position)
 
-        viewHolder.itemTitle?.text = keywordHightLight(if (item.sceneConfigInfo.freeze) ("*" + item.appName) else item.appName.toString())
+        viewHolder.itemTitle?.text = keywordHightLight(if (item.tunearsenalsConfigInfo.freeze) ("*" + item.appName) else item.appName.toString())
         if (item.icon == null) {
             loadIcon(viewHolder, item)
         } else {
@@ -175,7 +175,7 @@ class TuneArsenalsModeAdapter2(private val context: Context, apps: ArrayList<App
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val convertView = View.inflate(context, R.layout.list_item_scene_app, null)
+        val convertView = View.inflate(context, R.layout.list_item_tunearsenals_app, null)
         val viewHolder = ViewHolder(convertView)
         viewHolder.itemTitle = convertView.findViewById(R.id.ItemTitle)
         viewHolder.summery = convertView.findViewById(R.id.ItemSummary)

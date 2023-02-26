@@ -2,7 +2,7 @@ platform=`getprop ro.board.platform`
 mode="$state"
 
 if [[ "$MAGISK_PATH" == "" ]]; then
-  MAGISK_PATH="/data/adb/modules/scene_systemless"
+  MAGISK_PATH="/data/adb/modules/tunearsenals_systemless"
 fi
 
 # 方案2 - 替换到 /data

@@ -80,23 +80,23 @@
         </activity>
 
         <service
-            android:name="cn.arsenals.scene_mode.TriggerExecutorService"
+            android:name="cn.arsenals.tunearsenals_mode.TriggerExecutorService"
             android:exported="false" />
         <service
-            android:name="cn.arsenals.scene_mode.TuneArsenalsTaskIntentService"
+            android:name="cn.arsenals.tunearsenals_mode.TuneArsenalsTaskIntentService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="cn.arsenals.scene_mode.TimingTaskReceiver" />
+                <action android:name="cn.arsenals.tunearsenals_mode.TimingTaskReceiver" />
             </intent-filter>
         </service>
 
         <receiver
-            android:name="cn.arsenals.scene_mode.ReceiverTuneArsenalsMode"
+            android:name="cn.arsenals.tunearsenals_mode.ReceiverTuneArsenalsMode"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="cn.arsenals.scene_mode.ReceiverTuneArsenalsMode" />
+                <action android:name="cn.arsenals.tunearsenals_mode.ReceiverTuneArsenalsMode" />
             </intent-filter>
         </receiver>
         <receiver
@@ -315,7 +315,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="cn.arsenals.scene_mode.ReceiverShortcut"
+            android:name="cn.arsenals.tunearsenals_mode.ReceiverShortcut"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -342,7 +342,7 @@
                 android:resource="@xml/phone_accessibility" />
         </service>
         <service
-            android:name="cn.arsenals.scene_mode.NotificationListenerService"
+            android:name="cn.arsenals.tunearsenals_mode.NotificationListenerService"
             android:label="通知过滤服务"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
@@ -358,7 +358,7 @@
             android:enabled="true"
             android:permission="" />
         <service
-            android:name="cn.arsenals.scene_mode.TuneArsenalsTileService"
+            android:name="cn.arsenals.tunearsenals_mode.TuneArsenalsTileService"
             android:icon="@drawable/p4"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">

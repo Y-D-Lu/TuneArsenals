@@ -41,7 +41,7 @@ class SwapModuleUtils {
     val magiskModuleInstalled: Boolean
         get () {
             if (installed == null) {
-                installed = RootFile.fileExists("/data/swap_config.conf") && PropsUtils.getProp("vtools.swap.controller") == "magisk"
+                installed = RootFile.fileExists("/data/swap_config.conf") && PropsUtils.getProp("tunearsenals.swap.controller") == "magisk"
             }
 
             return installed!!
@@ -132,7 +132,7 @@ class SwapModuleUtils {
 
     // 当前模块版本
     fun getModuleVersion(): Int {
-        val version = PropsUtils.getProp("vtools.swap.module")
+        val version = PropsUtils.getProp("tunearsenals.swap.module")
         if (version == "error") {
             return Int.MAX_VALUE
         } else if (version == "") {

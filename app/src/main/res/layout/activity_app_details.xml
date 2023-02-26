@@ -56,7 +56,7 @@
             </LinearLayout>
 
             <Switch
-                android:id="@+id/scene_mode_allow"
+                android:id="@+id/tunearsenals_mode_allow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -65,7 +65,7 @@
                 android:text="打开应用自动执行操作" />
 
             <LinearLayout
-                android:id="@+id/scene_mode_config"
+                android:id="@+id/tunearsenals_mode_config"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:orientation="vertical">
@@ -76,7 +76,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        style="@style/scene_config_title"
+                        style="@style/tunearsenals_config_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="性能调节" />
@@ -86,7 +86,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            style="@style/scene_config_item"
+                            style="@style/tunearsenals_config_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="调节性能至" />
@@ -107,7 +107,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            style="@style/scene_config_item"
+                            style="@style/tunearsenals_config_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="内存(cgroup) 前台时" />
@@ -128,7 +128,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            style="@style/scene_config_item"
+                            style="@style/tunearsenals_config_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="内存(cgroup) 离开后" />
@@ -149,7 +149,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            style="@style/scene_config_item"
+                            style="@style/tunearsenals_config_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="自动加速(memory)" />
@@ -172,7 +172,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        style="@style/scene_config_title"
+                        style="@style/tunearsenals_config_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="基本设置" />
@@ -183,13 +183,13 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            style="@style/scene_config_item"
+                            style="@style/tunearsenals_config_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="关闭自动亮度" />
                         <Switch
                             android:id="@+id/app_details_aloowlight"
-                            style="@style/scene_config_item"
+                            style="@style/tunearsenals_config_item"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="" />
@@ -202,13 +202,13 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            style="@style/scene_config_item"
+                            style="@style/tunearsenals_config_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="打开GPS（离开后还原）" />
                         <Switch
                             android:id="@+id/app_details_gps"
-                            style="@style/scene_config_item"
+                            style="@style/tunearsenals_config_item"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="" />
@@ -221,13 +221,13 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            style="@style/scene_config_item"
+                            style="@style/tunearsenals_config_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="旋转屏幕" />
 
                         <TextView
-                            android:id="@+id/scene_orientation"
+                            android:id="@+id/tunearsenals_orientation"
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:layout_weight="1"
@@ -242,7 +242,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        style="@style/scene_config_title"
+                        style="@style/tunearsenals_config_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="沉浸体验" />
@@ -253,7 +253,7 @@
 
                         <Switch
                             android:id="@+id/app_details_hidenav"
-                            style="@style/scene_config_item"
+                            style="@style/tunearsenals_config_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -261,7 +261,7 @@
 
                         <Switch
                             android:id="@+id/app_details_hidestatus"
-                            style="@style/scene_config_item"
+                            style="@style/tunearsenals_config_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="50dp"
@@ -275,7 +275,7 @@
 
                         <Switch
                             android:id="@+id/app_details_hidenotice"
-                            style="@style/scene_config_item"
+                            style="@style/tunearsenals_config_item"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -292,14 +292,14 @@
                 <LinearLayout
                     style="@style/ListCardItem">
                     <TextView
-                        style="@style/scene_config_title"
+                        style="@style/tunearsenals_config_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="TuneArsenals功能" />
 
                     <Switch
                         android:id="@+id/app_monitor"
-                        style="@style/scene_config_item"
+                        style="@style/tunearsenals_config_item"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="性能监视器" />
@@ -315,14 +315,14 @@
                 <LinearLayout
                     style="@style/ListCardItemLast">
                     <TextView
-                        style="@style/scene_config_title"
+                        style="@style/tunearsenals_config_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="应用偏见" />
 
                     <Switch
                         android:id="@+id/app_details_freeze"
-                        style="@style/scene_config_item"
+                        style="@style/tunearsenals_config_item"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="自动冻结" />

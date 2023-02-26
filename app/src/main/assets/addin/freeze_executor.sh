@@ -15,11 +15,11 @@ source $2
 
 if [[ "$delay" != "" ]]; then
   uuid=`date "+%Y%m%d%H%M%S"`
-  setprop vtools.freeze_delay "$uuid"
+  setprop tunearsenals.freeze_delay "$uuid"
 
   sleep $delay
 
-  last_id=`getprop vtools.freeze_delay`
+  last_id=`getprop tunearsenals.freeze_delay`
   if [[ "$last_id" != "$uuid" ]]; then
     return
   fi

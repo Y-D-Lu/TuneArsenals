@@ -10,12 +10,12 @@ import java.io.File;
 public class MagiskExtend {
     // source /data/adb/util_functions.sh
 
-    public static String MAGISK_PATH = "/sbin/.core/img/scene_systemless/";
+    public static String MAGISK_PATH = "/sbin/.core/img/tunearsenals_systemless/";
     private static String MAGISK_PATH_19 = "/data/adb/modules"; //  "/sbin/.magisk/modules";
     private static String MAGISK_ROOT_PATH1 = "/sbin/.core/img";
     private static String MAGISK_ROOT_PATH2 = "/sbin/.magisk/img";
 
-    private static String MAGISK_MODULE_NAME = "scene_systemless";
+    private static String MAGISK_MODULE_NAME = "tunearsenals_systemless";
     //magisk 19 /data/adb/modules
     private static int supported = -1;
     private static int MagiskVersion = 0;
@@ -127,7 +127,7 @@ public class MagiskExtend {
     }
 
     public static void magiskModuleInstall(Context context) {
-        String moduleProp = "id=scene_systemless\n" +
+        String moduleProp = "id=tunearsenals_systemless\n" +
                 "name=TuneArsenals的附加模块\n" +
                 "version=v1\n" +
                 "versionCode=1\n" +
@@ -170,7 +170,7 @@ public class MagiskExtend {
             writeModuleFile("", "auto_mount", context);
             writeModuleFile("", "update", context);
 
-            MAGISK_PATH = "/data/adb/magisk_merge_tmnt/scene_systemless/";
+            MAGISK_PATH = "/data/adb/magisk_merge_tmnt/tunearsenals_systemless/";
             writeModuleFile("", "auto_mount", context);
         } else {
             writeModuleFile("", "update", context);

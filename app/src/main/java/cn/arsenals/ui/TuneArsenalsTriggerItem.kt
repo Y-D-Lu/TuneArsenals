@@ -10,7 +10,7 @@ import cn.arsenals.data.EventType
 import cn.arsenals.model.TaskAction
 import cn.arsenals.model.TriggerInfo
 import cn.arsenals.tunearsenals.R
-import kotlinx.android.synthetic.main.list_scene_task_item.view.*
+import kotlinx.android.synthetic.main.list_tunearsenals_task_item.view.*
 
 class TuneArsenalsTriggerItem : LinearLayout {
     constructor(context: Context) : super(context) {
@@ -26,14 +26,14 @@ class TuneArsenalsTriggerItem : LinearLayout {
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {}
 
     private fun setLayout(context: Context) {
-        LayoutInflater.from(context).inflate(R.layout.list_scene_trigger_item, this, true)
+        LayoutInflater.from(context).inflate(R.layout.list_tunearsenals_trigger_item, this, true)
     }
 
     private fun setLayout(context: Context, triggerInfo: TriggerInfo) {
         setLayout(context)
 
-        system_scene_task_time.text = getEvents(triggerInfo)
-        system_scene_task_content.text = getTaskContentText(triggerInfo)
+        system_tunearsenals_task_time.text = getEvents(triggerInfo)
+        system_tunearsenals_task_content.text = getTaskContentText(triggerInfo)
     }
 
     private fun getEvents(triggerInfo: TriggerInfo): String {

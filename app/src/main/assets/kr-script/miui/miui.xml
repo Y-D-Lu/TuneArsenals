@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <items>
     <resource dir="file:///android_asset/kr-script/miui" />
-    <group title="界面" visible="getprop persist.vtools.ext_all">
+    <group title="界面" visible="getprop persist.tunearsenals.ext_all">
         <switch>
             <title>【MIUI 10/11】隐藏导航栏</title>
             <desc>通过主题资源修改导航栏高度的方式隐藏掉导航栏，方便使用第三方手势</desc>
@@ -104,7 +104,7 @@
     </group>
 
     <group title="功能">
-        <switch id="miui_update" visible="getprop persist.vtools.ext_all">
+        <switch id="miui_update" visible="getprop persist.tunearsenals.ext_all">
             <title>【MIUI10】在线更新检查</title>
             <desc>关闭此开关可以屏蔽在线更新检查</desc>
             <get>run miui_update_get.sh</get>

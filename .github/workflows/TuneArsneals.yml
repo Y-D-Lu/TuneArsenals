@@ -2,9 +2,9 @@ name: Android CI(TuneArsenals5)
 
 on:
   push:
-    branches: [ scene5 ]
+    branches: [ tunearsenals5 ]
   pull_request:
-    branches: [ scene5 ]
+    branches: [ tunearsenals5 ]
 
 jobs:
   build:
@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: scene5
+        ref: tunearsenals5
 
     - uses: nttld/setup-ndk@v1
       id: setup-ndk
@@ -38,12 +38,12 @@ jobs:
     - name: Upload GitHub Actions artifact of vcpkg build
       uses: actions/upload-artifact@v2
       with:
-        name: scene-dev
+        name: tunearsenals-dev
         path: ${{ github.workspace }}/app/build/outputs/apk/release/app-release.apk
 
     - name: Deploy
       env: 
-        GITHUB_REPO: github.com/helloklf/vtools-dev-apks.git
+        GITHUB_REPO: github.com/helloklf/tunearsenals-dev-apks.git
       run: |
         cd ${{ github.workspace }}/app/build/outputs/apk/release/
         git init

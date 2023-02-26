@@ -18,10 +18,10 @@ else
   return 1
 fi
 
-min_free_kbytes=`getprop vtools.backup.free_kbytes`
+min_free_kbytes=`getprop tunearsenals.backup.free_kbytes`
 if [[ $min_free_kbytes == '' ]]; then
   min_free_kbytes=`cat $modify_path`
-  setprop vtools.backup.free_kbytes $min_free_kbytes
+  setprop tunearsenals.backup.free_kbytes $min_free_kbytes
 fi
 
 MemTotalStr=`cat /proc/meminfo | grep MemTotal`
@@ -98,20 +98,20 @@ force_reclaim() {
   TargetRecycle=$(($RecyclingSize + $MemMemFree))
 
   if [[ $RecyclingSize != "" ]] && [[ $RecyclingSize -gt 0 ]]; then
-    running_tag=`getprop vtools.state.force_compact`
+    running_tag=`getprop tunearsenals.state.force_compact`
     # 状态记录，避免同时执行多次
     if [[ "$running_tag" == "1" ]]; then
       echo '不要同时执行多次内存回收操作~'
       return 0
     else
-      setprop vtools.state.force_compact 1
+      setprop tunearsenals.state.force_compact 1
     fi
 
     echo $TargetRecycle > $modify_path
     # 级别0用在实时加速中，最重要的保持系统的持续流畅，隐藏缩短回收持续时间，减少卡顿
     if [[ "$level" == "0" ]]; then
       # TODO:去掉 log
-      current_app=`getprop vtools.powercfg_app`
+      current_app=`getprop tunearsenals.powercfg_app`
       echo $current_app $(($RecyclingSize / 1024))MB >> /cache/force_compact.log
       sleep_time=$(($RecyclingSize / 1024 / 120 + 2))
       if [[ $sleep_time -gt 6 ]]; then
@@ -148,7 +148,7 @@ force_reclaim() {
     echo '好咯，内存回收结束~'
 
     # 清除执行状态标记
-    setprop vtools.state.force_compact 0
+    setprop tunearsenals.state.force_compact 0
   else
     echo '操作失败，计算容量出错!'
   fi

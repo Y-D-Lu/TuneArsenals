@@ -3,7 +3,7 @@ package cn.arsenals.utils
 import android.content.Context
 import android.os.Environment
 import cn.arsenals.common.shell.KeepShellPublic
-import cn.arsenals.scene_mode.AlwaysNotification
+import cn.arsenals.tunearsenals_mode.AlwaysNotification
 import cn.arsenals.shell_utils.AppErrorLogcatUtils
 import cn.arsenals.store.SpfConfig
 import java.io.File
@@ -31,7 +31,7 @@ class CrashHandler : Thread.UncaughtExceptionHandler {
                 val trace = StringWriter()
                 ex.printStackTrace(PrintWriter(trace))
                 val fileOutputStream = FileOutputStream(
-                        File(Environment.getExternalStorageDirectory().absolutePath + "/Android/vtools-error.log"))
+                        File(Environment.getExternalStorageDirectory().absolutePath + "/Android/tunearsenals-error.log"))
                 fileOutputStream.write((ex.message + "\n\n" + trace.toString()).toByteArray(Charset.defaultCharset()))
                 fileOutputStream.flush()
                 fileOutputStream.close()

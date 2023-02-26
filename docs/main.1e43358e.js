@@ -499,9 +499,9 @@ var config = {
   productionTip: "development" !== 'production',
 
   /**
-   * Whether to enable devtools
+   * Whether to enable detunearsenals
    */
-  devtools: "development" !== 'production',
+  detunearsenals: "development" !== 'production',
 
   /**
    * Whether to record perf
@@ -667,10 +667,10 @@ var isServerRendering = function () {
   }
 
   return _isServer;
-}; // detect devtools
+}; // detect detunearsenals
 
 
-var devtools = inBrowser && window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+var detunearsenals = inBrowser && window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
 /* istanbul ignore next */
 
 function isNative(Ctor) {
@@ -3163,8 +3163,8 @@ function flushSchedulerQueue() {
 
   /* istanbul ignore if */
 
-  if (devtools && config.devtools) {
-    devtools.emit('flush');
+  if (detunearsenals && config.detunearsenals) {
+    detunearsenals.emit('flush');
   }
 }
 
@@ -8091,18 +8091,18 @@ Vue.prototype.__patch__ = inBrowser ? patch : noop; // public mount method
 Vue.prototype.$mount = function (el, hydrating) {
   el = el && inBrowser ? query(el) : undefined;
   return mountComponent(this, el, hydrating);
-}; // devtools global hook
+}; // detunearsenals global hook
 
 /* istanbul ignore next */
 
 
 if (inBrowser) {
   setTimeout(function () {
-    if (config.devtools) {
-      if (devtools) {
-        devtools.emit('init', Vue);
+    if (config.detunearsenals) {
+      if (detunearsenals) {
+        detunearsenals.emit('init', Vue);
       } else if ("development" !== 'production' && "development" !== 'test' && isChrome) {
-        console[console.info ? 'info' : 'log']('Download the Vue Devtools extension for a better development experience:\n' + 'https://github.com/vuejs/vue-devtools');
+        console[console.info ? 'info' : 'log']('Download the Vue Detunearsenals extension for a better development experience:\n' + 'https://github.com/vuejs/vue-detunearsenals');
       }
     }
 
@@ -10670,7 +10670,7 @@ var _default = {
       appRecommend: [{
         appName: 'TuneArsenals xposed plug-in',
         desc: 'Install it to use xposed related features in TuneArsenals',
-        downloadUrl: 'http://atools.oss-cn-shenzhen.aliyuncs.com/app1/TuneArsenals%20-%20%E9%AB%98%E7%BA%A7%E8%AE%BE%E5%AE%9A_1.0.7%20scene.apk'
+        downloadUrl: 'http://atools.oss-cn-shenzhen.aliyuncs.com/app1/TuneArsenals%20-%20%E9%AB%98%E7%BA%A7%E8%AE%BE%E5%AE%9A_1.0.7%20tunearsenals.apk'
       }],
       orientation: {
         absolute: false,
@@ -10696,13 +10696,13 @@ var _default = {
       window.TuneArsenalsUI.setNavigationBarColor('#ff00b9c2');
     }
 
-    _axios.default.get(window.location.protocol + '//vtools.oss-cn-beijing.aliyuncs.com/vi/TuneArsenals5.json?dt=' + new Date().getTime()).then(function (r) {
+    _axios.default.get(window.location.protocol + '//tunearsenals.oss-cn-beijing.aliyuncs.com/vi/TuneArsenals5.json?dt=' + new Date().getTime()).then(function (r) {
       _this.proVersionInfo = r.data;
     }).catch(function (e) {
       _this.proVersionInfo.versionName = 'coming soon'; // alert('获取版本信息失败~')
     });
 
-    _axios.default.get(window.location.protocol + '//vtools.oss-cn-beijing.aliyuncs.com/vi/TuneArsenals4.json?dt=' + new Date().getTime()).then(function (r) {
+    _axios.default.get(window.location.protocol + '//tunearsenals.oss-cn-beijing.aliyuncs.com/vi/TuneArsenals4.json?dt=' + new Date().getTime()).then(function (r) {
       _this.versionInfo = r.data;
     }).catch(function (e) {
       alert('获取版本信息失败~');
@@ -10722,7 +10722,7 @@ var _default = {
       window.location.href = "alipayqr://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=".concat(encodeURIComponent('HTTPS://QR.ALIPAY.COM/FKX05665KXCDCLC2YAEL0E'), "%3F_s%3Dweb-other&_t=").concat(new Date().getTime());
     },
     getHisotry: function getHisotry() {
-      window.location.href = 'https://github.com/helloklf/vtools/releases';
+      window.location.href = 'https://github.com/helloklf/tunearsenals/releases';
     },
     download5: function download5() {
       this.s4Minimize = true;
@@ -10738,9 +10738,9 @@ var _default = {
       if (this.versionInfo.downloadUrl) {
         window.location.href = this.versionInfo.downloadUrl;
       } else if (this.versionInfo.versionCode) {
-        window.location.href = 'http://vtools.oss-cn-beijing.aliyuncs.com/app-release' + this.versionInfo.versionCode + '.apk';
+        window.location.href = 'http://tunearsenals.oss-cn-beijing.aliyuncs.com/app-release' + this.versionInfo.versionCode + '.apk';
       } else {
-        window.location.href = 'http://vtools.oss-cn-beijing.aliyuncs.com/app-release.apk';
+        window.location.href = 'http://tunearsenals.oss-cn-beijing.aliyuncs.com/app-release.apk';
       }
     },
     deviceOrientation: function deviceOrientation(e) {
@@ -10801,7 +10801,7 @@ exports.default = _default;
         _c(
           "div",
           {
-            staticClass: "scene4",
+            staticClass: "tunearsenals4",
             class: { minimize: _vm.s4Minimize },
             on: {
               click: function($event) {
@@ -10842,7 +10842,7 @@ exports.default = _default;
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "scene5", class: { maximize: _vm.s4Minimize } },
+          { staticClass: "tunearsenals5", class: { maximize: _vm.s4Minimize } },
           [
             _c("div", { staticClass: "name" }, [_vm._v("SCENE5")]),
             _vm._v(" "),

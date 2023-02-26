@@ -304,7 +304,7 @@
         <item name="android:layout_column">2</item>
     </style>
 
-    <style name="scene_config_item" parent="TuneArsenalsSwitch">
+    <style name="tunearsenals_config_item" parent="TuneArsenalsSwitch">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">14dp</item>
@@ -314,7 +314,7 @@
         <item name="android:gravity">center_vertical</item>
         <item name="android:minHeight">32dp</item>
     </style>
-    <style name="scene_config_title" parent="textSmall">
+    <style name="tunearsenals_config_title" parent="textSmall">
         <item name="android:textColor">?android:attr/colorAccent</item>
         <item name="android:layout_marginBottom">4dp</item>
     </style>

@@ -56,10 +56,10 @@ public class KeepShell(private var rootMode: Boolean = true) {
                     "  echo 'success'\n" +
                     "else\n" +
                     "if [[ -d /cache ]]; then\n" +
-                    "  echo 1 > /cache/vtools_root\n" +
-                    "  if [[ -f /cache/vtools_root ]] && [[ \$(cat /cache/vtools_root) == '1' ]]; then\n" +
+                    "  echo 1 > /cache/tunearsenals_root\n" +
+                    "  if [[ -f /cache/tunearsenals_root ]] && [[ \$(cat /cache/tunearsenals_root) == '1' ]]; then\n" +
                     "    echo 'success'\n" +
-                    "    rm -rf /cache/vtools_root\n" +
+                    "    rm -rf /cache/tunearsenals_root\n" +
                     "    return\n" +
                     "  fi\n" +
                     "fi\n" +

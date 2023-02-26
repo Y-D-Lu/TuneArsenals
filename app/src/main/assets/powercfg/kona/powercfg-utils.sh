@@ -408,7 +408,7 @@ set_task_affinity() {
 
 # HePingJingYing
 pubgmhd_opt_run () {
-  local current_app=$(getprop vtools.powercfg_app)
+  local current_app=$(getprop tunearsenals.powercfg_app)
   if [[ "$current_app" != 'com.tencent.tmgp.pubgmhd' ]] && [[ "$current_app" != 'com.tencent.ig' ]]; then
     return
   fi
@@ -474,7 +474,7 @@ unity_opt_run () {
 
 # YuanShen
 yuan_shen_opt_run() {
-  if [[ $(getprop vtools.powercfg_app | grep miHoYo) == "" ]]; then
+  if [[ $(getprop tunearsenals.powercfg_app | grep miHoYo) == "" ]]; then
     return
   fi
 
@@ -497,7 +497,7 @@ yuan_shen_opt_run() {
         exit
       fi
     fi
-    local mode=$(getprop vtools.powercfg)
+    local mode=$(getprop tunearsenals.powercfg)
     if [[ "$mode" == 'powersave' ]]; then
       for tid in $(ls "/proc/$pid/task/"); do
         if [[ "$tid" == "$pid" ]]; then
@@ -595,7 +595,7 @@ watch_app() {
     done
   fi
 
-  if [[ $(getprop vtools.powercfg_app) == "$app" ]]; then
+  if [[ $(getprop tunearsenals.powercfg_app) == "$app" ]]; then
     $on_tick
   fi
 
@@ -611,7 +611,7 @@ watch_app() {
     fi
     ticks=$((ticks + 1))
 
-    current=$(getprop vtools.powercfg_app)
+    current=$(getprop tunearsenals.powercfg_app)
     if [[ "$current" == "$app" ]]; then
       $on_tick
     else

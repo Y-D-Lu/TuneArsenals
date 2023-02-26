@@ -16,7 +16,7 @@ public class TuneArsenalsConfigStore extends SQLiteOpenHelper {
     private final Context context;
 
     public TuneArsenalsConfigStore(Context context) {
-        super(context, "scene3_config", null, DB_VERSION);
+        super(context, "tunearsenals3_config", null, DB_VERSION);
         this.context = context;
     }
 
@@ -24,7 +24,7 @@ public class TuneArsenalsConfigStore extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         try {
             db.execSQL(
-                "create table scene_config3(" +
+                "create table tunearsenals_config3(" +
                     "id text primary key, " + // id
                     "alone_light int default(0), " + // 独立亮度
                     "light int default(-1), " + // 亮度
@@ -40,9 +40,9 @@ public class TuneArsenalsConfigStore extends SQLiteOpenHelper {
                 ")");
 
             // 初始化默认配置
-            String[] gpsOnApps = this.context.getResources().getStringArray(R.array.scene_gps_on);
+            String[] gpsOnApps = this.context.getResources().getStringArray(R.array.tunearsenals_gps_on);
             for (String app: gpsOnApps) {
-                db.execSQL("insert into scene_config3(id, gps_on) values (?, ?)", new Object[]{
+                db.execSQL("insert into tunearsenals_config3(id, gps_on) values (?, ?)", new Object[]{
                     app,
                     1
                 });
@@ -56,79 +56,79 @@ public class TuneArsenalsConfigStore extends SQLiteOpenHelper {
         if (oldVersion < 3) {
             // 屏幕方向
             try {
-                db.execSQL("alter table scene_config3 add column screen_orientation int default(-1)");
+                db.execSQL("alter table tunearsenals_config3 add column screen_orientation int default(-1)");
             } catch (Exception ignored) {
             }
         }
 
         if (oldVersion < 4) {
             try {
-                db.execSQL("alter table scene_config3 add column fg_cgroup_mem text default('')");
-                db.execSQL("alter table scene_config3 add column bg_cgroup_mem text default('')");
+                db.execSQL("alter table tunearsenals_config3 add column fg_cgroup_mem text default('')");
+                db.execSQL("alter table tunearsenals_config3 add column bg_cgroup_mem text default('')");
             } catch (Exception ignored) {
             }
         }
 
         if (oldVersion < 5) {
             try {
-                db.execSQL("alter table scene_config3 add column dynamic_boost_mem text default(0)");
+                db.execSQL("alter table tunearsenals_config3 add column dynamic_boost_mem text default(0)");
             } catch (Exception ignored) {
             }
         }
 
         if (oldVersion < 6) {
             try {
-                db.execSQL("alter table scene_config3 add column show_monitor text default(0)");
+                db.execSQL("alter table tunearsenals_config3 add column show_monitor text default(0)");
             } catch (Exception ignored) {
             }
         }
     }
 
     public TuneArsenalsConfigInfo getAppConfig(String app) {
-        TuneArsenalsConfigInfo sceneConfigInfo = new TuneArsenalsConfigInfo();
-        sceneConfigInfo.packageName = app;
+        TuneArsenalsConfigInfo tunearsenalsConfigInfo = new TuneArsenalsConfigInfo();
+        tunearsenalsConfigInfo.packageName = app;
         try {
             SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-            Cursor cursor = sqLiteDatabase.rawQuery("select * from scene_config3 where id = ?", new String[]{app});
+            Cursor cursor = sqLiteDatabase.rawQuery("select * from tunearsenals_config3 where id = ?", new String[]{app});
             if (cursor.moveToNext()) {
-                sceneConfigInfo.aloneLight = cursor.getInt(cursor.getColumnIndex("alone_light")) == 1;
-                sceneConfigInfo.aloneLightValue = cursor.getInt(cursor.getColumnIndex("light"));
-                sceneConfigInfo.disNotice = cursor.getInt(cursor.getColumnIndex("dis_notice")) == 1;
-                sceneConfigInfo.disButton = cursor.getInt(cursor.getColumnIndex("dis_button")) == 1;
-                sceneConfigInfo.gpsOn = cursor.getInt(cursor.getColumnIndex("gps_on")) == 1;
-                sceneConfigInfo.freeze = cursor.getInt(cursor.getColumnIndex("freeze")) == 1;
-                sceneConfigInfo.screenOrientation = cursor.getInt(cursor.getColumnIndex("screen_orientation"));
-                sceneConfigInfo.fgCGroupMem = cursor.getString(cursor.getColumnIndex("fg_cgroup_mem"));
-                sceneConfigInfo.bgCGroupMem = cursor.getString(cursor.getColumnIndex("bg_cgroup_mem"));
-                sceneConfigInfo.dynamicBoostMem = cursor.getInt(cursor.getColumnIndex("dynamic_boost_mem")) == 1;
-                sceneConfigInfo.showMonitor = cursor.getInt(cursor.getColumnIndex("show_monitor")) == 1;
+                tunearsenalsConfigInfo.aloneLight = cursor.getInt(cursor.getColumnIndex("alone_light")) == 1;
+                tunearsenalsConfigInfo.aloneLightValue = cursor.getInt(cursor.getColumnIndex("light"));
+                tunearsenalsConfigInfo.disNotice = cursor.getInt(cursor.getColumnIndex("dis_notice")) == 1;
+                tunearsenalsConfigInfo.disButton = cursor.getInt(cursor.getColumnIndex("dis_button")) == 1;
+                tunearsenalsConfigInfo.gpsOn = cursor.getInt(cursor.getColumnIndex("gps_on")) == 1;
+                tunearsenalsConfigInfo.freeze = cursor.getInt(cursor.getColumnIndex("freeze")) == 1;
+                tunearsenalsConfigInfo.screenOrientation = cursor.getInt(cursor.getColumnIndex("screen_orientation"));
+                tunearsenalsConfigInfo.fgCGroupMem = cursor.getString(cursor.getColumnIndex("fg_cgroup_mem"));
+                tunearsenalsConfigInfo.bgCGroupMem = cursor.getString(cursor.getColumnIndex("bg_cgroup_mem"));
+                tunearsenalsConfigInfo.dynamicBoostMem = cursor.getInt(cursor.getColumnIndex("dynamic_boost_mem")) == 1;
+                tunearsenalsConfigInfo.showMonitor = cursor.getInt(cursor.getColumnIndex("show_monitor")) == 1;
             }
             cursor.close();
             sqLiteDatabase.close();
         } catch (Exception ignored) {
 
         }
-        return sceneConfigInfo;
+        return tunearsenalsConfigInfo;
     }
 
-    public boolean setAppConfig(TuneArsenalsConfigInfo sceneConfigInfo) {
+    public boolean setAppConfig(TuneArsenalsConfigInfo tunearsenalsConfigInfo) {
         SQLiteDatabase database = getWritableDatabase();
         getWritableDatabase().beginTransaction();
         try {
-            database.execSQL("delete from scene_config3 where id = ?", new String[]{sceneConfigInfo.packageName});
-            database.execSQL("insert into scene_config3(id, alone_light, light, dis_notice, dis_button, gps_on, freeze, screen_orientation, fg_cgroup_mem, bg_cgroup_mem, dynamic_boost_mem, show_monitor) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", new Object[]{
-                    sceneConfigInfo.packageName,
-                    sceneConfigInfo.aloneLight ? 1 : 0,
-                    sceneConfigInfo.aloneLightValue,
-                    sceneConfigInfo.disNotice ? 1 : 0,
-                    sceneConfigInfo.disButton ? 1 : 0,
-                    sceneConfigInfo.gpsOn ? 1 : 0,
-                    sceneConfigInfo.freeze ? 1 : 0,
-                    sceneConfigInfo.screenOrientation,
-                    sceneConfigInfo.fgCGroupMem,
-                    sceneConfigInfo.bgCGroupMem,
-                    sceneConfigInfo.dynamicBoostMem ? 1 : 0,
-                    sceneConfigInfo.showMonitor ? 1 : 0
+            database.execSQL("delete from tunearsenals_config3 where id = ?", new String[]{tunearsenalsConfigInfo.packageName});
+            database.execSQL("insert into tunearsenals_config3(id, alone_light, light, dis_notice, dis_button, gps_on, freeze, screen_orientation, fg_cgroup_mem, bg_cgroup_mem, dynamic_boost_mem, show_monitor) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", new Object[]{
+                    tunearsenalsConfigInfo.packageName,
+                    tunearsenalsConfigInfo.aloneLight ? 1 : 0,
+                    tunearsenalsConfigInfo.aloneLightValue,
+                    tunearsenalsConfigInfo.disNotice ? 1 : 0,
+                    tunearsenalsConfigInfo.disButton ? 1 : 0,
+                    tunearsenalsConfigInfo.gpsOn ? 1 : 0,
+                    tunearsenalsConfigInfo.freeze ? 1 : 0,
+                    tunearsenalsConfigInfo.screenOrientation,
+                    tunearsenalsConfigInfo.fgCGroupMem,
+                    tunearsenalsConfigInfo.bgCGroupMem,
+                    tunearsenalsConfigInfo.dynamicBoostMem ? 1 : 0,
+                    tunearsenalsConfigInfo.showMonitor ? 1 : 0
             });
             database.setTransactionSuccessful();
             return true;
@@ -142,7 +142,7 @@ public class TuneArsenalsConfigStore extends SQLiteOpenHelper {
     public boolean resetAll() {
         try {
             SQLiteDatabase database = getWritableDatabase();
-            database.execSQL("update scene_config3 set alone_light = 0, fg_cgroup_mem = '', screen_orientation = ?, bg_cgroup_mem = '', dynamic_boost_mem = 0, show_monitor = 0", new Object[]{
+            database.execSQL("update tunearsenals_config3 set alone_light = 0, fg_cgroup_mem = '', screen_orientation = ?, bg_cgroup_mem = '', dynamic_boost_mem = 0, show_monitor = 0", new Object[]{
                 ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
             });
             return true;
@@ -154,7 +154,7 @@ public class TuneArsenalsConfigStore extends SQLiteOpenHelper {
     public boolean removeAppConfig(String packageName) {
         try {
             SQLiteDatabase database = getWritableDatabase();
-            database.execSQL("delete from scene_config3 where id = ?", new String[]{packageName});
+            database.execSQL("delete from tunearsenals_config3 where id = ?", new String[]{packageName});
             return true;
         } catch (Exception ex) {
             return false;
@@ -165,7 +165,7 @@ public class TuneArsenalsConfigStore extends SQLiteOpenHelper {
         ArrayList<String> list = new ArrayList<String>();
         try {
             SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-            Cursor cursor = sqLiteDatabase.rawQuery("select * from scene_config3 where freeze == 1", null);
+            Cursor cursor = sqLiteDatabase.rawQuery("select * from tunearsenals_config3 where freeze == 1", null);
             while (cursor.moveToNext()) {
                 list.add(cursor.getString(0));
             }

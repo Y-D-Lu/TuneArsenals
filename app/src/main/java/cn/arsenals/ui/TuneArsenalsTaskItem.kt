@@ -9,7 +9,7 @@ import android.widget.TextView
 import cn.arsenals.model.TaskAction
 import cn.arsenals.model.TimingTaskInfo
 import cn.arsenals.tunearsenals.R
-import kotlinx.android.synthetic.main.list_scene_task_item.view.*
+import kotlinx.android.synthetic.main.list_tunearsenals_task_item.view.*
 
 class TuneArsenalsTaskItem : LinearLayout {
     constructor(context: Context) : super(context) {
@@ -25,21 +25,21 @@ class TuneArsenalsTaskItem : LinearLayout {
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {}
 
     private fun setLayout(context: Context) {
-        LayoutInflater.from(context).inflate(R.layout.list_scene_task_item, this, true)
+        LayoutInflater.from(context).inflate(R.layout.list_tunearsenals_task_item, this, true)
     }
 
     private fun setLayout(context: Context, taskInfo: TimingTaskInfo) {
         setLayout(context)
 
         if (taskInfo.taskName.isNullOrEmpty()) {
-            system_scene_task_name.text = "未命名任务"
+            system_tunearsenals_task_name.text = "未命名任务"
         } else {
-            system_scene_task_name.text = taskInfo.taskName
+            system_tunearsenals_task_name.text = taskInfo.taskName
         }
 
         val timePrefix = if (taskInfo.expireDate < 1) ("每天，") else ""
-        system_scene_task_time.text = (if (taskInfo.enabled) "● " else "○ ") + timePrefix + getTimeStr(taskInfo)
-        system_scene_task_content.text = getTaskContentText(taskInfo)
+        system_tunearsenals_task_time.text = (if (taskInfo.enabled) "● " else "○ ") + timePrefix + getTimeStr(taskInfo)
+        system_tunearsenals_task_content.text = getTaskContentText(taskInfo)
     }
 
     private fun getTimeStr(taskInfo: TimingTaskInfo): String {

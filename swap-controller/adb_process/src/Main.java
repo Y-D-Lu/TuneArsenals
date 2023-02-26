@@ -678,8 +678,8 @@ public class Main {
             memcg = "/dev/memcg";
         }
 
-        File activeGroup = new File(memcg + "/scene_active/cgroup.procs");
-        File idleGroup = new File(memcg + "/scene_idle/cgroup.procs");
+        File activeGroup = new File(memcg + "/tunearsenals_active/cgroup.procs");
+        File idleGroup = new File(memcg + "/tunearsenals_idle/cgroup.procs");
 
         // 是否启用memcg
         boolean memcgEnabled;

@@ -56,7 +56,7 @@
         </LinearLayout>
 
         <cn.arsenals.common.ui.OverScrollListView
-            android:id="@+id/scene_app_list"
+            android:id="@+id/tunearsenals_app_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/activity_horizontal_margin"

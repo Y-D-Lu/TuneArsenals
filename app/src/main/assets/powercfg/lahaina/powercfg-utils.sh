@@ -438,7 +438,7 @@ set_task_affinity() {
 # WangZheRongYao
 sgame_opt_run() {
   local game="tmgp.sgame"
-  if [[ $(getprop vtools.powercfg_app | grep $game) == "" ]]; then
+  if [[ $(getprop tunearsenals.powercfg_app | grep $game) == "" ]]; then
     return
   fi
 
@@ -471,7 +471,7 @@ sgame_opt_run() {
 
 # HePingJingYing
 pubgmhd_opt_run () {
-  local current_app=$(getprop vtools.powercfg_app)
+  local current_app=$(getprop tunearsenals.powercfg_app)
   if [[ "$current_app" != 'com.tencent.tmgp.pubgmhd' ]] && [[ "$current_app" != 'com.tencent.ig' ]]; then
     return
   fi
@@ -538,7 +538,7 @@ unity_opt_run () {
 
 # YuanShen
 yuan_shen_opt_run() {
-  if [[ $(getprop vtools.powercfg_app | grep miHoYo) == "" ]]; then
+  if [[ $(getprop tunearsenals.powercfg_app | grep miHoYo) == "" ]]; then
     return
   fi
 
@@ -566,7 +566,7 @@ yuan_shen_opt_run() {
       fi
     fi
 
-    local mode=$(getprop vtools.powercfg)
+    local mode=$(getprop tunearsenals.powercfg)
     taskset -p "FF" "$pid" > /dev/null 2>&1
     if [[ "$mode" == 'powersave' ]]; then
       for tid in $(ls "/proc/$pid/task/"); do
@@ -667,11 +667,11 @@ thermal_disguise() {
 
     echo "thermal_disguise [enable]"
     chmod 000 $board_sensor_temp
-    setprop vtools.thermal.disguise 1
+    setprop tunearsenals.thermal.disguise 1
     nohup pm clear com.xiaomi.gamecenter.sdk.service >/dev/null 2>&1 &
     nohup pm disable com.xiaomi.gamecenter.sdk.service/.PidService >/dev/null 2>&1 &
   else
-    setprop vtools.thermal.disguise 0
+    setprop tunearsenals.thermal.disguise 0
     nohup pm enable com.xiaomi.gamecenter.sdk.service/.PidService >/dev/null 2>&1 &
     chmod 644 $board_sensor_temp
     echo 'thermal_disguise [disable]'
@@ -726,7 +726,7 @@ watch_app() {
     done
   fi
 
-  if [[ $(getprop vtools.powercfg_app) == "$app" ]]; then
+  if [[ $(getprop tunearsenals.powercfg_app) == "$app" ]]; then
     $on_tick
   fi
 
@@ -742,7 +742,7 @@ watch_app() {
     fi
     ticks=$((ticks + 1))
 
-    current=$(getprop vtools.powercfg_app)
+    current=$(getprop tunearsenals.powercfg_app)
     if [[ "$current" == "$app" ]]; then
       $on_tick
     else

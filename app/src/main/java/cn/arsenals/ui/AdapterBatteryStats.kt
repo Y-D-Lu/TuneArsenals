@@ -11,7 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import cn.arsenals.library.basic.AppInfoLoader
 import cn.arsenals.model.BatteryAvgStatus
-import cn.arsenals.scene_mode.ModeSwitcher
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import cn.arsenals.tunearsenals.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

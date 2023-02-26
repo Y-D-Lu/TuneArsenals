@@ -103,7 +103,7 @@ class XposedAppsAdapter(private val context: Context, apps: ArrayList<AppInfo>) 
         viewHolder.itemDesc = convertView.findViewById(R.id.ItemDesc)
         viewHolder.imgView = convertView.findViewById(R.id.ItemIcon)
 
-        viewHolder.itemTitle?.text = keywordHightLight(if (item.sceneConfigInfo.freeze) ("*" + item.appName) else item.appName.toString())
+        viewHolder.itemTitle?.text = keywordHightLight(if (item.tunearsenalsConfigInfo.freeze) ("*" + item.appName) else item.appName.toString())
 
         viewHolder.run {
             if (item.icon == null) {

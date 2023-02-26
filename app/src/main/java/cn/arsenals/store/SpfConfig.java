@@ -51,7 +51,7 @@ public class SpfConfig {
     public static String GLOBAL_SPF_SKIP_AD_PRECISE = "is_skip_ad_precise2";
     public static String GLOBAL_SPF_DISABLE_ENFORCE = "enforce_0";
     public static String GLOBAL_SPF_START_DELAY = "start_delay";
-    public static String GLOBAL_SPF_SCENE_LOG = "scene_logview";
+    public static String GLOBAL_SPF_SCENE_LOG = "tunearsenals_logview";
     public static String GLOBAL_SPF_AUTO_EXIT = "auto_exit";
     public static String GLOBAL_SPF_NIGHT_MODE = "app_night_mode";
     public static String GLOBAL_SPF_THEME = "app_theme2";
@@ -65,9 +65,9 @@ public class SpfConfig {
     public static boolean GLOBAL_SPF_DYNAMIC_CONTROL_DEFAULT = false;
     public static String GLOBAL_SPF_DYNAMIC_CONTROL_STRICT = "dynamic_control_strict";
     public static String GLOBAL_SPF_DYNAMIC_CONTROL_DELAY = "dynamic_control_delay";
-    public static String GLOBAL_SPF_PROFILE_SOURCE = "scene4_profile_source";
+    public static String GLOBAL_SPF_PROFILE_SOURCE = "tunearsenals4_profile_source";
     public static String GLOBAL_SPF_POWERCFG = "global_powercfg";
-    public static String GLOBAL_SPF_CONTRACT = "global_contract_scene4";
+    public static String GLOBAL_SPF_CONTRACT = "global_contract_tunearsenals4";
     public static String GLOBAL_SPF_POWERCFG_FRIST_NOTIFY = "global_powercfg_notifyed";
     public static String GLOBAL_SPF_LAST_UPDATE = "global_last_update";
     public static String GLOBAL_SPF_CURRENT_NOW_UNIT = "global_current_now_unit";
@@ -94,6 +94,6 @@ public class SpfConfig {
     public static String SWAP_SPF_AUTO_LMK = "auto_lmk";
     public static String SWAP_SPF_ALGORITHM = "comp_algorithm"; // zram 压缩算法
 
-    public static String SCENE_BLACK_LIST = "scene_black_list_spf";
+    public static String SCENE_BLACK_LIST = "tunearsenals_black_list_spf";
     public static String AUTO_SKIP_BLACKLIST = "AUTO_SKIP_BLACKLIST";
 }

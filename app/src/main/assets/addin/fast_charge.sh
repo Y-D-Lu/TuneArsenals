@@ -31,11 +31,11 @@ function change_limit() {
     done
 }
 
-if [[ `getprop vtools.fastcharge` = "" ]]; then
+if [[ `getprop tunearsenals.fastcharge` = "" ]]; then
     ./fast_charge_run_once.sh
 
-    setprop vtools.fastcharge 1
+    setprop tunearsenals.fastcharge 1
 fi
 
 change_limit $limit_value
-# echo `date "+%Y-%m-%d %H:%M:%S.%MS"` " -> $limit_value" >> /cache/scene_charge.log
+# echo `date "+%Y-%m-%d %H:%M:%S.%MS"` " -> $limit_value" >> /cache/tunearsenals_charge.log

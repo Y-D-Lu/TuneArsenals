@@ -17,18 +17,18 @@ if [[ -f $bce ]] || [[ -f $suspend ]]
 then
     set_value $bce 0
     set_value $suspend 1
-    setprop vtools.bp 1
+    setprop tunearsenals.bp 1
 elif [[ -f $max ]]
 then
     current_max_path="/sys/class/power_supply/battery/constant_charge_current_max"
-    current_max_backup="vtools.charge.current.max"
+    current_max_backup="tunearsenals.charge.current.max"
     current_max=`getprop $current_max_backup`
     if [[ "$current_max" == "" ]] && [[ -f $current_max_path ]]; then
         setprop $current_max_backup `cat $current_max_path`
     fi
 
     set_value $max 0
-    setprop vtools.bp 1
+    setprop tunearsenals.bp 1
 else
     echo 'error'
 fi

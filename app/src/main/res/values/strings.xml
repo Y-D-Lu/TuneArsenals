@@ -30,7 +30,7 @@
     <string name="question_install_busybox">安装Busybox吗？</string>
     <string name="question_install_busybox_desc">你的手机似乎没有安装busybox，这会导致TuneArsenals无法使用，是否要立即安装（需要修改System）？</string>
 
-    <string name="share_link">你也来试试TuneArsenals吧，我觉得还不错，下载地址：\n http://vtools.omarea.com/</string>
+    <string name="share_link">你也来试试TuneArsenals吧，我觉得还不错，下载地址：\n http://tunearsenals.omarea.com/</string>
     <!--<string name="feedback_link">mqqwpa://im/chat?chat_type=wpa&amp;uin=1191634433</string>-->
 
     <string name="app_name">TuneArsenals</string>
@@ -64,7 +64,7 @@
     <string name="backup_space_small">存储空间不足，请至少预留200M可用空间！</string>
 
     <string name="autobooster_tab_details">黑名单设置</string>
-    <string name="autobooster_tab_system_scene">系统场景</string>
+    <string name="autobooster_tab_system_tunearsenals">系统场景</string>
     <string name="auto_clear_ignore_chager">充电状态忽略</string>
     <string name="auto_clear_ignore_chager_desc">充电状态下，息屏动作延迟到充电完成才执行</string>
 
@@ -86,9 +86,9 @@
 
     <string name="menu_home">概况</string>
     <string name="menu_paypal">捐赠打赏</string>
-    <string name="menu_scene_mode">场景模式</string>
-    <string name="menu_app_scene">应用场景</string>
-    <string name="menu_system_scene">系统场景</string>
+    <string name="menu_tunearsenals_mode">场景模式</string>
+    <string name="menu_app_tunearsenals">应用场景</string>
+    <string name="menu_system_tunearsenals">系统场景</string>
     <string name="menu_auto_click">自动点击</string>
     <string name="menu_cpu_modes">性能配置</string>
     <string name="menu_freeze">应用偏见</string>
@@ -346,11 +346,11 @@
     </string-array>
     <string-array name="cgroup_mem_values">
         <item></item>
-        <item>scene_lock</item>
-        <item>scene_perf</item>
-        <item>scene_fg</item>
-        <item>scene_bg</item>
-        <item>scene_cache</item>
+        <item>tunearsenals_lock</item>
+        <item>tunearsenals_perf</item>
+        <item>tunearsenals_fg</item>
+        <item>tunearsenals_bg</item>
+        <item>tunearsenals_cache</item>
     </string-array>
 
     <string name="title_activity_timing_task">定时任务</string>
@@ -374,30 +374,30 @@
 
     <string name="flash_confirm">确认刷入？</string>
 
-    <string name="scene_addin_miss">高级设定 组件缺失</string>
-    <string name="scene_addin_miss_desc">请从TuneArsenals下载安装“TuneArsenals-高级设定”，并将其设为允许后台自启动！</string>
-    <string name="scene_addin_sync_fail">从“TuneArsenals-高级设定”组件同步Xposed设定失败！</string>
-    <string name="scene_install_autoclick">安装点击</string>
-    <string name="scene_install_autoclick_desc">安装第三方应用时，自动帮你点“下一步”和“安装”</string>
-    <string name="scene_install_skip_ad">跳过广告</string>
-    <string name="scene_install_skip_ad_desc">自动点击“跳过”按钮，可帮你自动跳过一些开屏广告，但会降低系统性能且存在误点现象\n* 只在简体中文下使用才有较好的效果</string>
-    <string name="scene_install_skip_ad_precise">跳过广告+</string>
-    <string name="scene_install_skip_ad_precise_desc">使用云端记录的一些按钮数据，来点击特殊的跳过按钮</string>
-    <string name="scene_install_skip_ad_warn">广告流量是一些软件开发者/商的重要收入来源，如果你的时间不是非常紧迫，那么建议您浏览并点击你喜欢的广告内容^_^</string>
+    <string name="tunearsenals_addin_miss">高级设定 组件缺失</string>
+    <string name="tunearsenals_addin_miss_desc">请从TuneArsenals下载安装“TuneArsenals-高级设定”，并将其设为允许后台自启动！</string>
+    <string name="tunearsenals_addin_sync_fail">从“TuneArsenals-高级设定”组件同步Xposed设定失败！</string>
+    <string name="tunearsenals_install_autoclick">安装点击</string>
+    <string name="tunearsenals_install_autoclick_desc">安装第三方应用时，自动帮你点“下一步”和“安装”</string>
+    <string name="tunearsenals_install_skip_ad">跳过广告</string>
+    <string name="tunearsenals_install_skip_ad_desc">自动点击“跳过”按钮，可帮你自动跳过一些开屏广告，但会降低系统性能且存在误点现象\n* 只在简体中文下使用才有较好的效果</string>
+    <string name="tunearsenals_install_skip_ad_precise">跳过广告+</string>
+    <string name="tunearsenals_install_skip_ad_precise_desc">使用云端记录的一些按钮数据，来点击特殊的跳过按钮</string>
+    <string name="tunearsenals_install_skip_ad_warn">广告流量是一些软件开发者/商的重要收入来源，如果你的时间不是非常紧迫，那么建议您浏览并点击你喜欢的广告内容^_^</string>
     <string name="perf_opt">动态响应</string>
     <string name="permission_modify_fail">修改权限失败！</string>
-    <string name="scene_need_write_sys_settings">请先授权允许TuneArsenals“修改系统设置”！</string>
+    <string name="tunearsenals_need_write_sys_settings">请先授权允许TuneArsenals“修改系统设置”！</string>
     <string name="start_app_fail">启动应用失败！</string>
-    <string name="scene_need_notic_listing">请先授权允许TuneArsenals“通知使用权限”！</string>
+    <string name="tunearsenals_need_notic_listing">请先授权允许TuneArsenals“通知使用权限”！</string>
 
-    <string name="scene_create_shortcut_action">cn.arsenals.tunearsenals.CreateShortcut</string>
-    <string name="scene_speed_compile">cn.arsenals.tunearsenals.SpeedCompile</string>
-    <string name="scene_speed_profile_compile">cn.arsenals.tunearsenals.SpeedProfileCompile</string>
-    <string name="scene_everything_compile">cn.arsenals.tunearsenals.EverythingCompile</string>
-    <string name="scene_reset_compile">cn.arsenals.tunearsenals.ResetCompile</string>
+    <string name="tunearsenals_create_shortcut_action">cn.arsenals.tunearsenals.CreateShortcut</string>
+    <string name="tunearsenals_speed_compile">cn.arsenals.tunearsenals.SpeedCompile</string>
+    <string name="tunearsenals_speed_profile_compile">cn.arsenals.tunearsenals.SpeedProfileCompile</string>
+    <string name="tunearsenals_everything_compile">cn.arsenals.tunearsenals.EverythingCompile</string>
+    <string name="tunearsenals_reset_compile">cn.arsenals.tunearsenals.ResetCompile</string>
 
-    <string name="scene_contract_title">风险声明</string>
-    <string name="scene_contract">TuneArsenals是一款面向玩机爱好者的应用，使用它需要拥有优秀的视力、阅读理解能力和良好的心态。\n\n使用过程中可能出现无法预料的错误，导致数据丢失，甚至无法正常开机。\n\n请务必不要在你[用于工作]或者存有[重要数据]的手机上使用，以免造成损失！\n\n使用过程中，务必仔细阅读提示信息谨慎操作，不要轻易拨动不理解的功能选项！\n\n此外，本应用作者不保证会提供使用帮助和故障恢复建议！</string>
+    <string name="tunearsenals_contract_title">风险声明</string>
+    <string name="tunearsenals_contract">TuneArsenals是一款面向玩机爱好者的应用，使用它需要拥有优秀的视力、阅读理解能力和良好的心态。\n\n使用过程中可能出现无法预料的错误，导致数据丢失，甚至无法正常开机。\n\n请务必不要在你[用于工作]或者存有[重要数据]的手机上使用，以免造成损失！\n\n使用过程中，务必仔细阅读提示信息谨慎操作，不要轻易拨动不理解的功能选项！\n\n此外，本应用作者不保证会提供使用帮助和故障恢复建议！</string>
     <string name="permission_float">请先为TuneArsenals授权显示悬浮窗权限！</string>
     <string name="lmk_optimize_desc">让TuneArsenals根据你的RAM容量，自动调整LMK参数，从而增强后台能力（可能导致低内存时卡顿）。如需恢复，请关闭该选项重启手机，如需开机后自动设置，请允许工具箱自启动</string>
     <string name="lmk_optimize">低内存优化</string>
@@ -447,14 +447,14 @@
     <string name="app_nav">功能</string>
     <string name="app_home">概览</string>
 
-    <string name="system_scene_next_task">下一个任务</string>
-    <string name="system_scene_resume_charge">恢复充电</string>
-    <string name="system_scene_battery_left">电量低于</string>
-    <string name="system_scene_battery_right">电量高于</string>
-    <string name="system_scene_stop_charge">停止充电</string>
-    <string name="system_scene_task_canceled">任务已取消</string>
-    <string name="system_scene_timing_task">我的定时任务</string>
-    <string name="system_scene_trigger">我的触发器</string>
+    <string name="system_tunearsenals_next_task">下一个任务</string>
+    <string name="system_tunearsenals_resume_charge">恢复充电</string>
+    <string name="system_tunearsenals_battery_left">电量低于</string>
+    <string name="system_tunearsenals_battery_right">电量高于</string>
+    <string name="system_tunearsenals_stop_charge">停止充电</string>
+    <string name="system_tunearsenals_task_canceled">任务已取消</string>
+    <string name="system_tunearsenals_timing_task">我的定时任务</string>
+    <string name="system_tunearsenals_trigger">我的触发器</string>
 
 
     <string-array name="process_sort_modes">
@@ -472,7 +472,7 @@
     </string-array>
 
     <string-array name="start_dir_options">
-        <!--<item>/data/adb/modules/scene_systemless/vendor/etc</item>
+        <!--<item>/data/adb/modules/tunearsenals_systemless/vendor/etc</item>
         <item>/data/thermal/config</item>
         <item>/data/vendor/thermal/config</item>
         <item>/data/adb/modules</item>-->

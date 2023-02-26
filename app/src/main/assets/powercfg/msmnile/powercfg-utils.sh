@@ -180,7 +180,7 @@ bw_max_always() {
 
 devfreq_backup () {
   local devfreq_backup=/cache/devfreq_backup.prop
-  local backup_state=`getprop vtools.dev_freq_backup`
+  local backup_state=`getprop tunearsenals.dev_freq_backup`
   if [[ ! -f $devfreq_backup ]] || [[ "$backup_state" != "true" ]]; then
     echo '' > $devfreq_backup
     local dir=/sys/class/devfreq
@@ -190,7 +190,7 @@ devfreq_backup () {
         echo "$file#$governor" >> $devfreq_backup
       fi
     done
-    setprop vtools.dev_freq_backup true
+    setprop tunearsenals.dev_freq_backup true
   fi
 }
 
@@ -199,7 +199,7 @@ devfreq_performance () {
 
   local dir=/sys/class/devfreq
   local devfreq_backup=/cache/devfreq_backup.prop
-  local backup_state=`getprop vtools.dev_freq_backup`
+  local backup_state=`getprop tunearsenals.dev_freq_backup`
 
   if [[ -f "$devfreq_backup" ]] && [[ "$backup_state" == "true" ]]; then
     for file in `ls $dir | grep -v 'kgsl-3d0'`; do
@@ -214,7 +214,7 @@ devfreq_performance () {
 
 devfreq_restore () {
   local devfreq_backup=/cache/devfreq_backup.prop
-  local backup_state=`getprop vtools.dev_freq_backup`
+  local backup_state=`getprop tunearsenals.dev_freq_backup`
 
   if [[ -f "$devfreq_backup" ]] && [[ "$backup_state" == "true" ]]; then
     local dir=/sys/class/devfreq
@@ -389,7 +389,7 @@ set_task_affinity() {
 
 # HePingJingYing
 pubgmhd_opt_run () {
-  local current_app=$(getprop vtools.powercfg_app)
+  local current_app=$(getprop tunearsenals.powercfg_app)
   if [[ "$current_app" != 'com.tencent.tmgp.pubgmhd' ]] && [[ "$current_app" != 'com.tencent.ig' ]]; then
     return
   fi
@@ -451,7 +451,7 @@ unity_opt_run () {
 
 # YuanShen
 yuan_shen_opt_run() {
-  if [[ $(getprop vtools.powercfg_app | grep miHoYo) == "" ]]; then
+  if [[ $(getprop tunearsenals.powercfg_app | grep miHoYo) == "" ]]; then
     return
   fi
 
@@ -474,7 +474,7 @@ yuan_shen_opt_run() {
       fi
     fi
 
-    local mode=$(getprop vtools.powercfg)
+    local mode=$(getprop tunearsenals.powercfg)
     if [[ "$mode" == 'powersave' ]]; then
       for tid in $(ls "/proc/$pid/task/"); do
         if [[ "$tid" == "$pid" ]]; then
@@ -572,7 +572,7 @@ watch_app() {
     done
   fi
 
-  if [[ $(getprop vtools.powercfg_app) == "$app" ]]; then
+  if [[ $(getprop tunearsenals.powercfg_app) == "$app" ]]; then
       $on_tick
   fi
 
@@ -588,7 +588,7 @@ watch_app() {
     fi
     ticks=$((ticks + 1))
 
-    current=$(getprop vtools.powercfg_app)
+    current=$(getprop tunearsenals.powercfg_app)
     if [[ "$current" == "$app" ]]; then
       $on_tick
     else

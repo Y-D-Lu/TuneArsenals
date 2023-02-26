@@ -10,7 +10,7 @@ class ThermalDisguise {
     private final val migtMaxFreq = "/sys/module/migt/parameters/glk_maxfreq"
     private final val gameServiceApp = "com.xiaomi.gamecenter.sdk.service"
     private final val gameService = "com.xiaomi.gamecenter.sdk.service/.PidService"
-    private final val vtoolsStorage = "vtools.thermal.disguise"
+    private final val tunearsenalsStorage = "tunearsenals.thermal.disguise"
     public fun supported (): Boolean {
         if (Build.MANUFACTURER.toUpperCase(Locale.getDefault()) == "XIAOMI") {
             if (PlatformUtils().getCPUName().equals("lahaina")) {
@@ -32,7 +32,7 @@ class ThermalDisguise {
                 "chmod 644 $migtMaxFreq\n" +
                 "pm disable $gameService\n" +
                 "pm clear $gameServiceApp\n" +
-                "setprop $vtoolsStorage 1")
+                "setprop $tunearsenalsStorage 1")
     }
 
     public fun resumeMessage () {
@@ -40,10 +40,10 @@ class ThermalDisguise {
                 "chmod 644 $boardSensorTemp\n" +
                 "chmod 644 $migtMaxFreq\n" +
                 "pm enable $gameService\n" +
-                "setprop $vtoolsStorage 0")
+                "setprop $tunearsenalsStorage 0")
     }
 
     public fun isDisabled (): Boolean {
-        return PropsUtils.getProp(vtoolsStorage) == "1" && KeepShellPublic.doCmdSync("ls -l $boardSensorTemp").startsWith("----------")
+        return PropsUtils.getProp(tunearsenalsStorage) == "1" && KeepShellPublic.doCmdSync("ls -l $boardSensorTemp").startsWith("----------")
     }
 }

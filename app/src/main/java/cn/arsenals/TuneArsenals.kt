@@ -17,8 +17,8 @@ import cn.arsenals.data.publisher.BatteryState
 import cn.arsenals.data.publisher.ScreenState
 import cn.arsenals.permissions.Busybox
 import cn.arsenals.permissions.CheckRootStatus
-import cn.arsenals.scene_mode.TimingTaskManager
-import cn.arsenals.scene_mode.TriggerIEventMonitor
+import cn.arsenals.tunearsenals_mode.TimingTaskManager
+import cn.arsenals.tunearsenals_mode.TriggerIEventMonitor
 import cn.arsenals.store.SpfConfig
 import cn.arsenals.utils.CrashHandler
 import cn.arsenals.tunearsenals.R

@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        style="@style/scene_config_item"
+                        style="@style/tunearsenals_config_item"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -108,21 +108,21 @@
 
                 <Switch
                     android:id="@+id/app_details_excludetask"
-                    style="@style/scene_config_item"
+                    style="@style/tunearsenals_config_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="从最近任务隐藏" />
 
                 <Switch
                     android:id="@+id/app_details_scrollopt"
-                    style="@style/scene_config_item"
+                    style="@style/tunearsenals_config_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="弹性缓慢滚动" />
 
                 <Switch
                     android:id="@+id/app_details_web_debug"
-                    style="@style/scene_config_item"
+                    style="@style/tunearsenals_config_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="强制开启WebView调试" />

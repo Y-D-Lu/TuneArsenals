@@ -21,13 +21,13 @@
                 android:id="@+id/settings_auto_install"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/scene_install_autoclick" />
+                android:text="@string/tunearsenals_install_autoclick" />
 
             <TextView
                 style="@style/textSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/scene_install_autoclick_desc" />
+                android:text="@string/tunearsenals_install_autoclick_desc" />
         </LinearLayout>
 
         <LinearLayout style="@style/ListCardItem">
@@ -36,13 +36,13 @@
                 android:id="@+id/settings_skip_ad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/scene_install_skip_ad" />
+                android:text="@string/tunearsenals_install_skip_ad" />
 
             <TextView
                 style="@style/textSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/scene_install_skip_ad_desc" />
+                android:text="@string/tunearsenals_install_skip_ad_desc" />
 
             <LinearLayout
                 android:visibility="gone"
@@ -54,13 +54,13 @@
                     android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/scene_install_skip_ad_precise" />
+                    android:text="@string/tunearsenals_install_skip_ad_precise" />
 
                 <TextView
                     style="@style/textSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/scene_install_skip_ad_precise_desc" />
+                    android:text="@string/tunearsenals_install_skip_ad_precise_desc" />
             </LinearLayout>
 
             <LinearLayout
@@ -105,7 +105,7 @@
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:textColor="?android:colorAccent"
                 android:lineHeight="20dp"
-                android:text="@string/scene_install_skip_ad_warn"
+                android:text="@string/tunearsenals_install_skip_ad_warn"
                 android:padding="8dp"
                 style="@style/textSmall"
                 android:background="@drawable/in_card_item_inactive"

@@ -6,7 +6,7 @@ import cn.arsenals.common.shell.KeepShellPublic;
 import cn.arsenals.common.shell.RootFile;
 
 public class AppErrorLogcatUtils {
-    private String logPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/vtools-error.log";
+    private String logPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/tunearsenals-error.log";
 
     public String catLogInfo() {
         if (!RootFile.INSTANCE.fileExists(logPath)) {

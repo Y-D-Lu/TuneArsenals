@@ -107,7 +107,7 @@
         <item>com.futuremark.dmandroid.application</item>
         <item>com.miui.huanji</item>
     </string-array>
-    <string-array name="scene_gps_on">
+    <string-array name="tunearsenals_gps_on">
         <!--饿了么-->
         <item>me.ele</item>
         <!--美团-->
@@ -172,7 +172,7 @@
     </string-array>
 
     <!--待机模式强制排除名单-->
-    <string-array name="scene_standby_white_list">
+    <string-array name="tunearsenals_standby_white_list">
         <item>cn.arsenals.tunearsenals</item>
         <item>cn.arsenals.gesture</item>
         <item>cn.arsenals.filter</item>
@@ -197,5 +197,5 @@
     </string-array>
 
     <string name="swap_module_target_version">3302</string>
-    <string name="swap_module_download_url">https://vtools.oss-cn-beijing.aliyuncs.com/addin/swap-controller-3.3.2.zip</string>
+    <string name="swap_module_download_url">https://tunearsenals.oss-cn-beijing.aliyuncs.com/addin/swap-controller-3.3.2.zip</string>
 </resources>

@@ -1,4 +1,4 @@
-prop="persist.vtools.suspend"
+prop="persist.tunearsenals.suspend"
 status=`getprop $prop`
 
 function on() {

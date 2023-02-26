@@ -24,7 +24,7 @@
                 android:orientation="vertical">
 
                 <Switch
-                    android:id="@+id/system_scene_task_enable"
+                    android:id="@+id/system_tunearsenals_task_enable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

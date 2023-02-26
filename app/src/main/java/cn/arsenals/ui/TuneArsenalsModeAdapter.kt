@@ -16,7 +16,7 @@ import android.widget.TextView
 import cn.arsenals.common.ui.OverScrollListView
 import cn.arsenals.library.basic.AppInfoLoader
 import cn.arsenals.model.AppInfo
-import cn.arsenals.scene_mode.ModeSwitcher
+import cn.arsenals.tunearsenals_mode.ModeSwitcher
 import cn.arsenals.tunearsenals.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -81,7 +81,7 @@ class TuneArsenalsModeAdapter(private val context: Context, apps: ArrayList<AppI
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
         var convertView = view
         if (convertView == null) {
-            convertView = View.inflate(context, R.layout.list_item_scene_app, null)
+            convertView = View.inflate(context, R.layout.list_item_tunearsenals_app, null)
         }
         updateRow(position, convertView!!)
         return convertView
@@ -137,7 +137,7 @@ class TuneArsenalsModeAdapter(private val context: Context, apps: ArrayList<AppI
             summery = convertView.findViewById(R.id.ItemSummary)
             itemDesc = convertView.findViewById(R.id.ItemDesc)
             imgView = convertView.findViewById(R.id.ItemIcon)
-            itemTitle?.text = keywordHightLight(if (item.sceneConfigInfo.freeze) ("*" + item.appName) else item.appName.toString())
+            itemTitle?.text = keywordHightLight(if (item.tunearsenalsConfigInfo.freeze) ("*" + item.appName) else item.appName.toString())
             if (item.icon == null) {
                 val id = item.path
                 this.appPath = id

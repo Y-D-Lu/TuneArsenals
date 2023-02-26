@@ -4,7 +4,7 @@ use_loop="$2"       # 是否挂载为loop设备
 priority="$3"   # 优先级
 swapsize="$4"   # SWAP大小MB
 
-loop_save="vtools.swap.loop"
+loop_save="tunearsenals.swap.loop"
 next_loop_path=""
 
 # 获取下一个可用的loop设备

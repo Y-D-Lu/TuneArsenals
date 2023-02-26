@@ -15,7 +15,7 @@ class AutoSkipCloudData {
     fun updateConfig(context: Context, showMsg: Boolean) {
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("https://vtools.oss-cn-beijing.aliyuncs.com/addin/auto-skip-config-v1.json")
+                val url = URL("https://tunearsenals.oss-cn-beijing.aliyuncs.com/addin/auto-skip-config-v1.json")
                 val connection = url.openConnection()
                 // 设置连接方式：get
                 // connection.setRequestMethod("GET");

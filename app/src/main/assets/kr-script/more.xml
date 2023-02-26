@@ -5,23 +5,23 @@
 
     <group>
         <switch
-            visible="if [[ `getprop persist.vtools.ext_all` != '1' ]]; then echo 1; fi"
+            visible="if [[ `getprop persist.tunearsenals.ext_all` != '1' ]]; then echo 1; fi"
             shell="hidden"
             reload="page"
             warning="使用需要修改系统文件的功能，可能会由于兼容性或异常导致系统损坏，并且无法通过恢复出厂设置还原。确定要继续使用这些功能吗？">
             <title>显示危险功能</title>
             <desc>显示需要修改系统文件的功能</desc>
-            <set>setprop persist.vtools.ext_all $state</set>
-            <get>getprop persist.vtools.ext_all</get>
+            <set>setprop persist.tunearsenals.ext_all $state</set>
+            <get>getprop persist.tunearsenals.ext_all</get>
         </switch>
         <switch
-            visible="getprop persist.vtools.ext_all"
+            visible="getprop persist.tunearsenals.ext_all"
             shell="hidden"
             reload="page">
             <title>显示危险功能</title>
             <desc>显示需要修改系统文件的功能</desc>
-            <set>setprop persist.vtools.ext_all $state</set>
-            <get>getprop persist.vtools.ext_all</get>
+            <set>setprop persist.tunearsenals.ext_all $state</set>
+            <get>getprop persist.tunearsenals.ext_all</get>
         </switch>
     </group>
 

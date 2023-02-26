@@ -318,7 +318,7 @@ set_task_affinity() {
 
 # YuanShen
 yuan_shen_opt_run() {
-  if [[ $(getprop vtools.powercfg_app | grep miHoYo) == "" ]]; then
+  if [[ $(getprop tunearsenals.powercfg_app | grep miHoYo) == "" ]]; then
     return
   fi
 
@@ -353,7 +353,7 @@ yuan_shen_opt_run() {
 # WangZheRongYao
 sgame_opt_run() {
   local game="tmgp.sgame"
-  if [[ $(getprop vtools.powercfg_app | grep $game) == "" ]]; then
+  if [[ $(getprop tunearsenals.powercfg_app | grep $game) == "" ]]; then
     return
   fi
 
@@ -389,7 +389,7 @@ watch_app() {
   local interval=120
   local on_tick="$1"
   local on_change="$2"
-  local app=$(getprop vtools.powercfg_app)
+  local app=$(getprop tunearsenals.powercfg_app)
 
   if [[ "$on_tick" == "" ]]; then
     return
@@ -419,7 +419,7 @@ watch_app() {
     fi
     ticks=$((ticks + 1))
 
-    current=$(getprop vtools.powercfg_app)
+    current=$(getprop tunearsenals.powercfg_app)
     if [[ "$current" == "$app" ]]; then
       $on_tick $current
     else

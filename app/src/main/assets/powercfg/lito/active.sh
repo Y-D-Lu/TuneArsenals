@@ -43,7 +43,7 @@ fi
 
 governor_backup () {
   local governor_backup=/cache/governor_backup.prop
-  local backup_state=`getprop vtools.dev_freq_backup`
+  local backup_state=`getprop tunearsenals.dev_freq_backup`
   if [[ ! -f $governor_backup ]] || [[ "$backup_state" != "true" ]]; then
     echo '' > $governor_backup
     local dir=/sys/class/devfreq
@@ -53,7 +53,7 @@ governor_backup () {
         echo "$file#$governor" >> $governor_backup
       fi
     done
-    setprop vtools.dev_freq_backup true
+    setprop tunearsenals.dev_freq_backup true
   fi
 }
 
@@ -62,7 +62,7 @@ governor_performance () {
 
   local dir=/sys/class/devfreq
   local governor_backup=/cache/governor_backup.prop
-  local backup_state=`getprop vtools.dev_freq_backup`
+  local backup_state=`getprop tunearsenals.dev_freq_backup`
 
   if [[ -f "$governor_backup" ]] && [[ "$backup_state" == "true" ]]; then
     for file in `ls $dir | grep -v 'kgsl-3d0'`; do
@@ -76,7 +76,7 @@ governor_performance () {
 
 governor_restore () {
   local governor_backup=/cache/governor_backup.prop
-  local backup_state=`getprop vtools.dev_freq_backup`
+  local backup_state=`getprop tunearsenals.dev_freq_backup`
 
   if [[ -f "$governor_backup" ]] && [[ "$backup_state" == "true" ]]; then
     local dir=/sys/class/devfreq
